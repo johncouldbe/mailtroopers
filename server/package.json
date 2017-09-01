@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Douglas Brown II",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "mail-listener2": "^0.3.1"
+  }
+}
