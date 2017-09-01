@@ -5,7 +5,7 @@ cache:
     - server/node_modules
     - client/node_modules
 script:
-  - cd client && npm test
+  - cd client && npm i && npm test
 env:
   - CI=true
 
