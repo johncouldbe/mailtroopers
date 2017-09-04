@@ -1,0 +1,65 @@
+.main {
+  background-color: #fff;
+  display: grid;
+  grid-template-rows: 30px calc(50% - 30px) 50px calc(50% - 50px);
+  grid-template-columns: 20px calc(100% - 40px) 20px;
+  grid-template-areas:
+  "version-container version-container version-container"
+  ". email-container ."
+  "left-close-button email-container right-close-button"
+  ". email-container .";
+}
+
+.email-container {
+  grid-area: email-container;
+  background-color: #dcdbdc;
+  overflow-y: scroll;
+  margin: 0 5px;
+}
+
+.version-container {
+  grid-area: version-container;
+}
+
+.left-close-button {
+  grid-area: left-close-button;
+  border-top: 1px solid #dcdbdc;
+  border-bottom: 1px solid #dcdbdc;
+  border-right: 1px solid #dcdbdc;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.right-close-button {
+  grid-area: right-close-button;
+  border-top: 1px solid #dcdbdc;
+  border-bottom: 1px solid #dcdbdc;
+  border-left: 1px solid #dcdbdc;
+  border-radius: 4px 0 0 4px;
+  cursor: pointer;
+}
+
+.left-facing-btn {
+  background-image: url(./angle-left.svg);
+}
+
+.right-facing-btn {
+  background-image: url(./angle-right.svg);
+}
+
+
+.button {
+  width: 100%;
+  height: 100%;
+}
+
+.button:hover {
+  background-color: #dcdbdc;
+}
+
+/*.invert {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}*/

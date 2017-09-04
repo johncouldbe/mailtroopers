@@ -1,0 +1,8 @@
+.right-sidebar {
+  border-left: 1px solid #dcdbdc;
+}
+
+.right-sidebar  > .header {
+  color: #002eba;
+  text-align: center;
+}

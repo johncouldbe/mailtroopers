@@ -1,0 +1,19 @@
+nav {
+  border-bottom: 1px solid #dcdbdc;
+  color: grey;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+  "logo";
+}
+
+nav h1 {
+  padding: 0;
+  line-height: 60px;
+  margin-left: 10px;
+}
+
+.logo {
+  grid-area: logo;
+  height: inherit;
+}

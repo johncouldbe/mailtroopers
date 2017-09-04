@@ -1,5 +1,65 @@
-body {
+body, h1, h2 {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 60px calc(100vh - 60px);
+  grid-template-areas:
+  "nav nav nav nav nav nav nav nav nav nav nav nav"
+  "left-sidebar left-sidebar left-sidebar main main main main main main right-sidebar right-sidebar right-sidebar";
+}
+
+nav {
+  grid-area: nav;
+}
+
+.main {
+  grid-area: main;
+  transition: 5s;
+}
+
+.close-left-sidebar {
+  grid-column-start: 1;
+  grid-column-end: 10;
+  transition: 5s;
+}
+
+.close-right-sidebar {
+  grid-column-start: 4;
+  grid-column-end: 13;
+  transition: 5s;
+}
+
+.close-both-sidebars {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  transition: 5s;
+}
+
+.left-sidebar {
+  grid-area: left-sidebar;
+}
+
+.right-sidebar {
+  grid-area: right-sidebar;
+}
+
+/* Elements */
+
+.left-sidebar h2, .right-sidebar h2 {
+  margin: 5px;
+}
+
+.faded-border {
+  height: 1px;
+  background: #dcdbdc;
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #dcdbdc));
 }

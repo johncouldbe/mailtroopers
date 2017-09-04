@@ -1,0 +1,14 @@
+.left-sidebar {
+  border-right: 1px solid #dcdbdc;
+}
+
+.left-sidebar > .header {
+  color: grey;
+  text-align: center;
+}
+
+.faded-border {
+  height: 1px;
+  background: #dcdbdc;
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #dcdbdc));
+}
