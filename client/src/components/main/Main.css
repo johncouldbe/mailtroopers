@@ -1,13 +1,13 @@
 .main {
   background-color: #fff;
   display: grid;
-  grid-template-rows: 30px calc(50% - 30px) 50px calc(50% - 50px);
-  grid-template-columns: 20px calc(100% - 40px) 20px;
+  grid-template-rows: 40px calc(50% - 40px) 50px calc(50% - 50px);
+  grid-template-columns: 20px 5px calc(100% - 50px) 5px 20px;
   grid-template-areas:
-  "version-container version-container version-container"
-  ". email-container ."
-  "left-close-button email-container right-close-button"
-  ". email-container .";
+  "version version version version version"
+  ". . email-container . ."
+  "left-close-button . email-container . right-close-button"
+  ". . email-container . .";
 }
 
 .email-container {
@@ -17,8 +17,9 @@
   margin: 0 5px;
 }
 
-.version-container {
-  grid-area: version-container;
+.version {
+  grid-area: version;
+  display: grid;
 }
 
 .left-close-button {
@@ -40,11 +41,11 @@
 }
 
 .left-facing-btn {
-  background-image: url(./angle-left.svg);
+  background-image: url(../images/angle-left-red.svg);
 }
 
 .right-facing-btn {
-  background-image: url(./angle-right.svg);
+  background-image: url(../images/angle-right-red.svg);
 }
 
 

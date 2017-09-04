@@ -1,13 +1,31 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import openSocket from 'socket.io-client'
 
 import Version from './version/Version'
-
 import {toggleLeftSidebar, toggleRightSidebar} from '../../actions'
-
 import './Main.css'
 
+const socket = openSocket('http://localhost:8080')
+
 export class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: ''
+    }
+    this.subscribeToEmail((err, email) => this.setState({
+      email
+    }));
+  }
+
+  subscribeToEmail(cb) {
+    socket.on('email', email => {
+      console.log('email', email)
+      cb(null, email)
+    });
+    socket.emit('subscribeToEmail');
+  }
 
   pickMainClass = () => {
     if(this.props.leftSidebarOpen && !this.props.rightSidebarOpen) {
@@ -51,7 +69,7 @@ export class Main extends Component {
             <div className={this.buttonDirection('left')}></div>
           </div>
 
-          <div className="email-container"></div>
+          <div className="email-container" dangerouslySetInnerHTML={{__html: this.state.email}}></div>
 
           <div
             className="right-close-button"

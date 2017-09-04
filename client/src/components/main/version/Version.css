@@ -1,2 +1,51 @@
+.version {
+  grid-template-columns: calc(50% - 100) 200px calc(50% - 100);
+  grid-template-rows: 5px calc(100% - 10px) 5px;
+  grid-template-areas:
+  ". . ."
+  ". version-container ."
+  ". . .";
+}
+
 .version-container {
+  border: 1px solid #dcdbdc;
+  border-radius: 4px;
+  grid-area: version-container;
+  display: grid;
+  grid-template-columns: 12.5% 75% 12.5%;
+  grid-template-areas:
+  "version-left-btn version-center-display version-right-btn";
+}
+
+.version-left-btn {
+  background-image: url('../../images/angle-left-blue.svg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: .5s;
+  grid-area: version-left-btn;
+}
+
+.version-center-display {
+  border-left: 1px solid #dcdbdc;
+  border-right: 1px solid #dcdbdc;
+  text-align: center;
+  grid-area: version-center-display;
+}
+
+.version-center-display p {
+  padding-top: 5px;
+}
+
+.version-right-btn {
+  background-image: url('../../images/angle-right-blue.svg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: .5s;
+  grid-area: version-right-btn;
+}
+
+.version-right-btn:hover, .version-left-btn:hover {
+  background-color: #dcdbdc;
 }

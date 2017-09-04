@@ -6,7 +6,7 @@ function LeftSidebar (props) {
   return (
       <div className="left-sidebar">
         <div className="header">
-          <h2>Reviews</h2>
+          <h2 className="grey-text">Reviews</h2>
         <div className="faded-border"></div>
         </div>
       </div>
