@@ -33,10 +33,6 @@
   grid-area: version-center-display;
 }
 
-.version-center-display p {
-  padding-top: 5px;
-}
-
 .version-right-btn {
   background-image: url('../../images/angle-right-blue.svg');
   background-size: contain;

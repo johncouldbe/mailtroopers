@@ -1,31 +1,38 @@
-* {
-  box-sizing: border-box;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-family: 'Lato', sans-serif !important;
+div {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: #fff !important;
 }
 
-h1, h2, p {
+.header-1, .header-2, .paragraph {
   display: block !important;
   margin-top: 0.33em !important;
   margin-bottom: 0.33em !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
   line-height: 1 !important;
+  padding: 0 !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
-h1 {
+.header-1 {
     font-size: 2em !important;
     font-weight: bold !important;
+    text-align: center !important;
 }
 
-h2 {
+.header-2 {
     font-size: 1.5em !important;
     font-weight: bold !important;
+    text-align: center !important;
+}
+
+.paragraph {
+  font-size: 1em !important;
 }
 
 .grey-text {
@@ -82,9 +89,6 @@ nav {
 
 /* Elements */
 
-.left-sidebar h2, .right-sidebar h2 {
-  margin: 5px;
-}
 
 .faded-border {
   height: 1px;
