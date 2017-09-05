@@ -10,6 +10,18 @@
   "comments";
 }
 
+.close-team {
+  grid-template-rows: 40px 0px 40px calc(100% - 80px);
+}
+
+.close-comments {
+  grid-template-rows: 40px calc(50% - 40px) 0px 0px;
+}
+
+.close-team-and-comments {
+  grid-template-rows: 40px 0px 40px 0px;
+}
+
 .team-header {
   grid-area: team-header;
   display: grid;
@@ -24,14 +36,14 @@
   display: grid;
   grid-template-columns: 85% 15%;
   grid-template-areas:
-  "header toggle-team-show-btn";
+  "header toggle-comments-show-btn";
 }
 
 .header .h2 {
   grid-area: header;
 }
 
-.toggle-team-show-btn {
+.toggle-team-show-btn, .toggle-comments-show-btn {
   background-image: url('../images/angle-down-blue.svg');
   background-size: contain;
   background-position: center center;
@@ -39,7 +51,15 @@
   grid-area: toggle-team-show-btn;
 }
 
-.toggle-team-show-btn:hover {
+.toggle-team-show-btn {
+  grid-area: toggle-team-show-btn;
+}
+
+.toggle-comments-show-btn {
+  grid-area: toggle-comments-show-btn;
+}
+
+.toggle-team-show-btn:hover, .toggle-comments-show-btn:hover {
   background-image: url('../images/angle-down-red.svg');
 }
 

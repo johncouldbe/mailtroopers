@@ -18,9 +18,9 @@ export default class Troop extends Component {
         date: 'An hour ago'
       },
       {
-        name: 'John Brown',
+        name: 'Baloo Brown',
         comment: "I'm gonna agree with John. Also, can we add a few sponsor. I just gave them to what's his name.",
-        date: 'A few seconds ago'
+        date: 'One day ago'
       }
     ]
 
