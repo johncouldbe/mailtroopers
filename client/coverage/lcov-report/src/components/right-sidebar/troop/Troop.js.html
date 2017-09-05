@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/main/version/Version.js</title>
+    <title>Code coverage report for src/components/right-sidebar/troop/Troop.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/main/version</a> Version.js
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/right-sidebar/troop</a> Troop.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>7/7</span>
       </div>
     </div>
   </div>
@@ -63,8 +63,49 @@
 18
 19
 20
-21</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -78,31 +119,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {Component} from 'react'
+// import {BrowserRouter as Link} from 'react-router-dom'
 &nbsp;
-import './Version.css'
+import './Troop.css'
 &nbsp;
-function Version (props) {
-  return (
-      &lt;div className="version"&gt;
-        &lt;div className="version-container"&gt;
-          &lt;div className="version-left-btn"&gt;&lt;/div&gt;
-          &lt;div className="version-center-display"&gt;
-            &lt;div className="grey-text p"&gt;1 of 23&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div className="version-right-btn"&gt;&lt;/div&gt;
+export default class Troop extends Component {
+  constructor(props){
+    super(props)
+    this.troopers = [
+      "John Brown", "Autumn Brown", "Baloo Dog", "Gymli Cat", "Killer Whale"
+    ]
+&nbsp;
+    this.troop = this.troopers.map((trooper, index) =&gt; {
+      return &lt;div className="trooper-container" key={index}&gt;
+        &lt;div className="trooper-img"&gt;
+          &lt;div className="h2 white-text"&gt;{this.firstLetter(trooper)}&lt;/div&gt;
         &lt;/div&gt;
-&nbsp;
+        &lt;div className="h3 trooper-name grey-text"&gt;{trooper}&lt;/div&gt;
       &lt;/div&gt;
-  )
-}
+    })
+  }
 &nbsp;
-export default Version;
+  firstLetter = name =&gt; {
+    const letter = name.split('')
+    return letter[0].toUpperCase()
+  }
+&nbsp;
+  render(){
+    return(
+      &lt;div className="troop"&gt;
+        {this.troop}
+        &lt;div className="trooper-btn-container"&gt;
+          &lt;button className="trooper-btn"&gt;Recruit&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    )
+  }
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

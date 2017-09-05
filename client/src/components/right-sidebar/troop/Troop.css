@@ -1,0 +1,61 @@
+.trooper-container {
+  display: grid;
+  grid-template-columns: 15px 40px 15px calc(50% - 80px) calc(25% - 5px) 5px;
+  grid-template-rows: 10px 40px;
+  grid-template-areas: ". . . . . ."
+  ". trooper-img . trooper-name trooper-name .";
+}
+
+.trooper-img {
+  grid-area: trooper-img;
+  border-radius: 50%;
+  background-color: #ea2b1f;
+}
+
+.trooper-img .h2 {
+  line-height: 40px;
+  margin: 0;
+  text-align: center;
+}
+
+.trooper-container .h3 {
+  line-height: 40px;
+}
+
+.trooper-name {
+  grid-area: trooper-name;
+}
+
+.trooper-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  line-height: 50px;
+  text-align: left;
+}
+
+.trooper-btn-container {
+  display: grid;
+  grid-template-columns: calc(50% - 42.5px) 85px calc(50% - 42.5px);
+  grid-template-rows: 20px 40px 20px;
+  grid-template-areas:
+  ". . ."
+  ". trooper-btn ."
+  ". . .";
+}
+
+.trooper-btn {
+  grid-area: trooper-btn;
+  border-radius: 4px;
+  background-color: #ea2b1f;
+  font-size: 125%;
+  border-width: 0px;
+  color: #fff;
+  transition: .5s;
+}
+
+.trooper-btn:hover {
+  background-color: #ef4f45;
+  transition: .5s;
+}

@@ -1,17 +1,28 @@
 import React from 'react'
 
+import Comments from './comments/Comments'
+import Troop from './troop/Troop'
+
 import './RightSidebar.css'
 
-function LeftSidebar (props) {
+function RightSidebar (props) {
   return (
       <div className="right-sidebar">
-        <div className="header">
-        <div className="toggle-team-show-btn"></div>
-        <h2 className="blue-text header-2">Troop</h2>
-        <div className="faded-border"></div>
+        <div className="team-header">
+          <div className="toggle-team-show-btn"></div>
+          <div className="blue-text h2 center-text">Troop</div>
+          <div className="faded-border"></div>
         </div>
+
+        <Troop />
+        <div className="comments-header">
+          <div className="toggle-team-show-btn"></div>
+          <div className="blue-text h2 center-text">Comments</div>
+          <div className="faded-border"></div>
+        </div>
+        <Comments />
       </div>
   )
 }
 
-export default LeftSidebar;
+export default RightSidebar;

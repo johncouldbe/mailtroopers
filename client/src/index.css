@@ -6,41 +6,64 @@ div {
 
 body {
   background-color: #fff !important;
+  margin: 0;
+  padding: 0;
 }
 
-.header-1, .header-2, .paragraph {
-  display: block !important;
-  margin-top: 0.33em !important;
-  margin-bottom: 0.33em !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  line-height: 1 !important;
-  padding: 0 !important;
-  font-family: 'Lato', sans-serif !important;
+.h1, .h2, .h3, .p {
+  display: block;
+  margin-top: 0.33em;
+  margin-bottom: 0.33em;
+  margin-left: 0;
+  margin-right: 0;
+  line-height: 1;
+  padding: 0;
 }
 
-.header-1 {
-    font-size: 2em !important;
-    font-weight: bold !important;
-    text-align: center !important;
+.h1, .h2, .h3, .h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
 }
 
-.header-2 {
-    font-size: 1.5em !important;
-    font-weight: bold !important;
-    text-align: center !important;
+.h1 {
+    font-size: 2em;
 }
 
-.paragraph {
-  font-size: 1em !important;
+.h2 {
+    font-size: 1.5em;
+}
+
+.h3 {
+    font-size: 1.17em;
+}
+
+.h4 {
+    font-size: 1em;
+}
+
+.p {
+  font-size: 1em;
+  font-family: 'Slabo 27px', serif;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.white-text {
+  color: #fff;
 }
 
 .grey-text {
-  color: grey !important;
+  color: grey;
 }
 
 .blue-text {
-  color: blue !important;
+  color: #002eba;
+}
+
+.red-text {
+  color: #ea2b1f;
 }
 
 .grid {

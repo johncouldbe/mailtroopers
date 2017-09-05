@@ -1,17 +1,33 @@
 .right-sidebar {
   border-left: 1px solid #dcdbdc;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 40px calc(50% - 40px) 40px calc(50% - 40px);
+  grid-template-areas:
+  "team-header"
+  "troop"
+  "comments-header"
+  "comments";
 }
 
-.right-sidebar  > .header {
-  color: #002eba !important;
-  text-align: center;
+.team-header {
+  grid-area: team-header;
   display: grid;
   grid-template-columns: 85% 15%;
   grid-template-areas:
-  "header toggle-team-show-btn"
+  "header toggle-team-show-btn";
 }
 
-.header h2 {
+.comments-header {
+  border-top: 1px solid #dcdbdc;
+  grid-area: comments-header;
+  display: grid;
+  grid-template-columns: 85% 15%;
+  grid-template-areas:
+  "header toggle-team-show-btn";
+}
+
+.header .h2 {
   grid-area: header;
 }
 
@@ -25,4 +41,14 @@
 
 .toggle-team-show-btn:hover {
   background-image: url('../images/angle-down-red.svg');
+}
+
+.troop {
+  grid-area: troop;
+  overflow-y: scroll;
+}
+
+.comments {
+  grid-area: comments;
+  overflow-y: scroll;
 }
