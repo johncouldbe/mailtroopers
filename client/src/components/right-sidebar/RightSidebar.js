@@ -12,15 +12,12 @@ export class RightSidebar extends Component {
 
   hidePanels() {
     if(!this.props.teamOpen && this.props.commentsOpen){
-      console.log('closing team')
       return 'right-sidebar close-team'
     }
     if(this.props.teamOpen && !this.props.commentsOpen){
-      console.log('closing comments')
       return 'right-sidebar close-comments'
     }
     if(!this.props.teamOpen && !this.props.commentsOpen){
-      console.log('closing both')
       return 'right-sidebar close-team-and-comments'
     }
     return 'right-sidebar'

@@ -82,6 +82,7 @@ nav {
 .main {
   grid-area: main;
   transition: 5s;
+  z-index: 1;
 }
 
 .close-left-sidebar {
