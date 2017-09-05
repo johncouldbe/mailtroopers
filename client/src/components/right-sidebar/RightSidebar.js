@@ -26,12 +26,29 @@ export class RightSidebar extends Component {
     return 'right-sidebar'
   }
 
+  buttonDirection(e){
+    if(e === 'team'){
+      if(this.props.teamOpen) {
+        return 'toggle-team-show-btn'
+      } else {
+        return 'toggle-team-show-btn toggle-team-hide-btn'
+      }
+    }
+    if(e === 'comments'){
+      if(this.props.commentsOpen) {
+        return 'toggle-comments-show-btn'
+      } else {
+        return 'toggle-comments-show-btn toggle-comments-hide-btn'
+      }
+    }
+  }
+
   render(){
     return (
       <div className={this.hidePanels()}>
         <div className="team-header">
           <div
-            className="toggle-team-show-btn"
+            className={this.buttonDirection('team')}
             onClick={() => {this.props.dispatch(toggleTeam)}}>
           </div>
           <div className="blue-text h2 center-text">Troop</div>
@@ -42,7 +59,7 @@ export class RightSidebar extends Component {
 
         <div className="comments-header">
           <div
-            className="toggle-comments-show-btn"
+            className={this.buttonDirection('comments')}
             onClick={() => {this.props.dispatch(toggleComments)}}>
           </div>
           <div className="blue-text h2 center-text">Comments</div>
