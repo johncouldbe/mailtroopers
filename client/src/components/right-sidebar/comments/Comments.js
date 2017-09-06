@@ -28,7 +28,7 @@ export default class Troop extends Component {
       return <div className="comment" key={index}>
         <div className="comment-container">
           <div className="h3 red-text comment-name">{comment.name}</div>
-          <div className="h4 blue-text comment-date">{comment.date}</div>
+          <div className="h4 grey-text comment-date">{comment.date}</div>
           <div className="p grey-text comment-comment">{comment.comment}</div>
         </div>
       </div>

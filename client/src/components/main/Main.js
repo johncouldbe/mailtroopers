@@ -21,7 +21,6 @@ export class Main extends Component {
 
   subscribeToEmail(cb) {
     socket.on('email', email => {
-      console.log('email', email)
       cb(null, email)
     });
     socket.emit('subscribeToEmail');

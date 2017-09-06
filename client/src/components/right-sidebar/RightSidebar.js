@@ -48,7 +48,7 @@ export class RightSidebar extends Component {
             className={this.buttonDirection('team')}
             onClick={() => {this.props.dispatch(toggleTeam)}}>
           </div>
-          <div className="blue-text h2 center-text">Troop</div>
+          <div className="grey-text h2 center-text">Troop</div>
           <div className="faded-border"></div>
         </div>
 
@@ -59,7 +59,7 @@ export class RightSidebar extends Component {
             className={this.buttonDirection('comments')}
             onClick={() => {this.props.dispatch(toggleComments)}}>
           </div>
-          <div className="blue-text h2 center-text">Comments</div>
+          <div className="grey-text h2 center-text">Comments</div>
           <div className="faded-border"></div>
         </div>
 

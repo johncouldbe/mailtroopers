@@ -21,8 +21,7 @@ body {
 }
 
 .h1, .h2, .h3, .h4 {
-  font-family: 'Lato', sans-serif;
-  font-weight: bold;
+  font-family: 'Sanchez', serif;
 }
 
 .h1 {
@@ -43,7 +42,7 @@ body {
 
 .p {
   font-size: 1em;
-  font-family: 'Slabo 27px', serif;
+  font-family: 'Scope One', serif;
 }
 
 .center-text {
@@ -54,8 +53,16 @@ body {
   color: #fff;
 }
 
+.off-white-text {
+  color: #eff2f5;
+}
+
+.dark-grey-text {
+  color: #282d38;
+}
+
 .grey-text {
-  color: grey;
+  color: #4a5367;
 }
 
 .blue-text {
@@ -63,7 +70,7 @@ body {
 }
 
 .red-text {
-  color: #ea2b1f;
+  color: #f54f45;
 }
 
 .grid {

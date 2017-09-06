@@ -2,13 +2,15 @@
   border-right: 1px solid #dcdbdc;
 }
 
-.left-sidebar > .header {
-  color: grey;
-  text-align: center;
+.review-header {
+  grid-template-rows: 50px;
+  grid-template-columns: 100%;
+  grid-template-areas:
+  "review-header"
 }
 
-.faded-border {
-  height: 1px;
-  background: #dcdbdc;
-  background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #dcdbdc));
+.review-header .h2 {
+  grid-area: review-header;
+  line-height: 50px;
+  margin: 0;
 }

@@ -9,7 +9,7 @@
 .trooper-img {
   grid-area: trooper-img;
   border-radius: 50%;
-  background-color: #ea2b1f;
+  background-color: #f54f45;
 }
 
 .trooper-img .h2 {
@@ -18,7 +18,7 @@
   text-align: center;
 }
 
-.trooper-container .h3 {
+.trooper-container .h4 {
   line-height: 40px;
 }
 
@@ -37,7 +37,7 @@
 
 .trooper-btn-container {
   display: grid;
-  grid-template-columns: calc(50% - 42.5px) 85px calc(50% - 42.5px);
+  grid-template-columns: calc(50% - 60px) 120px calc(50% - 60px);
   grid-template-rows: 20px 40px 20px;
   grid-template-areas:
   ". . ."
@@ -48,14 +48,19 @@
 .trooper-btn {
   grid-area: trooper-btn;
   border-radius: 4px;
-  background-color: #ea2b1f;
+  background-color: #f54f45;
   font-size: 125%;
   border-width: 0px;
   color: #fff;
   transition: .5s;
 }
 
+.trooper-btn img {
+  height: 20px;
+  width: auto;
+}
+
 .trooper-btn:hover {
-  background-color: #ef4f45;
+  background-color: #ea2b1f;
   transition: .5s;
 }

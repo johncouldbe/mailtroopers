@@ -7,7 +7,7 @@ export default function Navbar(props) {
   return(
     <nav>
       <div className='logo'>
-        <div className="grey-text h1">Logo</div>
+        <div className="off-white-text h1">MailTroopers</div>
       </div>
     </nav>
   )

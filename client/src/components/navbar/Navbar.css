@@ -1,13 +1,14 @@
 nav {
   border-bottom: 1px solid #dcdbdc;
-  color: grey;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
   "logo";
+  background-color: #4a5367;
 }
 
 .logo {
   grid-area: logo;
   height: inherit;
+  padding-left: 10px;
 }

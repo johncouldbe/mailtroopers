@@ -15,7 +15,7 @@ export default class Troop extends Component {
         <div className="trooper-img">
           <div className="h2 white-text">{this.firstLetter(trooper)}</div>
         </div>
-        <div className="h3 trooper-name grey-text">{trooper}</div>
+        <div className="h4 trooper-name grey-text">{trooper}</div>
       </div>
     })
   }
@@ -30,7 +30,7 @@ export default class Troop extends Component {
       <div className="troop">
         {this.troop}
         <div className="trooper-btn-container">
-          <button className="trooper-btn">Recruit</button>
+          <button className="trooper-btn">Recruit <img src={require("../../images/share.svg")} alt="Share" /></button>
         </div>
       </div>
     )

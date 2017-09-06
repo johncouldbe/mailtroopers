@@ -2,7 +2,7 @@
   border-left: 1px solid #dcdbdc;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 40px calc(50% - 40px) 40px calc(50% - 40px);
+  grid-template-rows: 50px calc(50% - 50px) 50px calc(50% - 50px);
   grid-template-areas:
   "team-header"
   "troop"
@@ -11,21 +11,22 @@
 }
 
 .close-team {
-  grid-template-rows: 40px 0px 40px calc(100% - 80px);
+  grid-template-rows: 50px 0px 50px calc(100% - 100px);
 }
 
 .close-comments {
-  grid-template-rows: 40px calc(50% - 40px) 0px 0px;
+  grid-template-rows: 50px calc(50% - 50px) 0px 0px;
 }
 
 .close-team-and-comments {
-  grid-template-rows: 40px 0px 40px 0px;
+  grid-template-rows: 50px 0px 50px 0px;
 }
 
 .team-header {
   grid-area: team-header;
   display: grid;
   grid-template-columns: 85% 15%;
+  grid-template-rows: 50px;
   grid-template-areas:
   "header toggle-team-show-btn";
 }
@@ -35,6 +36,7 @@
   grid-area: comments-header;
   display: grid;
   grid-template-columns: 85% 15%;
+  grid-template-rows: 50px;
   grid-template-areas:
   "header toggle-comments-show-btn";
 }
@@ -74,9 +76,11 @@
 .troop {
   grid-area: troop;
   overflow-y: scroll;
+  background-color: #c1c7ce;
 }
 
 .comments {
   grid-area: comments;
   overflow-y: scroll;
+  background-color: #c1c7ce;
 }
