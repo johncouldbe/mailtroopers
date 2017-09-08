@@ -6,8 +6,11 @@ cache:
   directories:
     - server/node_modules
     - client/node_modules
+    
+before_script: cd client
+
 script:
-  - cd client && npm i && npm test
+  - npm i && npm test
 env:
   - CI=true
 
