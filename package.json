@@ -5,8 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "run-s install:server",
-    "install:server": "cd server && npm install"
+    "install": "cd server && npm install"
   },
   "repository": {
     "type": "git",
