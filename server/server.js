@@ -21,7 +21,7 @@ function runServer(port=PORT, databaseUrl=DATABASE_URL){
         console.log("You're app is listening on port ", port)
         socketIo = io(server)
         sockets()
-        console.log('socket listening on port ', PORT)
+        console.log('socket listening on port ', port)
       })
 
 
@@ -66,7 +66,11 @@ const sockets = () => {
  })
 }
 
-if(require.main === module){
+// if(require.main === module){
+//   runServer().catch(err => console.log(err));
+// }
+
+if(process.env.NODE_ENV === 'production'){
   runServer().catch(err => console.log(err));
 }
 
