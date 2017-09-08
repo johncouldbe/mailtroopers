@@ -17,3 +17,8 @@ export const TOGGLE_COMMENTS = 'TOGGLE_COMMENTS'
 export const toggleComments = {
   type: TOGGLE_COMMENTS
 }
+
+export const TOGGLE_RECRUIT_MODAL = 'TOGGLE_RECRUIT_MODAL'
+export const toggleRecruitModal = {
+  type: TOGGLE_RECRUIT_MODAL
+}

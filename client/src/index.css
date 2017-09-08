@@ -73,6 +73,10 @@ body {
   color: #f54f45;
 }
 
+button:focus {
+  outline:0;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
