@@ -13,7 +13,7 @@ import './App.css'
 export class App extends Component {
 
   render() {
-
+    const modal = this.props.recruitModal ? <RecruitModal /> : ''
     return (
       <Router>
       <div>
@@ -23,7 +23,7 @@ export class App extends Component {
           <RightSidebar />
           <Main />
         </div>
-        <RecruitModal />
+        {modal}
       </div>
       </Router>
     )
@@ -31,8 +31,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-    leftSidebarOpen: state.leftSidebarOpen,
-    rightSidebarOpen: state.rightSidebarOpen
+    recruitModal: state.recruitModal
 })
 
 export default connect(mapStateToProps)(App)
