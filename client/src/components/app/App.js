@@ -6,6 +6,7 @@ import LeftSidebar from '../left-sidebar/LeftSidebar'
 import Main from '../main/Main'
 import Navbar from '../navbar/Navbar'
 import RightSidebar from '../right-sidebar/RightSidebar'
+import RecruitModal from '../recruit-modal/RecruitModal'
 
 import './App.css'
 
@@ -15,12 +16,15 @@ export class App extends Component {
 
     return (
       <Router>
+      <div>
         <div className="grid">
           <Route exact path="/"><Navbar /></ Route>
           <LeftSidebar />
           <RightSidebar />
           <Main />
         </div>
+        <RecruitModal />
+      </div>
       </Router>
     )
   }

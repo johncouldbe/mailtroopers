@@ -1,4 +1,4 @@
-.trooper-container {
+  .trooper-container {
   display: grid;
   grid-template-columns: 15px 40px 15px calc(50% - 80px) calc(25% - 5px) 5px;
   grid-template-rows: 10px 40px;
@@ -52,6 +52,7 @@
   font-size: 125%;
   border-width: 0px;
   color: #fff;
+  cursor: pointer;
   transition: .5s;
 }
 
