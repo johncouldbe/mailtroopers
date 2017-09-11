@@ -1,7 +1,11 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {toggleRecruitModal} from '../../../actions'
 import './Troop.css'
 
-export default class Troop extends Component {
+console.log(toggleRecruitModal)
+
+export class Troop extends Component {
   constructor(props){
     super(props)
     this.troopers = [
@@ -16,6 +20,9 @@ export default class Troop extends Component {
         <div className="h4 trooper-name grey-text">{trooper}</div>
       </div>
     })
+
+    this.showRecruitModal = this.showRecruitModal.bind(this)
+
   }
 
   firstLetter = name => {
@@ -23,14 +30,21 @@ export default class Troop extends Component {
     return letter[0].toUpperCase()
   }
 
+  showRecruitModal(e){
+    e.preventDefault()
+    this.props.dispatch(toggleRecruitModal)
+  }
+
   render(){
     return(
       <div className="troop">
         {this.troop}
         <div className="trooper-btn-container">
-          <button className="trooper-btn">Recruit <img src={require("../../images/share.svg")} alt="Share" /></button>
+          <button className="trooper-btn" onClick={this.showRecruitModal}>Recruit <img src={require("../../images/share.svg")} alt="Share" /></button>
         </div>
       </div>
     )
   }
 }
+
+export default connect()(Troop)

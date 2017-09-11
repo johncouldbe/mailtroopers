@@ -1,3 +1,1 @@
-[context.production]
-  [context.production.environment]
-    SOCKET_URL = "https://mailtroopers.herokuapp.com/"
+SOCKET_URL = "https://mailtroopers.herokuapp.com/"

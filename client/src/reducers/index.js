@@ -31,7 +31,8 @@ export const mailTrooperReducer = (state=initialState, action) => {
     return Object.assign({}, state, {commentsOpen: !state.commentsOpen})
   }
   if(action.type === actions.TOGGLE_RECRUIT_MODAL) {
-    return Object.assign({}, state, {recruitWindow: !state.recruitModal})
+    console.log('')
+    return Object.assign({}, state, {recruitModal: !state.recruitModal})
   }
   return state
 }

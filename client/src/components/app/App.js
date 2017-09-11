@@ -14,6 +14,7 @@ export class App extends Component {
 
   render() {
     const modal = this.props.recruitModal ? <RecruitModal /> : ''
+    
     return (
       <Router>
       <div>
