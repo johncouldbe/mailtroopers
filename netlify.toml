@@ -1,0 +1,2 @@
+[context.production.environment]
+    SOCKET_URL = "https://mailtroopers.herokuapp.com/"
