@@ -3,8 +3,6 @@ import {connect} from 'react-redux'
 import {toggleRecruitModal} from '../../../actions'
 import './Troop.css'
 
-console.log(toggleRecruitModal)
-
 export class Troop extends Component {
   constructor(props){
     super(props)
