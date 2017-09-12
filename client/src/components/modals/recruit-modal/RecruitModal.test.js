@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import RecruitModal from './RecruitModal'
 import { Provider } from 'react-redux'
 
-import store from '../../store'
+import store from '../../../store'
 
 
 it('Renders without crashing', () => {

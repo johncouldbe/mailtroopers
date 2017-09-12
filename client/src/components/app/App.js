@@ -36,7 +36,8 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-    recruitModal: state.recruitModal
+    recruitModal: state.recruitModal,
+    commentModal: state.commentModal
 })
 
 export default connect(mapStateToProps)(App)

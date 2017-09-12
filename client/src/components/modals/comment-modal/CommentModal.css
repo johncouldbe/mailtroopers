@@ -1,14 +1,4 @@
-.recruit-modal-window {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(74, 83, 103, 0.85);
-}
-
-.recruit-modal {
+.comment-modal {
   position: absolute;
   width: 50%;
   min-height: 200px;
@@ -18,11 +8,11 @@
   left: 25%;
 }
 
-.recruit-modal .h3 {
+.comment-modal .h3 {
   margin: 20px 0;
 }
 
-.recruit-modal-close {
+.comment-modal-close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -35,36 +25,31 @@
   cursor: pointer;
 }
 
-.link-container {
-  width: calc(90% - 42px);
-  display: inline-block;
+.comment-input-container {
+  width: calc(100% - 42px);
   border: 1px solid #dcdbdc;
   border-radius: 4px;
-  margin: 0 10px 0 20px;
-  height: 40px;
-  white-space:nowrap;
-  overflow-x: scroll;
-  padding-left: 10px;
+  margin: 0 10px;
+  height: 100px;
+  overflow-y: scroll;
+  padding: 10px 10px;
 }
 
-.link-container .p {
-  line-height: 40px;
-  margin: 0;
-}
-
-.link-container:focus {
+.comment-input-container:focus {
   outline: 0;
 }
 
-.copy-container {
-  display: inline-block;
-  margin: 0 20px 0px 0;
-  width: calc(10% - 20px);
-  height: 30px;
-  border-radius: 4px;
-  background-image: url(../../images/clipboard.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
+.comment-posted {
+  height: 100px;
+  width: 100px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 5px solid #f54f45;
+  text-align: center;
+}
+
+.comment-posted img {
+  height: 65px;
+  margin-top: 10px;
+
 }

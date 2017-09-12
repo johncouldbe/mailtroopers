@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>6/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>6/8</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -88,7 +88,25 @@
 43
 44
 45
-46</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,6 +142,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -133,12 +158,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {Component} from 'react'
+import {connect} from 'react-redux'
+&nbsp;
+import {toggleCommentModal} from '../../../actions'
 // import {BrowserRouter as Link} from 'react-router-dom'
 &nbsp;
 import './Comments.css'
 &nbsp;
-export default class Troop extends Component {
+export class Comments extends Component {
   constructor(props){
     super(props)
     this.commentsArray = [
@@ -163,28 +196,40 @@ export default class Troop extends Component {
       return &lt;div className="comment" key={index}&gt;
         &lt;div className="comment-container"&gt;
           &lt;div className="h3 red-text comment-name"&gt;{comment.name}&lt;/div&gt;
-          &lt;div className="h4 blue-text comment-date"&gt;{comment.date}&lt;/div&gt;
+          &lt;div className="h4 grey-text comment-date"&gt;{comment.date}&lt;/div&gt;
           &lt;div className="p grey-text comment-comment"&gt;{comment.comment}&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     })
+&nbsp;
+    this.showCommentModal = this.showCommentModal.bind(this)
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  sh</span>owCommentModal(e){
+<span class="cstat-no" title="statement not covered" >    e.preventDefault()</span>
+<span class="cstat-no" title="statement not covered" >    this.props.dispatch(toggleCommentModal)</span>
   }
 &nbsp;
   render(){
     return(
       &lt;div className="comments"&gt;
+        &lt;div className="comment-btn-container"&gt;
+            &lt;button className="comment-btn" onClick={this.showCommentModal}&gt;Comment &lt;img src={require("../../images/bullhorn.svg")} alt="Share" /&gt;&lt;/button&gt;
+        &lt;/div&gt;
         {this.comments}
       &lt;/div&gt;
     )
   }
 }
+&nbsp;
+export default connect()(Comments)
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 05 2017 17:58:58 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 11 2017 22:03:19 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

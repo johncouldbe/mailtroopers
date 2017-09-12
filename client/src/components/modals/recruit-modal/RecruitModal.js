@@ -31,7 +31,7 @@ export class RecruitModal extends Component {
       ? '' : 'Copied to your clipboard Commander!'
 
     return(
-      <div className="recruit-modal-window" onClick={this.hideRecruitModal}>
+      <div className="modal-window" onClick={this.hideRecruitModal}>
         <div onClick={(e) => e.stopPropagation()} className="recruit-modal">
           <div className="recruit-modal-close" onClick={this.hideRecruitModal}></div>
           <div className="h3 grey-text center-text">Copy this link and send to your troop!</div>

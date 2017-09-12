@@ -130,3 +130,44 @@ nav {
   background: #dcdbdc;
   background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #dcdbdc));
 }
+
+.modal-window {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(74, 83, 103, 0.85);
+}
+
+.comment-btn-container {
+  display: grid;
+  grid-template-columns: calc(50% - 75px) 150px calc(50% - 75px);
+  grid-template-rows: 20px 40px 20px;
+  grid-template-areas:
+  ". . ."
+  ". comment-btn ."
+  ". . .";
+}
+
+.comment-btn {
+  grid-area: comment-btn;
+  border-radius: 4px;
+  background-color: #f54f45;
+  font-size: 125%;
+  border-width: 0px;
+  color: #fff;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.comment-btn img {
+  height: 15px;
+  width: auto;
+}
+
+.comment-btn:hover {
+  background-color: #ea2b1f;
+  transition: .5s;
+}
