@@ -6,15 +6,18 @@ import LeftSidebar from '../left-sidebar/LeftSidebar'
 import Main from '../main/Main'
 import Navbar from '../navbar/Navbar'
 import RightSidebar from '../right-sidebar/RightSidebar'
-import RecruitModal from '../recruit-modal/RecruitModal'
+import RecruitModal from '../modals/recruit-modal/RecruitModal'
+import CommentModal from '../modals/comment-modal/CommentModal'
+
 
 import './App.css'
 
 export class App extends Component {
 
   render() {
-    const modal = this.props.recruitModal ? <RecruitModal /> : ''
-    
+    const recruitmodal = this.props.recruitModal ? <RecruitModal /> : ''
+    const commentmodal = this.props.commentModal ? <CommentModal /> : ''
+
     return (
       <Router>
       <div>
@@ -24,7 +27,8 @@ export class App extends Component {
           <RightSidebar />
           <Main />
         </div>
-        {modal}
+        {recruitmodal}
+        {commentmodal}
       </div>
       </Router>
     )

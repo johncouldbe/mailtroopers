@@ -1,0 +1,70 @@
+.recruit-modal-window {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(74, 83, 103, 0.85);
+}
+
+.recruit-modal {
+  position: absolute;
+  width: 50%;
+  min-height: 200px;
+  border-radius: 4px;
+  background-color: #fff;
+  top: calc(50vh - 100px);
+  left: 25%;
+}
+
+.recruit-modal .h3 {
+  margin: 20px 0;
+}
+
+.recruit-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../../images/close.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.link-container {
+  width: calc(90% - 42px);
+  display: inline-block;
+  border: 1px solid #dcdbdc;
+  border-radius: 4px;
+  margin: 0 10px 0 20px;
+  height: 40px;
+  white-space:nowrap;
+  overflow-x: scroll;
+  padding-left: 10px;
+}
+
+.link-container .p {
+  line-height: 40px;
+  margin: 0;
+}
+
+.link-container:focus {
+  outline: 0;
+}
+
+.copy-container {
+  display: inline-block;
+  margin: 0 20px 0px 0;
+  width: calc(10% - 20px);
+  height: 30px;
+  border-radius: 4px;
+  background-image: url(../../images/clipboard.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
