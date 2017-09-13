@@ -3,10 +3,15 @@ const express = require('express')
 const app = express();
 const io = require('socket.io');
 const mongoose = require('mongoose')
-const {PORT, DATABASE_URL} = require('./config')
+const {PORT, DATABASE_URL, CLIENT_ORIGIN} = require('./config')
 const {User} = require('./models/user')
 const {Email} = require('./models/email')
 const mail = require('./mailListener')
+const cors = require('cors')
+
+app.use(cors({
+  origin: CLIENT_ORIGIN
+}))
 
 
 let server, socketIo;
