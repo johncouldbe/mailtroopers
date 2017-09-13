@@ -75,9 +75,5 @@ if(require.main === module){
   runServer().catch(err => console.log(err));
 }
 
-if(process.env.NODE_ENV === 'production'){
-  runServer().catch(err => console.log(err));
-}
-
 //Export for testing
 module.exports = { app, runServer, closeServer };
