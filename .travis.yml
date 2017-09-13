@@ -16,7 +16,8 @@ before_deploy:
 - npm run build
 deploy:
   - provider: script
-    script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build && cd ..
+    script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+    after_script: cd ../servers
     skip_cleanup: true
     on:
       branch: master
