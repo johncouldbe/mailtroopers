@@ -1,16 +1,43 @@
 .left-sidebar {
   border-right: 1px solid #dcdbdc;
-}
-
-.review-header {
-  grid-template-rows: 50px;
+  display: grid;
+  grid-template-rows: 50px calc(100% - 50px);
   grid-template-columns: 100%;
   grid-template-areas:
   "review-header"
+  "email-list-container";
+}
+
+.review-header {
+  grid-area: review-header;
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: 100%;
+  grid-template-areas:
+  "review-header-text";
 }
 
 .review-header .h2 {
-  grid-area: review-header;
+  grid-area: review-header-text;
   line-height: 50px;
   margin: 0;
+}
+
+.email-list-container {
+  grid-area: email-list-container;
+  background-color: #c1c7ce;
+  padding: 0 5px;
+  overflow-y: scroll;
+}
+
+
+
+.email-file {
+  grid-area: email-file;
+  border-radius: 4px 2px 2px 4px;
+  background-color: #fff;
+  border-left: 10px solid #f54f45;
+  margin: 10px 0;
+  padding: 5px;
+  cursor: pointer;
 }
