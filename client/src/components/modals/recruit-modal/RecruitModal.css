@@ -1,30 +1,3 @@
-.recruit-modal {
-  position: absolute;
-  width: 50%;
-  min-height: 200px;
-  border-radius: 4px;
-  background-color: #fff;
-  top: calc(50vh - 100px);
-  left: 25%;
-}
-
-.recruit-modal .h3 {
-  margin: 20px 0;
-}
-
-.recruit-modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 20px;
-  height: 20px;
-  background-image: url(../../images/close.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  cursor: pointer;
-}
-
 .link-container {
   width: calc(90% - 42px);
   display: inline-block;

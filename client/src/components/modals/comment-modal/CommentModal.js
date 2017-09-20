@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {toggleCommentModal} from '../../../actions'
 // import {BrowserRouter as Link} from 'react-router-dom'
 
 import './CommentModal.css'
@@ -25,7 +24,7 @@ export class CommentModal extends Component {
 
   hideCommentModal = (e) => {
     e.preventDefault()
-    this.props.dispatch(toggleCommentModal)
+    this.props.dispatch(this.props.toggleCommentModal)
   }
 
   send = (id) => {
@@ -53,8 +52,8 @@ export class CommentModal extends Component {
 
     return(
       <div className="modal-window" onClick={this.hideCommentModal}>
-        <div onClick={(e) => e.stopPropagation()} className="recruit-modal">
-          <div className="comment-modal-close" onClick={this.hideCommentModal}></div>
+        <div onClick={(e) => e.stopPropagation()} className="modal">
+          <div className="modal-close" onClick={this.hideCommentModal}></div>
           { !this.state.sent
           ?
           <div>

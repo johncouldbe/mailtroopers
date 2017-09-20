@@ -1,17 +1,37 @@
 require('dotenv').config()
-const express = require('express')
-const app = express();
-const io = require('socket.io');
-const mongoose = require('mongoose')
-const {PORT, DATABASE_URL, CLIENT_ORIGIN} = require('./config')
-const {User} = require('./models/user')
-const {Email} = require('./models/email')
-const mail = require('./mailListener')
-const cors = require('cors')
+const express     = require('express')
+const app         = express()
+const bodyParser  = require('body-parser')
+const cors        = require('cors')
+const io          = require('socket.io')
+const mongoose    = require('mongoose')
+const morgan      = require('morgan')
+
+const {
+  PORT,
+  DATABASE_URL,
+  CLIENT_ORIGIN
+}                 = require('./config')
+const {Email}     = require('./models/email')
+const mail        = require('./mailListener')
+
+//Route initializers
+const authRouter = require('./routes/auth')
+const userRouter = require('./routes/user')
+
+mongoose.Promise = global.Promise;
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+app.use(morgan('dev'))
 
 app.use(cors({
   origin: CLIENT_ORIGIN
 }))
+
+app.use('/auth', authRouter)
+app.use('/user', userRouter)
 
 
 let server, socketIo;
@@ -72,8 +92,8 @@ const sockets = () => {
 }
 
 if(require.main === module){
-  runServer().catch(err => console.log(err));
+  runServer().catch(err => console.log(err))
 }
 
 //Export for testing
-module.exports = { app, runServer, closeServer };
+module.exports = { app, runServer, closeServer }

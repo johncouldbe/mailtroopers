@@ -10,7 +10,7 @@ const UserSchema = mongoose.Schema ({
     type: String,
     required: true
   },
-  emailAddress: {
+  email: {
     type: String,
     required: true
   },
@@ -18,7 +18,7 @@ const UserSchema = mongoose.Schema ({
     type: String,
     required: true
   },
-  emails: [String]
+  campaigns: [String]
 })
 
 UserSchema.methods.validatePassword = function(password) {
