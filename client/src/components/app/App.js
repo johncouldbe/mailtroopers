@@ -8,7 +8,8 @@ import Main from '../main/Main'
 import Navbar from '../navbar/Navbar'
 import RightSidebar from '../right-sidebar/RightSidebar'
 //Modals
-import LogInSignUp from '../modals/login-signup-modal/LogInSignUp'
+import SignUp from '../modals/signup-modal/SignUp'
+import LogIn from '../modals/login-modal/LogIn'
 import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 
@@ -58,7 +59,8 @@ export class App extends Component {
             <AuthRoute exact path="/dashboard" component={LeftSidebar} />
             <AuthRoute exact path="/dashboard" component={RightSidebar} />
             <AuthRoute exact path="/dashboard" component={Main} />
-            <Route exact path="/login" component={LogInSignUp} />
+            <Route exact path="/register" component={SignUp} />
+            <Route exact path="/login" component={LogIn} />
           </div>
           {recruitmodal}
           {commentmodal}

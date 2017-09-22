@@ -4,18 +4,25 @@ const {User} = require('../models/user')
 
 router.post('/register', (req, res) => {
   const user = req.body.user
-  console.log(user)
 
   User
-  .find({emailAddress: user.email})
+  .find({email: user.email})
   .then(users => {
-    if(users.length){
-      res.send('An account with this email address already exists.')
+    if(users.length > 0){
+      res.json({err: 'An account with this email address already exists.'})
+    } else {
+      return User.hashPassword(user.password)
     }
+  })
+  .then(hash => {
+    user.password = hash
+
     User
     .create(user)
     .then(newUser => res.json(newUser))
+    .catch(err => console.log(err))
   })
+  .catch(err => console.log(err))
 })
 
 module.exports = router

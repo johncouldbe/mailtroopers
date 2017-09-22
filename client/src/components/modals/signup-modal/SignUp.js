@@ -1,28 +1,35 @@
 import React, {Component} from 'react'
-import {Field, reduxForm, focus} from 'redux-form';
-import {required, nonEmpty, matches, length, isTrimmed} from '../../../validators';
-import {registerUser} from '../../../actions/user';
+import {connect} from 'react-redux'
+import {Field, reduxForm, focus} from 'redux-form'
+import {registerUser} from '../../../actions/user'
+import {Link} from 'react-router-dom'
 
 import Input from '../../input/Input'
+import {required, nonEmpty, matches,
+       length, isTrimmed, email} from '../../../validators'
 
 
-import './LogInSignUp.css'
+import './SignUp.css'
 
-class LogInSignUp extends Component {
+class SignUp extends Component {
   onSubmit(values) {
-        const {firstName, lastName, email, password} = values;
-        const user = {firstName, lastName, email, password};
+        const {firstName, lastName, email, password} = values
+        const user = {firstName, lastName, email, password}
         return this.props
             .dispatch(registerUser(user))
             // .then(() => this.props.dispatch(login(email, password)));
     }
 
+
   render() {
     return (
         <div className="modal-window">
           <div className="modal center-text">
-            <div className="modal-close"></div>
+            <Link to="/">
+              <div className="modal-close"></div>
+            </ Link>
             <div className="h3 grey-text">Sign Up</div>
+            <div className="p red-text">{this.props.regErr}</div>
             <form
               className="login-form"
               onSubmit={this.props.handleSubmit(values =>
@@ -47,28 +54,34 @@ class LogInSignUp extends Component {
                   component={Input}
                   type="text"
                   name="email"
-                  validate={[required, nonEmpty, isTrimmed]}
+                  validate={[required, nonEmpty, isTrimmed, email]}
                 />
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" className="grey-text h4">Password</label>
                 <Field
                     component={Input}
                     type="password"
                     name="password"
                     validate={[required, length({min: 3, max: 72}), isTrimmed]}
                 />
-              <label htmlFor="passwordConfirm">Confirm password</label>
+              <label htmlFor="passwordConfirm" className="grey-text h4">Confirm password</label>
                 <Field
                     component={Input}
                     type="password"
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matches('password')]}
                 />
-              <button
-                className="grey-text p"
-                type="submit"
-                disabled={this.props.pristine || this.props.submitting}>
-                Register
-              </button>
+              <div className="comment-btn-container">
+                <button
+                  className="comment-btn"
+                  type="submit"
+                  disabled={this.props.pristine || this.props.submitting}
+                >
+                  Register
+                </button>
+              </div>
+              <Link to="/login">
+                <div className="grey-text p">Already have an account? Log in</div>
+              </Link>
             </ form>
           </div>
         </div>
@@ -76,8 +89,14 @@ class LogInSignUp extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  regErr: state.user.regErr
+})
+
+SignUp = connect(mapStateToProps)(SignUp)
+
 export default reduxForm({
   form: 'registration',
   onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
-})(LogInSignUp)
+})(SignUp)

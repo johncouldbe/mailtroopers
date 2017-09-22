@@ -4,10 +4,6 @@ const jwt     = require('jsonwebtoken')
 const {User}  = require('../models/user')
 const {JWT_SECRET} = require('../config')
 
-router.get('/', (req, res) => {
-    res.json({ message: 'Welcome to the coolest API on earth!' })
-})
-
 router.post('/', (req, res) => {
   // find the user
   User.findOne({
