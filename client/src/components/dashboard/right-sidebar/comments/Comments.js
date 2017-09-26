@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-import {toggleCommentModal} from '../../../actions'
+import {toggleCommentModal} from '../../../../actions'
 // import {BrowserRouter as Link} from 'react-router-dom'
 
 import './Comments.css'
@@ -49,7 +49,7 @@ export class Comments extends Component {
     return(
       <div className="comments">
         <div className="comment-btn-container">
-            <button className="comment-btn" onClick={this.showCommentModal}>Comment <img src={require("../../images/bullhorn.svg")} alt="Share" /></button>
+            <button className="comment-btn" onClick={this.showCommentModal}>Comment <img src={require("../../../images/bullhorn.svg")} alt="Share" /></button>
         </div>
         {this.comments}
       </div>

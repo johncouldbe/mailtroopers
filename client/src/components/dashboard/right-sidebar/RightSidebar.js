@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import Comments from './comments/Comments'
 import Troop from './troop/Troop'
 
-import {toggleTeam, toggleComments} from '../../actions'
+import {toggleTeam, toggleComments} from '../../../actions'
 
 import './RightSidebar.css'
 
@@ -70,8 +70,8 @@ export class RightSidebar extends Component {
 }
 
 const mapStateToProps = state => ({
-  teamOpen: state.teamOpen,
-  commentsOpen: state.commentsOpen
+  teamOpen: state.mailTrooper.teamOpen,
+  commentsOpen: state.mailTrooper.commentsOpen
 })
 
 export default connect(mapStateToProps)(RightSidebar);

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {toggleRecruitModal} from '../../../actions'
+import {toggleRecruitModal} from '../../../../actions'
 import './Troop.css'
 
 export class Troop extends Component {
@@ -38,7 +38,7 @@ export class Troop extends Component {
       <div className="troop">
         {this.troop}
         <div className="trooper-btn-container">
-          <button className="trooper-btn" onClick={this.showRecruitModal}>Recruit <img src={require("../../images/share.svg")} alt="Share" /></button>
+          <button className="trooper-btn" onClick={this.showRecruitModal}>Recruit <img src={require("../../../images/share.svg")} alt="Share" /></button>
         </div>
       </div>
     )

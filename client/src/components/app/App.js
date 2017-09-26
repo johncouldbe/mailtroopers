@@ -1,12 +1,15 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import decode from 'jwt-decode'
 
-import LeftSidebar from '../left-sidebar/LeftSidebar'
-import Main from '../main/Main'
+import {loadAuthToken} from '../../local-storage'
+import {refreshAuthToken} from '../../actions/user'
+
+import LandingPage from '../landing-page/LandingPage'
 import Navbar from '../navbar/Navbar'
-import RightSidebar from '../right-sidebar/RightSidebar'
+import Dashboard from '../dashboard/Dashboard'
+
 //Modals
 import SignUp from '../modals/signup-modal/SignUp'
 import LogIn from '../modals/login-modal/LogIn'
@@ -17,19 +20,9 @@ import CommentModal from '../modals/comment-modal/CommentModal'
 import './App.css'
 
 const checkAuth = () => {
-  const token = localStorage.getItem('token')
-
+  const token = loadAuthToken()
+  console.log(token);
   if(!token){
-    return false
-  }
-
-  try {
-    const {exp} = decode(token)
-    if(exp < new Date.getTime() / 1000){
-      return false
-    }
-  }
-  catch(e) {
     return false
   }
 
@@ -47,32 +40,65 @@ const AuthRoute = ({component: Component, ...rest}) => {
 }
 
 export class App extends Component {
+
+  componentDidMount() {
+        if (this.props.hasAuthToken) {
+            // Try to get a fresh auth token if we had an existing one in
+            // localStorage
+            this.props.dispatch(refreshAuthToken());
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.loggedIn && !this.props.loggedIn) {
+            // When we are logged in, refresh the auth token periodically
+            this.startPeriodicRefresh();
+        } else if (!nextProps.loggedIn && this.props.loggedIn) {
+            // Stop refreshing when we log out
+            this.stopPeriodicRefresh();
+        }
+    }
+
+    componentWillUnmount() {
+        this.stopPeriodicRefresh();
+    }
+
+    startPeriodicRefresh() {
+        this.refreshInterval = setInterval(
+            () => this.props.dispatch(refreshAuthToken()),
+            60 * 60 * 1000 // One hour
+        );
+    }
+
+    stopPeriodicRefresh() {
+        if (!this.refreshInterval) {
+            return;
+        }
+
+        clearInterval(this.refreshInterval);
+    }
+
   render() {
-    const recruitmodal = this.props.recruitModal ? <RecruitModal /> : ''
-    const commentmodal = this.props.commentModal ? <CommentModal /> : ''
 
     return (
-      <Router>
         <div>
-          <div className="grid">
-            <Route path="/" component={Navbar} />
-            <AuthRoute exact path="/dashboard" component={LeftSidebar} />
-            <AuthRoute exact path="/dashboard" component={RightSidebar} />
-            <AuthRoute exact path="/dashboard" component={Main} />
+          <div>
+            <Route path="/home" component={Navbar} />
+            {["/", "/login", "/signup"].map((path, index) =>
+              <Route exact path={path} component={LandingPage} key={index}/>
+            )}
+            <AuthRoute exact path="/dashboard" component={Dashboard} />
             <Route exact path="/register" component={SignUp} />
             <Route exact path="/login" component={LogIn} />
           </div>
-          {recruitmodal}
-          {commentmodal}
         </div>
-      </Router>
     )
   }
 }
 
 const mapStateToProps = state => ({
-    recruitModal: state.recruitModal,
-    commentModal: state.commentModal
+    hasAuthToken: state.user.authToken !== null,
+    loggedIn: state.user.currentUser !== null
 })
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect(mapStateToProps)(App))

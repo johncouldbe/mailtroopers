@@ -6,12 +6,17 @@ const cors        = require('cors')
 const io          = require('socket.io')
 const mongoose    = require('mongoose')
 const morgan      = require('morgan')
+const passport    = require('passport')
 
 const {
   PORT,
   DATABASE_URL,
   CLIENT_ORIGIN
 }                 = require('./config')
+const {
+  basicStrategy,
+   jwtStrategy
+ }                = require('./passport/strategies')
 const {Email}     = require('./models/email')
 const mail        = require('./mailListener')
 
@@ -27,8 +32,13 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 
 app.use(cors({
-  origin: CLIENT_ORIGIN
+  origin: CLIENT_ORIGIN,
+  allowedHeaders: 'Content-Type, Authorization'
 }))
+
+app.use(passport.initialize());
+passport.use(basicStrategy);
+passport.use(jwtStrategy);
 
 app.use('/auth', authRouter)
 app.use('/user', userRouter)

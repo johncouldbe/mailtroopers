@@ -46,7 +46,7 @@
 }
 
 .toggle-team-show-btn, .toggle-comments-show-btn {
-  background-image: url('../images/angle-down-blue.svg');
+  background-image: url('../../images/angle-down-blue.svg');
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -62,15 +62,15 @@
 }
 
 .toggle-team-show-btn:hover, .toggle-comments-show-btn:hover {
-  background-image: url('../images/angle-down-red.svg');
+  background-image: url('../../images/angle-down-red.svg');
 }
 
 .toggle-team-hide-btn, .toggle-comments-hide-btn {
-  background-image: url('../images/angle-up-blue.svg');
+  background-image: url('../../images/angle-up-blue.svg');
 }
 
 .toggle-team-hide-btn:hover, .toggle-comments-hide-btn:hover {
-  background-image: url('../images/angle-up-red.svg');
+  background-image: url('../../images/angle-up-red.svg');
 }
 
 .troop {

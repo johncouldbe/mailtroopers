@@ -18,7 +18,7 @@
 }
 
 .version-left-btn {
-  background-image: url('../../images/angle-left-blue.svg');
+  background-image: url('../../../images/angle-left-blue.svg');
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -34,7 +34,7 @@
 }
 
 .version-right-btn {
-  background-image: url('../../images/angle-right-blue.svg');
+  background-image: url('../../../images/angle-right-blue.svg');
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;

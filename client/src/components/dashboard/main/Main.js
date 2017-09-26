@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import openSocket from 'socket.io-client'
-import {SOCKET_URL} from '../../config'
+import {SOCKET_URL} from '../../../config'
 
 import Version from './version/Version'
-import {toggleLeftSidebar, toggleRightSidebar} from '../../actions'
+import {toggleLeftSidebar, toggleRightSidebar} from '../../../actions'
 import './Main.css'
 
 const socket = openSocket(SOCKET_URL)
@@ -84,8 +84,8 @@ export class Main extends Component {
 }
 
 const mapStateToProps = state => ({
-    leftSidebarOpen: state.leftSidebarOpen,
-    rightSidebarOpen: state.rightSidebarOpen
+    leftSidebarOpen: state.mailTrooper.leftSidebarOpen,
+    rightSidebarOpen: state.mailTrooper.rightSidebarOpen
 })
 
 export default connect(mapStateToProps)(Main)

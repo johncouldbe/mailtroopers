@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {toggleCommentModal} from '../../../actions'
 // import {BrowserRouter as Link} from 'react-router-dom'
 
 import './CommentModal.css'
@@ -24,7 +25,7 @@ export class CommentModal extends Component {
 
   hideCommentModal = (e) => {
     e.preventDefault()
-    this.props.dispatch(this.props.toggleCommentModal)
+    this.props.dispatch(toggleCommentModal)
   }
 
   send = (id) => {

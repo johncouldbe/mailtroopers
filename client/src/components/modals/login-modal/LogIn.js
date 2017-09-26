@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Field, reduxForm, focus} from 'redux-form'
 import {logInUser} from '../../../actions/user'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 import Input from '../../input/Input'
 import {required, nonEmpty, matches,
@@ -14,10 +14,15 @@ import './LogIn.css'
 class LogIn extends Component {
   onSubmit(values) {
         const {email, password} = values
-        const user = {email, password}
         return this.props
-            .dispatch(logInUser(user))
+            .dispatch(logInUser(email, password))
     }
+  componentWillReceiveProps(){
+    console.log(this.props);
+    if (this.props.loggedIn) {
+        return <Redirect to="/dashboard" />;
+    }
+  }
 
 
   render() {
@@ -27,8 +32,8 @@ class LogIn extends Component {
             <Link to="/">
               <div className="modal-close"></div>
             </ Link>
-            <div className="h3 grey-text">Sign Up</div>
-            <div className="p red-text">{this.props.regErr}</div>
+            <div className="h3 grey-text">Log In</div>
+            <div className="p red-text">{this.props.logErr}</div>
             <form
               className="login-form"
               onSubmit={this.props.handleSubmit(values =>
@@ -68,9 +73,13 @@ class LogIn extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  regErr: state.user.regErr
-})
+const mapStateToProps = state => {
+  console.log(state);
+   return {
+    logErr: state.user.logErr,
+    loggedIn: state.user.currentUser
+  }
+}
 
 LogIn = connect(mapStateToProps)(LogIn)
 

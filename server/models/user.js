@@ -21,6 +21,14 @@ const UserSchema = mongoose.Schema ({
   campaigns: [String]
 })
 
+UserSchema.methods.apiRepr = function() {
+    return {
+        email: this.email || '',
+        firstName: this.firstName || '',
+        lastName: this.lastName || ''
+    };
+};
+
 UserSchema.methods.validatePassword = function(password) {
     return bcrypt.compare(password, this.password);
 };
