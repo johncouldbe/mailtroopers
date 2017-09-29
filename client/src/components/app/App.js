@@ -11,33 +11,10 @@ import Navbar from '../navbar/Navbar'
 import Dashboard from '../dashboard/Dashboard'
 
 //Modals
-import SignUp from '../modals/signup-modal/SignUp'
-import LogIn from '../modals/login-modal/LogIn'
-import RecruitModal from '../modals/recruit-modal/RecruitModal'
-import CommentModal from '../modals/comment-modal/CommentModal'
-
+import SignUpWrapper from '../modals/signup-modal/SignUpWrapper'
+import LogInWrapper from '../modals/login-modal/LogInWrapper'
 
 import './App.css'
-
-const checkAuth = () => {
-  const token = loadAuthToken()
-  console.log(token);
-  if(!token){
-    return false
-  }
-
-  return true;
-}
-
-const AuthRoute = ({component: Component, ...rest}) => {
-  return <Route {...rest} render={() => (
-    checkAuth() ? (
-        <Component />
-    ) : (
-      <Redirect to={{pathname: '/'}} />
-    )
-  )} />
-}
 
 export class App extends Component {
 
@@ -81,17 +58,15 @@ export class App extends Component {
   render() {
 
     return (
-        <div>
           <div>
             <Route path="/home" component={Navbar} />
             {["/", "/login", "/signup"].map((path, index) =>
               <Route exact path={path} component={LandingPage} key={index}/>
             )}
-            <AuthRoute exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/register" component={SignUp} />
-            <Route exact path="/login" component={LogIn} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/register" component={SignUpWrapper} />
+            <Route exact path="/login" component={LogInWrapper} />
           </div>
-        </div>
     )
   }
 }

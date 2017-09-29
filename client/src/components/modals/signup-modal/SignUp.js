@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import {Field, reduxForm, focus} from 'redux-form'
-import {registerUser} from '../../../actions/user'
+import {registerUser, logInUser} from '../../../actions/user'
 import {Link} from 'react-router-dom'
 
 import Input from '../../input/Input'
@@ -17,7 +16,9 @@ class SignUp extends Component {
         const user = {firstName, lastName, email, password}
         return this.props
             .dispatch(registerUser(user))
-            // .then(() => this.props.dispatch(login(email, password)));
+            .then(() => {
+              this.props.dispatch(logInUser(email, password))
+            });
     }
 
 
@@ -88,12 +89,6 @@ class SignUp extends Component {
     )
   }
 }
-
-const mapStateToProps = state => ({
-  regErr: state.user.regErr
-})
-
-SignUp = connect(mapStateToProps)(SignUp)
 
 export default reduxForm({
   form: 'registration',

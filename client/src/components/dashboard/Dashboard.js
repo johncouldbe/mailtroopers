@@ -11,11 +11,17 @@ import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 
 export class Dashboard extends Component {
-    // If we are logged in redirect straight to the user's dashboard
+    componentDidMount() {
+        if (!this.props.loggedIn) {
+            return;
+        }
+
+    }
 
     render() {
-      if (this.props.loggedIn) {
-          return <Redirect to="/dashboard" />;
+      console.log('WENT OFF!', this.props);
+      if (!this.props.loggedIn) {
+          return <Redirect to="/" />;
       }
 
       const recruitmodal = this.props.recruitModal ? <RecruitModal /> : ''
@@ -41,7 +47,7 @@ export class Dashboard extends Component {
 const mapStateToProps = state => ({
     recruitModal: state.mailTrooper.recruitModal,
     commentModal: state.mailTrooper.commentModal,
-    loggedIn: state.user.currentUser !== null
+    loggedIn: state.user.authToken !== null
 });
 
 export default connect(mapStateToProps)(Dashboard);

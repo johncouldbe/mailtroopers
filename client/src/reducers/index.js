@@ -6,7 +6,8 @@ const initialState = {
   teamOpen: true,
   commentsOpen: true,
   recruitModal: false,
-  commentModal: false
+  commentModal: false,
+  createEmailModal: false
 }
 
 // .close-left-sidebar
@@ -36,6 +37,9 @@ export const mailTrooperReducer = (state=initialState, action) => {
   }
   if(action.type === actions.TOGGLE_COMMENT_MODAL) {
     return Object.assign({}, state, {commentModal: !state.commentModal})
+  }
+  if(action.type === actions.TOGGLE_CREATE_EMAIL_MODAL) {
+    return Object.assign({}, state, {commentModal: !state.createEmailModal})
   }
   return state
 }

@@ -8,22 +8,19 @@ import {saveAuthToken, clearAuthToken} from '../local-storage'
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken)
-    console.log(decodedToken)
+    console.log("STORE AUTH INFO")
+    saveAuthToken(authToken)
     dispatch(setAuthToken(authToken))
     dispatch(setCurrentUser(decodedToken.user))
-    saveAuthToken(authToken)
 }
 
 export const registerUser = user => dispatch => {
-  axios.post(`${BASE_URL}/user/register`, {
+  return axios.post(`${BASE_URL}/user/register`, {
     user
   })
   .then(res => {
     if(res.data.err){
       dispatch(registerErr(res.data.err))
-    }
-    else {
-      return
     }
   })
 }
@@ -57,7 +54,6 @@ export const logInUser = (email, password) => dispatch => {
   })
   .then(res => {
     const authToken = res.data.authToken
-    console.log(authToken)
     storeAuthInfo(authToken, dispatch)
   })
   .catch(err => {
@@ -81,13 +77,11 @@ export const refreshAuthToken = () => (dispatch, getState) => {
         Authorization: `Bearer ${authToken}`
       }
     })
-    .then(({
-      authToken
-    }) => storeAuthInfo(authToken, dispatch))
+    .then(res => {
+      storeAuthInfo(res.data.authToken, dispatch)
+    })
     .catch(err => {
-      console.log(err);
-      const {code} = err;
-      if (code === 401) {
+      if (err.response.status === 401) {
         // We couldn't get a refresh token because our current credentials
         // are invalid or expired, so clear them and sign us out
         dispatch(setCurrentUser(null));

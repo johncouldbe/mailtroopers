@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import {Field, reduxForm, focus} from 'redux-form'
 import {logInUser} from '../../../actions/user'
 import {Link, Redirect} from 'react-router-dom'
@@ -17,13 +16,6 @@ class LogIn extends Component {
         return this.props
             .dispatch(logInUser(email, password))
     }
-  componentWillReceiveProps(){
-    console.log(this.props);
-    if (this.props.loggedIn) {
-        return <Redirect to="/dashboard" />;
-    }
-  }
-
 
   render() {
     return (
@@ -33,7 +25,7 @@ class LogIn extends Component {
               <div className="modal-close"></div>
             </ Link>
             <div className="h3 grey-text">Log In</div>
-            <div className="p red-text">{this.props.logErr}</div>
+            <div className="p red-text">{this.props.err}</div>
             <form
               className="login-form"
               onSubmit={this.props.handleSubmit(values =>
@@ -72,16 +64,6 @@ class LogIn extends Component {
     )
   }
 }
-
-const mapStateToProps = state => {
-  console.log(state);
-   return {
-    logErr: state.user.logErr,
-    loggedIn: state.user.currentUser
-  }
-}
-
-LogIn = connect(mapStateToProps)(LogIn)
 
 export default reduxForm({
   form: 'login',
