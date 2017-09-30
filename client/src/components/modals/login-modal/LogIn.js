@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {Field, reduxForm, focus} from 'redux-form'
 import {logInUser} from '../../../actions/user'
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import Input from '../../input/Input'
-import {required, nonEmpty, matches,
-       length, isTrimmed, email} from '../../../validators'
+import {required, nonEmpty,
+       isTrimmed, email} from '../../../validators'
 
 
 import './LogIn.css'
@@ -46,9 +46,9 @@ class LogIn extends Component {
                     name="password"
                     validate={[required, isTrimmed]}
                 />
-              <div className="comment-btn-container">
+              <div className="btn-container">
                 <button
-                  className="comment-btn"
+                  className="btn"
                   type="submit"
                   disabled={this.props.pristine || this.props.submitting}
                 >

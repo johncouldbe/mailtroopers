@@ -71,9 +71,9 @@ class SignUp extends Component {
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matches('password')]}
                 />
-              <div className="comment-btn-container">
+              <div className="btn-container">
                 <button
-                  className="comment-btn"
+                  className="btn"
                   type="submit"
                   disabled={this.props.pristine || this.props.submitting}
                 >

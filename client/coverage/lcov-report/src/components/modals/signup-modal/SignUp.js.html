@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/modals/signup-modal/SignUp.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/modals/signup-modal</a> SignUp.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/15</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React,<span class="cstat-no" title="statement not covered" > {Component} from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import {Field, re<span class="cstat-no" title="statement not covered" >duxForm, focus} from '</span>redux-form'
+import {regi<span class="cstat-no" title="statement not covered" >sterUser, logInUser} from '../../</span>../actions/user'
+import {Link} from 're<span class="cstat-no" title="statement not covered" >act-router-dom'</span>
+&nbsp;
+import Input <span class="cstat-no" title="statement not covered" >from '../../input/Input'<span class="cstat-no" title="statement not covered" ></span></span>
+import {required, <span class="cstat-no" title="statement not covered" >nonEmpty, matches,</span>
+       length, isTrimmed, email} from '../../../validators'
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import './SignUp.css'<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+&nbsp;
+class SignUp extends Component {
+<span class="fstat-no" title="function not covered" >  on</span>Submit(values) {
+        const {firstName, lastName, email, password} <span class="cstat-no" title="statement not covered" >= value</span>s
+        const use<span class="cstat-no" title="statement not covered" >r = {firstName, lastName, email, password</span>}
+<span class="cstat-no" title="statement not covered" >        return this.props</span>
+            .dispatch(registerUser(user))
+<span class="fstat-no" title="function not covered" ></span>            .then(() =&gt; {
+<span class="cstat-no" title="statement not covered" >              this.props.dispatch(logInUser(email, password))</span>
+            });
+    }
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+<span class="cstat-no" title="statement not covered" >    return (</span>
+        &lt;div className="modal-window"&gt;
+          &lt;div className="modal center-text"&gt;
+            &lt;Link to="/"&gt;
+              &lt;div className="modal-close"&gt;&lt;/div&gt;
+            &lt;/ Link&gt;
+            &lt;div className="h3 grey-text"&gt;Sign Up&lt;/div&gt;
+            &lt;div className="p red-text"&gt;{this.props.regErr}&lt;/div&gt;
+            &lt;form
+              className="login-form"
+              onSubmit={this.props.handleSubmit(<span class="fstat-no" title="function not covered" >va</span>lues =&gt;
+<span class="cstat-no" title="statement not covered" >                this.onSubmit(values</span>)
+            )}&gt;
+              &lt;label htmlFor="firstName" className="grey-text h4"&gt;First name&lt;/label&gt;
+                &lt;Field
+                component={Input}
+                type="text"
+                name="firstName"
+                validate={[required, nonEmpty, isTrimmed]}
+              /&gt;
+              &lt;label htmlFor="lastName" className="grey-text h4"&gt;Last name&lt;/label&gt;
+                &lt;Field
+                  component={Input}
+                  type="text"
+                  name="lastName"
+                  validate={[required, nonEmpty, isTrimmed]}
+                /&gt;
+              &lt;label htmlFor="email" className="grey-text h4"&gt;Email&lt;/label&gt;
+                &lt;Field
+                  component={Input}
+                  type="text"
+                  name="email"
+                  validate={[required, nonEmpty, isTrimmed, email]}
+                /&gt;
+              &lt;label htmlFor="password" className="grey-text h4"&gt;Password&lt;/label&gt;
+                &lt;Field
+                    component={Input}
+                    type="password"
+                    name="password"
+                    validate={[required, length({min: 3, max: 72}), isTrimmed]}
+                /&gt;
+              &lt;label htmlFor="passwordConfirm" className="grey-text h4"&gt;Confirm password&lt;/label&gt;
+                &lt;Field
+                    component={Input}
+                    type="password"
+                    name="passwordConfirm"
+                    validate={[required, nonEmpty, matches('password')]}
+                /&gt;
+              &lt;div className="btn-container"&gt;
+                &lt;button
+                  className="btn"
+                  type="submit"
+                  disabled={this.props.pristine || this.props.submitting}
+                &gt;
+                  Register
+                &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;Link to="/login"&gt;
+                &lt;div className="grey-text p"&gt;Already have an account? Log in&lt;/div&gt;
+              &lt;/Link&gt;
+            &lt;/ form&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    )
+  }<span class="cstat-no" title="statement not covered" ></span>
+}
+&nbsp;
+export default reduxForm({
+  form: 'registration',
+  onSubmitFail: <span class="fstat-no" title="function not covered" >(e</span>rrors, dispatch) =&gt;
+<span class="cstat-no" title="statement not covered" >        dispatch(focus('registration', Object.keys(errors)[0]))</span>
+})(SignUp)
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 30 2017 11:45:40 GMT-0400 (EDT)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 const express = require('express')
 const router  = express.Router()
 const {User} = require('../models/user')
-const {JWT_SECRET, JWS_EXPIRE} = require('../config')
 
 router.post('/register', (req, res) => {
   const user = req.body.user

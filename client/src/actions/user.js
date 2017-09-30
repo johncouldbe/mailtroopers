@@ -1,6 +1,5 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
-import {SubmissionError} from 'redux-form'
 import {BASE_URL} from '../config'
 import {saveAuthToken, clearAuthToken} from '../local-storage'
 
@@ -81,12 +80,10 @@ export const refreshAuthToken = () => (dispatch, getState) => {
       storeAuthInfo(res.data.authToken, dispatch)
     })
     .catch(err => {
-      if (err.response.status === 401) {
         // We couldn't get a refresh token because our current credentials
         // are invalid or expired, so clear them and sign us out
         dispatch(setCurrentUser(null));
         dispatch(setAuthToken(null));
         clearAuthToken(authToken);
-      }
     });
 };

@@ -66,8 +66,8 @@ export class CommentModal extends Component {
               onChange={this.handleChange}
             />
 
-            <div className="comment-btn-container">
-              <button className="comment-btn" onClick={this.send}>Comment <img src={require("../../images/bullhorn.svg")}   alt="Share" /></button>
+            <div className="btn-container">
+              <button className="btn" onClick={this.send}>Comment <img src={require("../../images/bullhorn.svg")}   alt="Share" /></button>
             </div>
             {warning}
           </div>

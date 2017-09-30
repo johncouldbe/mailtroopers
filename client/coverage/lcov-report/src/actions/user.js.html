@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/actions/user.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/actions</a> user.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios <span class="cstat-no" title="statement not covered" >from 'axios'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import jwtDecode <span class="cstat-no" title="statement not covered" >from 'jwt-decode'<span class="cstat-no" title="statement not covered" ></span></span>
+import {BASE_U<span class="cstat-no" title="statement not covered" >RL} from '../config'</span>
+import {saveAuthToke<span class="cstat-no" title="statement not covered" >n, clearAuthToken} from '../</span>local-sto<span class="fstat-no" title="function not covered" >rage'<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+// Stores the auth token in state and localStorage, and decodes and stores
+// the user data stored in the token
+const storeAuthInfo = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(a</span>uthToken, dispatch) =&gt; {</span>
+    const decodedToken <span class="cstat-no" title="statement not covered" >= jwtDecode(authToken)</span>
+<span class="cstat-no" title="statement not covered" >    console.log("STORE AUTH INFO")</span>
+<span class="cstat-no" title="statement not covered" >    saveAuthToken(authToken)</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(setAuthToken(authToken))</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(setCurrentUser(decodedToken.user))</span>
+}
+&nbsp;
+export const register<span class="cstat-no" title="statement not covered" >User = user =&gt; dispatch<span class="fstat-no" title="function not covered" > =</span>&gt; {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+<span class="cstat-no" title="statement not covered" >  return axios.post(`${BASE_URL}/user/register`, {</span>
+    user
+  })
+  .then<span class="fstat-no" title="function not covered" >(r</span>es =&gt; {
+<span class="cstat-no" title="statement not covered" >    if(res.data.err){</span>
+<span class="cstat-no" title="statement not covered" >      dispatch(registerErr(res.data.err))</span>
+    }
+  })
+}
+&nbsp;
+export const REGISTER<span class="cstat-no" title="statement not covered" >_ERR = 'REGISTER_ERR'</span>
+export const registe<span class="cstat-no" title="statement not covered" >rErr = err =&gt; ({<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  type: REGISTER_ERR,
+  err
+})
+&nbsp;
+export const SET_AUTH_T<span class="cstat-no" title="statement not covered" >OKEN = 'SET_AUTH_TOKEN'</span>
+export const setAuthT<span class="cstat-no" title="statement not covered" >oken = authToken =&gt; ({<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+    type: SET_AUTH_TOKEN,
+    authToken
+})
+&nbsp;
+export const SET_CURRENT_<span class="cstat-no" title="statement not covered" >USER = 'SET_CURRENT_USER'</span>
+export const setCurrent<span class="cstat-no" title="statement not covered" >User = currentUser =&gt; ({<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+    type: SET_CURRENT_USER,
+    currentUser
+})
+&nbsp;
+export const logIn<span class="cstat-no" title="statement not covered" >User = (email, passw<span class="fstat-no" title="function not covered" >or</span>d) =&gt; dispatch =&gt; {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  const token = <span class="cstat-no" title="statement not covered" >btoa(`${email}:${password}`)</span>
+<span class="cstat-no" title="statement not covered" >  axios({</span>
+    url: `${BASE_URL}/auth/login`,
+    method: 'post',
+    headers: {
+      Authorization: `Basic ${token}`
+    }
+  })
+  .then<span class="fstat-no" title="function not covered" >(r</span>es =&gt; {
+    const authToken = <span class="cstat-no" title="statement not covered" >res.data.authToken</span>
+<span class="cstat-no" title="statement not covered" >    storeAuthInfo(authToken, dispatch)</span>
+  })
+  .catch<span class="fstat-no" title="function not covered" >(e</span>rr =&gt; {
+<span class="cstat-no" title="statement not covered" >    console.log(err);</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(logInErr('Incorrect username or password'))</span>
+  })
+}
+&nbsp;
+export const LOGIN<span class="cstat-no" title="statement not covered" >_ERR = 'LOGIN_ERR'</span>
+export const logI<span class="cstat-no" title="statement not covered" >nErr = err =&gt; ({<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  type: LOGIN_ERR,
+  err
+})
+&nbsp;
+export const refreshAuthT<span class="cstat-no" title="statement not covered" >oken = () =&gt; (dispatch, get<span class="fstat-no" title="function not covered" >St</span>ate)<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > =</span>&gt; {</span></span>
+  const authToken = <span class="cstat-no" title="statement not covered" >getState().user.authToken</span>
+<span class="cstat-no" title="statement not covered" >  return axios(`${BASE_URL}/auth/refresh`, {</span>
+      method: 'POST',
+      headers: {
+        // Provide our existing token as credentials to get a new one
+        Authorization: `Bearer ${authToken}`
+      }
+    })
+    .th<span class="fstat-no" title="function not covered" >en</span>(res =&gt; {
+<span class="cstat-no" title="statement not covered" >      storeAuthInfo(res.data.authToken, dispatch)</span>
+    })
+    .cat<span class="fstat-no" title="function not covered" >ch</span>(err =&gt; {
+        // We couldn't get a refresh token because our current credentials
+        // are invalid or expired, so clear them and sign us out
+<span class="cstat-no" title="statement not covered" >        dispatch(setCurrentUser(null</span>));
+<span class="cstat-no" title="statement not covered" >        dispatch(setAuthToken(null</span>));
+<span class="cstat-no" title="statement not covered" >        clearAuthToken(authToken);</span>
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 30 2017 11:45:40 GMT-0400 (EDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

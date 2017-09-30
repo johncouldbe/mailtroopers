@@ -141,18 +141,18 @@ nav {
   background-color: rgba(74, 83, 103, 0.85);
 }
 
-.comment-btn-container {
+.btn-container {
   display: grid;
   grid-template-columns: calc(50% - 75px) 150px calc(50% - 75px);
   grid-template-rows: 20px 40px 20px;
   grid-template-areas:
   ". . ."
-  ". comment-btn ."
+  ". btn ."
   ". . .";
 }
 
-.comment-btn {
-  grid-area: comment-btn;
+.btn {
+  grid-area: btn;
   border-radius: 4px;
   background-color: #f54f45;
   font-size: 125%;
@@ -162,12 +162,12 @@ nav {
   transition: .5s;
 }
 
-.comment-btn img {
+.btn img {
   height: 15px;
   width: auto;
 }
 
-.comment-btn:hover {
+.btn:hover {
   background-color: #ea2b1f;
   transition: .5s;
 }

@@ -10,15 +10,6 @@ const initialState = {
   createEmailModal: false
 }
 
-// .close-left-sidebar
-// .close-right-sidebar
-// .close-both-sidebar
-
-// if left is true and right is true close left
-// if left is true and right is false remove close right and add open main
-// if left is false and right is true remove close left
-// if left is false and right is false remove open main add close right
-
 export const mailTrooperReducer = (state=initialState, action) => {
   if(action.type === actions.TOGGLE_LEFT_SIDEBAR) {
     return Object.assign({}, state, {leftSidebarOpen: !state.leftSidebarOpen})
@@ -39,7 +30,7 @@ export const mailTrooperReducer = (state=initialState, action) => {
     return Object.assign({}, state, {commentModal: !state.commentModal})
   }
   if(action.type === actions.TOGGLE_CREATE_EMAIL_MODAL) {
-    return Object.assign({}, state, {commentModal: !state.createEmailModal})
+    return Object.assign({}, state, {createEmailModal: !state.createEmailModal})
   }
   return state
 }

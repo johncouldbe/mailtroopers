@@ -34,7 +34,7 @@
 
 .email-file {
   grid-area: email-file;
-  border-radius: 4px 2px 2px 4px;
+  border-radius: 2px;
   background-color: #fff;
   border-left: 10px solid #f54f45;
   margin: 10px 0;

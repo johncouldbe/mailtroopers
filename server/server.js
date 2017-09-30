@@ -17,12 +17,12 @@ const {
   basicStrategy,
    jwtStrategy
  }                = require('./passport/strategies')
-const {Email}     = require('./models/email')
 const mail        = require('./mailListener')
 
-//Route initializers
+//Routes
 const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
+const campaignRouter = require('./routes/campaign')
 
 mongoose.Promise = global.Promise;
 
@@ -40,8 +40,10 @@ app.use(passport.initialize());
 passport.use(basicStrategy);
 passport.use(jwtStrategy);
 
+//Route initializers
 app.use('/auth', authRouter)
 app.use('/user', userRouter)
+app.use('/campaigns', campaignRouter)
 
 
 let server, socketIo;

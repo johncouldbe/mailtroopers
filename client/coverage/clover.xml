@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1505181799799" clover="3.2.0">
-  <project timestamp="1505181799802" name="All files">
-    <metrics statements="144" coveredstatements="84" conditionals="92" coveredconditionals="43" methods="58" coveredmethods="26" elements="294" coveredelements="153" complexity="0" loc="144" ncloc="144" packages="13" files="16" classes="16">
+<coverage generated="1506786341327" clover="3.2.0">
+  <project timestamp="1506786341328" name="All files">
+    <metrics statements="404" coveredstatements="16" conditionals="255" coveredconditionals="0" methods="147" coveredmethods="2" elements="806" coveredelements="18" complexity="0" loc="404" ncloc="404" packages="19" files="30" classes="30">
       <package name="src">
-        <metrics statements="24" coveredstatements="1" conditionals="27" coveredconditionals="2" methods="15" coveredmethods="0"/>
+        <metrics statements="59" coveredstatements="0" conditionals="55" coveredconditionals="0" methods="27" coveredmethods="0"/>
         <file name="config.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/config.js">
-          <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="0" coveredmethods="0"/>
-          <line num="1" count="2" type="cond" truecount="2" falsecount="0"/>
+          <metrics statements="2" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="3" count="0" type="stmt"/>
         </file>
         <file name="index.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/index.js">
-          <metrics statements="9" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <metrics statements="10" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
           <line num="2" count="0" type="stmt"/>
           <line num="3" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
           <line num="6" count="0" type="stmt"/>
           <line num="7" count="0" type="stmt"/>
-          <line num="8" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="9" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+        </file>
+        <file name="local-storage.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/local-storage.js">
+          <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
           <line num="10" count="0" type="stmt"/>
-          <line num="15" count="0" type="stmt"/>
         </file>
         <file name="registerServiceWorker.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/registerServiceWorker.js">
           <metrics statements="14" coveredstatements="0" conditionals="21" coveredconditionals="0" methods="14" coveredmethods="0"/>
@@ -38,199 +49,508 @@
           <line num="128" count="0" type="cond" truecount="0" falsecount="2"/>
         </file>
         <file name="store.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/store.js">
-          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        </file>
-      </package>
-      <package name="src.actions">
-        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="index.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/actions/index.js">
-          <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="7" type="stmt"/>
-          <line num="2" count="7" type="stmt"/>
-          <line num="6" count="7" type="stmt"/>
-          <line num="7" count="7" type="stmt"/>
-          <line num="11" count="7" type="stmt"/>
-          <line num="12" count="7" type="stmt"/>
-          <line num="16" count="7" type="stmt"/>
-          <line num="17" count="7" type="stmt"/>
-          <line num="21" count="7" type="stmt"/>
-          <line num="22" count="7" type="stmt"/>
-          <line num="26" count="7" type="stmt"/>
-          <line num="27" count="7" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.app">
-        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
-        <file name="App.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/app/App.js">
-          <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
-          <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="21" count="1" type="stmt"/>
-          <line num="38" count="1" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.left-sidebar">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <file name="LeftSidebar.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/left-sidebar/LeftSidebar.js">
-          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="6" count="2" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.main">
-        <metrics statements="26" coveredstatements="21" conditionals="20" coveredconditionals="17" methods="10" coveredmethods="6"/>
-        <file name="Main.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/main/Main.js">
-          <metrics statements="26" coveredstatements="21" conditionals="20" coveredconditionals="17" methods="10" coveredmethods="6"/>
-          <line num="10" count="2" type="stmt"/>
-          <line num="14" count="2" type="stmt"/>
-          <line num="15" count="2" type="stmt"/>
-          <line num="18" count="2" type="stmt"/>
-          <line num="24" count="2" type="stmt"/>
-          <line num="25" count="0" type="stmt"/>
-          <line num="27" count="2" type="stmt"/>
-          <line num="31" count="2" type="cond" truecount="3" falsecount="1"/>
-          <line num="32" count="0" type="stmt"/>
-          <line num="34" count="2" type="cond" truecount="3" falsecount="1"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="37" count="2" type="cond" truecount="4" falsecount="0"/>
-          <line num="38" count="1" type="stmt"/>
-          <line num="40" count="1" type="stmt"/>
-          <line num="44" count="4" type="cond" truecount="2" falsecount="0"/>
-          <line num="45" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="46" count="1" type="stmt"/>
-          <line num="48" count="1" type="stmt"/>
-          <line num="51" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="52" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="53" count="1" type="stmt"/>
-          <line num="55" count="1" type="stmt"/>
-          <line num="61" count="2" type="stmt"/>
-          <line num="67" count="0" type="stmt"/>
-          <line num="76" count="0" type="stmt"/>
-          <line num="86" count="2" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.main.version">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <file name="Version.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/main/version/Version.js">
-          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="6" count="3" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.modals.comment-modal">
-        <metrics statements="12" coveredstatements="4" conditionals="6" coveredconditionals="2" methods="6" coveredmethods="2"/>
-        <file name="CommentModal.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/comment-modal/CommentModal.js">
-          <metrics statements="12" coveredstatements="4" conditionals="6" coveredconditionals="2" methods="6" coveredmethods="2"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="12" count="1" type="stmt"/>
+          <metrics statements="13" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="9" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="12" count="0" type="stmt"/>
           <line num="20" count="0" type="stmt"/>
-          <line num="21" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
-          <line num="28" count="0" type="stmt"/>
-          <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="33" count="0" type="stmt"/>
-          <line num="37" count="0" type="stmt"/>
-          <line num="44" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="54" count="1" type="stmt"/>
-          <line num="56" count="0" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.modals.recruit-modal">
-        <metrics statements="11" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="2"/>
-        <file name="RecruitModal.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/recruit-modal/RecruitModal.js">
-          <metrics statements="11" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="2"/>
-          <line num="10" count="1" type="stmt"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
-          <line num="18" count="0" type="stmt"/>
+          <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="22" count="0" type="stmt"/>
           <line num="23" count="0" type="stmt"/>
           <line num="24" count="0" type="stmt"/>
-          <line num="30" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="33" count="1" type="stmt"/>
+        </file>
+        <file name="validators.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/validators.js">
+          <metrics statements="14" coveredstatements="0" conditionals="22" coveredconditionals="0" methods="8" coveredmethods="0"/>
+          <line num="1" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="10" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="15" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="20" count="0" type="cond" truecount="0" falsecount="4"/>
+        </file>
+      </package>
+      <package name="src.actions">
+        <metrics statements="54" coveredstatements="14" conditionals="10" coveredconditionals="0" methods="21" coveredmethods="0"/>
+        <file name="email.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/actions/email.js">
+          <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+        </file>
+        <file name="index.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/actions/index.js">
+          <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+        </file>
+        <file name="user.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/actions/user.js">
+          <metrics statements="36" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="17" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="40" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="60" count="0" type="stmt"/>
+          <line num="64" count="0" type="stmt"/>
+          <line num="65" count="0" type="stmt"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+          <line num="72" count="0" type="stmt"/>
+          <line num="80" count="0" type="stmt"/>
+          <line num="85" count="0" type="stmt"/>
+          <line num="86" count="0" type="stmt"/>
+          <line num="87" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.app">
+        <metrics statements="21" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <file name="App.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/app/App.js">
+          <metrics statements="21" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="10" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="15" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="28" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="31" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="42" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="52" count="0" type="stmt"/>
+          <line num="57" count="0" type="stmt"/>
+          <line num="61" count="0" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+          <line num="73" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.dashboard">
+        <metrics statements="21" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <file name="Dashboard.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/dashboard/Dashboard.js">
+          <metrics statements="21" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="4" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="12" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="53" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.dashboard.left-sidebar">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <file name="LeftSidebar.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/dashboard/left-sidebar/LeftSidebar.js">
+          <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.dashboard.main">
+        <metrics statements="31" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <file name="Main.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/dashboard/main/Main.js">
+          <metrics statements="31" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="11" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="31" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="34" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="37" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="40" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="48" count="0" type="stmt"/>
+          <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="53" count="0" type="stmt"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="61" count="0" type="stmt"/>
+          <line num="67" count="0" type="stmt"/>
+          <line num="76" count="0" type="stmt"/>
+          <line num="82" count="0" type="stmt"/>
+          <line num="86" count="0" type="stmt"/>
+          <line num="88" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.dashboard.main.version">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="Version.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/dashboard/main/version/Version.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="6" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.dashboard.right-sidebar">
+        <metrics statements="27" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <file name="RightSidebar.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/dashboard/right-sidebar/RightSidebar.js">
+          <metrics statements="27" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="7" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="9" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="14" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="17" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="20" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="60" count="0" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+          <line num="72" count="0" type="stmt"/>
+          <line num="74" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.dashboard.right-sidebar.comments">
+        <metrics statements="12" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <file name="Comments.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/dashboard/right-sidebar/comments/Comments.js">
+          <metrics statements="12" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="40" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="57" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.dashboard.right-sidebar.troop">
+        <metrics statements="12" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <file name="Troop.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/dashboard/right-sidebar/troop/Troop.js">
+          <metrics statements="12" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.input">
+        <metrics statements="11" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <file name="Input.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/input/Input.js">
+          <metrics statements="11" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="4" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="3" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="14" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="19" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.landing-page">
+        <metrics statements="7" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <file name="LandingPage.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/landing-page/LandingPage.js">
+          <metrics statements="7" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="5" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.modals.comment-modal">
+        <metrics statements="19" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <file name="CommentModal.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/comment-modal/CommentModal.js">
+          <metrics statements="19" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="54" count="0" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="85" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.modals.create-email-modal">
+        <metrics statements="26" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <file name="CreateEmailForm.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/create-email-modal/CreateEmailForm.js">
+          <metrics statements="13" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="5" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="42" count="0" type="stmt"/>
+          <line num="48" count="0" type="stmt"/>
+        </file>
+        <file name="CreateEmailModal.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/create-email-modal/CreateEmailModal.js">
+          <metrics statements="13" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="5" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.modals.login-modal">
+        <metrics statements="24" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="8" coveredmethods="0"/>
+        <file name="LogIn.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/login-modal/LogIn.js">
+          <metrics statements="13" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="5" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="11" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="65" count="0" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+        </file>
+        <file name="LogInWrapper.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/login-modal/LogInWrapper.js">
+          <metrics statements="11" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.modals.recruit-modal">
+        <metrics statements="16" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <file name="RecruitModal.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/recruit-modal/RecruitModal.js">
+          <metrics statements="16" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="33" count="0" type="stmt"/>
           <line num="35" count="0" type="stmt"/>
           <line num="47" count="0" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.modals.signup-modal">
+        <metrics statements="25" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <file name="SignUp.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/signup-modal/SignUp.js">
+          <metrics statements="15" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="11" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="90" count="0" type="stmt"/>
+          <line num="96" count="0" type="stmt"/>
+        </file>
+        <file name="SignUpWrapper.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/signup-modal/SignUpWrapper.js">
+          <metrics statements="10" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
         </file>
       </package>
       <package name="src.components.navbar">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="Navbar.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/navbar/Navbar.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="7" count="2" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.right-sidebar">
-        <metrics statements="19" coveredstatements="12" conditionals="20" coveredconditionals="12" methods="6" coveredmethods="4"/>
-        <file name="RightSidebar.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/right-sidebar/RightSidebar.js">
-          <metrics statements="19" coveredstatements="12" conditionals="20" coveredconditionals="12" methods="6" coveredmethods="4"/>
-          <line num="14" count="2" type="cond" truecount="2" falsecount="2"/>
-          <line num="15" count="0" type="stmt"/>
-          <line num="17" count="2" type="cond" truecount="3" falsecount="1"/>
-          <line num="18" count="0" type="stmt"/>
-          <line num="20" count="2" type="cond" truecount="2" falsecount="2"/>
-          <line num="21" count="0" type="stmt"/>
-          <line num="23" count="2" type="stmt"/>
-          <line num="27" count="4" type="cond" truecount="2" falsecount="0"/>
-          <line num="28" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="29" count="2" type="stmt"/>
-          <line num="31" count="0" type="stmt"/>
-          <line num="34" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="35" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="36" count="2" type="stmt"/>
-          <line num="38" count="0" type="stmt"/>
-          <line num="44" count="2" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
-          <line num="60" count="0" type="stmt"/>
-          <line num="72" count="2" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.right-sidebar.comments">
-        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
-        <file name="Comments.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/right-sidebar/comments/Comments.js">
-          <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
-          <line num="11" count="3" type="stmt"/>
-          <line num="12" count="3" type="stmt"/>
-          <line num="30" count="3" type="stmt"/>
-          <line num="31" count="9" type="stmt"/>
-          <line num="40" count="3" type="stmt"/>
-          <line num="44" count="0" type="stmt"/>
-          <line num="45" count="0" type="stmt"/>
-          <line num="49" count="3" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.right-sidebar.troop">
-        <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
-        <file name="Troop.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/right-sidebar/troop/Troop.js">
-          <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
-          <line num="8" count="3" type="stmt"/>
-          <line num="9" count="3" type="stmt"/>
-          <line num="13" count="3" type="stmt"/>
-          <line num="14" count="15" type="stmt"/>
-          <line num="22" count="3" type="stmt"/>
-          <line num="27" count="15" type="stmt"/>
-          <line num="28" count="15" type="stmt"/>
-          <line num="32" count="0" type="stmt"/>
-          <line num="33" count="0" type="stmt"/>
-          <line num="37" count="3" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
         </file>
       </package>
       <package name="src.reducers">
-        <metrics statements="15" coveredstatements="9" conditionals="13" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <metrics statements="32" coveredstatements="0" conditionals="32" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <file name="index.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/reducers/index.js">
-          <metrics statements="15" coveredstatements="9" conditionals="13" coveredconditionals="7" methods="1" coveredmethods="1"/>
-          <line num="3" count="6" type="stmt"/>
-          <line num="21" count="6" type="cond" truecount="1" falsecount="0"/>
-          <line num="22" count="6" type="cond" truecount="1" falsecount="1"/>
-          <line num="23" count="0" type="stmt"/>
-          <line num="25" count="6" type="cond" truecount="1" falsecount="1"/>
-          <line num="26" count="0" type="stmt"/>
-          <line num="28" count="6" type="cond" truecount="1" falsecount="1"/>
-          <line num="29" count="0" type="stmt"/>
-          <line num="31" count="6" type="cond" truecount="1" falsecount="1"/>
+          <metrics statements="18" coveredstatements="0" conditionals="23" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="1" count="0" type="cond" truecount="0" falsecount="8"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="22" count="0" type="cond" truecount="0" falsecount="1"/>
+          <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="42" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+        </file>
+        <file name="user.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/reducers/user.js">
+          <metrics statements="14" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="15" count="0" type="cond" truecount="0" falsecount="1"/>
+          <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="32" count="0" type="stmt"/>
-          <line num="34" count="6" type="cond" truecount="1" falsecount="1"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="37" count="6" type="cond" truecount="1" falsecount="1"/>
-          <line num="38" count="0" type="stmt"/>
-          <line num="40" count="6" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
         </file>
       </package>
     </metrics>
