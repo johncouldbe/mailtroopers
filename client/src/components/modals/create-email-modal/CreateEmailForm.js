@@ -11,7 +11,7 @@ class CreateEmailForm extends Component {
   onSubmit(values) {
     const {campaign} = values
     console.log(campaign);
-    return this.props.dispatch(createEmail(campaign))
+    return this.props.dispatch(createEmail(campaign, this.props.user))
   }
 
   render() {

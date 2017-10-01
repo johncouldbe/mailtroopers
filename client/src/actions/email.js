@@ -7,9 +7,10 @@ export const createEmailErr = err => ({
   err
 })
 
-export const createEmail = email => dispatch => {
+export const createEmail = (email, user) => dispatch => {
   return axios.post(`${BASE_URL}/campaigns/new`, {
-    campaign: email
+    campaign: email,
+    user
   })
   .then(res => {
     console.log(res);

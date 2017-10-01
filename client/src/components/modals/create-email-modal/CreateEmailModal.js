@@ -17,7 +17,7 @@ const CreateEmailModal = props => {
         <div className="h3 grey-text">Let make a new campaign!</div>
         <div className="p red-text">{props.err}</div>
 
-        <CreateEmailForm/>
+        <CreateEmailForm user={props.user}/>
 
       </div>
     </div>
@@ -27,6 +27,7 @@ const CreateEmailModal = props => {
 const mapStateToProps = state => {
    return {
     err: state.email.createEmailErr,
+    user: state.user.currentUser
   }
 }
 

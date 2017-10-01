@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 
 const EmailSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
   master: {
-    type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    type: mongoose.Schema.Types.ObjectId, ref: 'User',
+    required: true
   },
   contributors: [{
     contributor: {
@@ -10,7 +15,9 @@ const EmailSchema = mongoose.Schema({
     }
   }],
   slug: {
-    type: String
+    type: String,
+    unique: true,
+    required: true
   },
   versions: [{
     html: {
