@@ -10,25 +10,23 @@ const EmailSchema = mongoose.Schema({
     required: true
   },
   contributors: [{
-    contributor: {
-      type: mongoose.Schema.Types.ObjectId, ref: 'User'
-    }
+    type: mongoose.Schema.Types.ObjectId, ref: 'User'
   }],
   slug: {
     type: String,
     unique: true,
     required: true
   },
+  date: {
+    type: Date,
+    default: Date.now()
+  },
   versions: [{
     html: {
       type: String
     },
-    date: {
-      type: Date,
-      default: Date.now()
-    },
     comments: [{
-      user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+      user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
       date: {
         type: Date,
         default: Date.now()
@@ -37,6 +35,15 @@ const EmailSchema = mongoose.Schema({
     }]
   }]
 })
+
+EmailSchema.methods.apiRepr = function() {
+    return {
+        name: this.name,
+        master: this.master,
+        date: this.date,
+        _id: this._id
+    };
+};
 
 const Email = mongoose.model('Email', EmailSchema)
 

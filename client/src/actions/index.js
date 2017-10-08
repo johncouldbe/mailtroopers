@@ -18,17 +18,8 @@ export const toggleComments = {
   type: TOGGLE_COMMENTS
 }
 
-export const TOGGLE_RECRUIT_MODAL = 'TOGGLE_RECRUIT_MODAL'
-export const toggleRecruitModal = {
-  type: TOGGLE_RECRUIT_MODAL
-}
-
-export const TOGGLE_COMMENT_MODAL = 'TOGGLE_COMMENT_MODAL'
-export const toggleCommentModal = {
-  type: TOGGLE_COMMENT_MODAL
-}
-
-export const TOGGLE_CREATE_EMAIL_MODAL = 'TOGGLE_CREATE_EMAIL_MODAL'
-export const toggleCreateEmailModal = {
-  type: TOGGLE_CREATE_EMAIL_MODAL
-}
+export const SELECT_CAMPAIGN = 'SELECT_CAMPAIGN'
+export const selectCampaign = campaign => ({
+  type: SELECT_CAMPAIGN,
+  campaign
+})

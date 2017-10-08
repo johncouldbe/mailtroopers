@@ -3,14 +3,16 @@ import jwtDecode from 'jwt-decode'
 import {BASE_URL} from '../config'
 import {saveAuthToken, clearAuthToken} from '../local-storage'
 
+import {getCampaigns} from './email'
+
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
-    const decodedToken = jwtDecode(authToken)
-    console.log("STORE AUTH INFO")
-    saveAuthToken(authToken)
-    dispatch(setAuthToken(authToken))
-    dispatch(setCurrentUser(decodedToken.user))
+  const decodedToken = jwtDecode(authToken)
+  saveAuthToken(authToken)
+  dispatch(setAuthToken(authToken))
+  dispatch(setCurrentUser(decodedToken.user))
+  dispatch(getCampaigns(decodedToken.user._id))
 }
 
 export const registerUser = user => dispatch => {

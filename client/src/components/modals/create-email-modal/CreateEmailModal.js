@@ -2,7 +2,7 @@ import React from 'react'
 import CreateEmailForm from './CreateEmailForm'
 import {connect} from 'react-redux'
 
-import {toggleCreateEmailModal} from '../../../actions/'
+import {toggleCreateEmailModal} from '../../../actions/modal'
 
 const CreateEmailModal = props => {
   const hideModal = e => {
@@ -17,7 +17,7 @@ const CreateEmailModal = props => {
         <div className="h3 grey-text">Let make a new campaign!</div>
         <div className="p red-text">{props.err}</div>
 
-        <CreateEmailForm user={props.user}/>
+        <CreateEmailForm user={props.user} socket={props.socket} />
 
       </div>
     </div>
@@ -27,7 +27,8 @@ const CreateEmailModal = props => {
 const mapStateToProps = state => {
    return {
     err: state.email.createEmailErr,
-    user: state.user.currentUser
+    user: state.user.currentUser,
+    socket: state.io.socket
   }
 }
 

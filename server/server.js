@@ -24,6 +24,9 @@ const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
 const campaignRouter = require('./routes/campaign')
 
+//Sockets
+const {emailSockets} = require('./sockets/email')
+
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -46,7 +49,7 @@ app.use('/user', userRouter)
 app.use('/campaigns', campaignRouter)
 
 
-let server, socketIo;
+let server;
 function runServer(port=PORT, databaseUrl=DATABASE_URL){
   return new Promise((resolve, reject) => {
     mongoose.connect(databaseUrl, {useMongoClient: true}, err => {
@@ -56,12 +59,10 @@ function runServer(port=PORT, databaseUrl=DATABASE_URL){
 
       server = app.listen(port, () => {
         console.log("You're app is listening on port ", port)
-        socketIo = io(server)
-        sockets()
+        const socketIo = io(server)
         console.log('socket listening on port ', port)
+        emailSockets(socketIo, mail)
       })
-
-
       resolve()
     })
     .on('error', err => {
@@ -89,19 +90,6 @@ function closeServer() {
 
 mail.listen.start();
 
-const sockets = () => {
-  socketIo.on('connection', client => {
-   client.on('subscribeToEmail', () => {
-     console.log('--- client connected ---')
-
-     mail.listen.on("mail", function(mail, seqno, attributes){
-       console.log('Sending Mail')
-
-       client.emit('email', mail.html)
-     })
-   })
- })
-}
 
 if(require.main === module){
   runServer().catch(err => console.log(err))

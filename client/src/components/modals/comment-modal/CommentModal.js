@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {toggleCommentModal} from '../../../actions'
+import {toggleCommentModal} from '../../../actions/modal'
 // import {BrowserRouter as Link} from 'react-router-dom'
 
 import './CommentModal.css'

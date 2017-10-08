@@ -18,21 +18,20 @@ export const userReducer = (state=initialState, action) => {
       regErr: action.err
     })
   }
-  if(action.type === LOGIN_ERR){
+  else if(action.type === LOGIN_ERR){
     return Object.assign({}, state, {
       logErr: action.err
     })
   }
-  if (action.type === SET_AUTH_TOKEN) {
-    console.log('setting auth token');
-        return Object.assign({}, state, {
-            authToken: action.authToken
-        });
-    } else if (action.type === SET_CURRENT_USER) {
-      console.log('setting current user', action.currentUser);
-        return Object.assign({}, state, {
-            currentUser: action.currentUser
-        });
-    }
+  else if (action.type === SET_AUTH_TOKEN) {
+    return Object.assign({}, state, {
+      authToken: action.authToken
+    });
+  }
+  else if (action.type === SET_CURRENT_USER) {
+    return Object.assign({}, state, {
+      currentUser: action.currentUser
+    });
+  }
   return state
 }

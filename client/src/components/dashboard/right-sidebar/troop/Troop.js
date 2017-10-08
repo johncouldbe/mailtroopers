@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {toggleRecruitModal} from '../../../../actions'
+import {toggleRecruitModal} from '../../../../actions/modal'
 import './Troop.css'
 
 export class Troop extends Component {

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/reducers/user.js</title>
+    <title>Code coverage report for src/reducers/email.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">src/reducers</a> user.js
+      <a href="../../index.html">All files</a> / <a href="index.html">src/reducers</a> email.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/14</span>
+        <span class='fraction'>0/25</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>0/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>0/13</span>
       </div>
     </div>
   </div>
@@ -68,28 +68,9 @@
 23
 24
 25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+26</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -98,18 +79,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -117,41 +93,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
-  REGISTER_ERR,
-  LOGIN_ERR,
-  SET_AUTH_TOKEN,
-  SET_CURRENT_USER
-  } from '../actions/user'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as  <span class="cstat-no" title="statement not covered" >actions from '../actions/email'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
 &nbsp;
 const initialState = <span class="cstat-no" title="statement not covered" >{</span>
-  regErr: null,
-  logErr: null,
-  authToken: null,
-  currentUser: null
+  createEmailErr: null,
+  emails: null
 }
 &nbsp;
-export const userRed<span class="cstat-no" title="statement not covered" >ucer = (state=initialS<span class="fstat-no" title="function not covered" >ta</span>te, act<span class="branch-0 cbranch-no" title="branch not covered" >ion) =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >  if(action.type === REGISTER_ERR){</span>
+export const emailRed<span class="cstat-no" title="statement not covered" >ucer = (state=initialSt<span class="fstat-no" title="function not covered" >at</span>e, acti<span class="branch-0 cbranch-no" title="branch not covered" >on) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  if (action.type === actions.CREATE_EMAIL_ERR) {</span>
+<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {createEmailErr: action.err})</span>
+  }
+<span class="cstat-no" title="statement not covered" >  else if (action.type === actions.STORE_EMAILS) {</span>
+<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {emails: action.emails})</span>
+  }
+<span class="cstat-no" title="statement not covered" >  else if (action.type === actions.ADD_NEW_CAMPAIGN) {</span>
+<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {emails: [action.campaign, ...state.emails]})</span>
+  }
+<span class="cstat-no" title="statement not covered" >  else if (action.type === actions.REMOVE_CAMPAIGN) {</span>
 <span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {</span>
-      regErr: action.err
+      emails: state.emails.filter(<span class="fstat-no" title="function not covered" >em</span>ail =&gt; <span class="cstat-no" title="statement not covered" >email._id !== action.campaign._id)</span>
     })
   }
-<span class="cstat-no" title="statement not covered" >  else if(action.type === LOGIN_ERR){</span>
-<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {</span>
-      logErr: action.err
-    })
-  }
-<span class="cstat-no" title="statement not covered" >  else if (action.type === SET_AUTH_TOKEN) {</span>
-<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {</span>
-      authToken: action.authToken
-    });
-  }
-<span class="cstat-no" title="statement not covered" >  else if (action.type === SET_CURRENT_USER) {</span>
-<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {</span>
-      currentUser: action.currentUser
-    });
-  }
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  return state</span>
 }
 &nbsp;</pre></td></tr>

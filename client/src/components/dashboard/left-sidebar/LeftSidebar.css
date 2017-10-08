@@ -30,14 +30,24 @@
   overflow-y: scroll;
 }
 
-
-
 .email-file {
   grid-area: email-file;
   border-radius: 2px;
   background-color: #fff;
-  border-left: 10px solid #f54f45;
+  border-left: 7px solid #f54f45;
   margin: 10px 0;
   padding: 5px;
   cursor: pointer;
+}
+
+.hidden-email-options {
+  overflow-y: hidden;
+  height: 0;
+  transition: .3s;
+}
+
+.shown-email-options {
+  overflow-y: hidden;
+  height: 20px;
+  transition: .3s;
 }

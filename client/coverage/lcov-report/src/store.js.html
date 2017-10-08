@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/16</span>
+        <span class='fraction'>0/24</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/13</span>
+        <span class='fraction'>0/20</span>
       </div>
     </div>
   </div>
@@ -69,16 +69,35 @@
 24
 25
 26
-27</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -88,8 +107,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -98,26 +124,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {apply<span class="cstat-no" title="statement not covered" >Middleware, createStore, combineReducers} from 'redux'<span class="cstat-no" title="statement not covered" ></span></span>
 import {reducer a<span class="cstat-no" title="statement not covered" >s formReducer} from 'r</span>edux-form'
 import thunk from <span class="cstat-no" title="statement not covered" >'redux-thunk'<span class="cstat-no" title="statement not covered" ></span></span>
+import io from<span class="cstat-no" title="statement not covered" > 'socket.io-client'<span class="cstat-no" title="statement not covered" ></span></span>
 &nbsp;
 import {loadAuthToke<span class="cstat-no" title="statement not covered" >n} from './local-storage'</span>
 import {setA<span class="cstat-no" title="statement not covered" >uthToken} from './actions/</span>user'
+import {co<span class="cstat-no" title="statement not covered" >nnectSocket} from './act</span>ions/io'
+&nbsp;
+import {SOCKET<span class="cstat-no" title="statement not covered" >_URL} from './config</span>'
 &nbsp;
 import {mailTroo<span class="cstat-no" title="statement not covered" >perReducer} from './re</span>ducers'
-import {userR<span class="cstat-no" title="statement not covered" >educer} from './reducers/us</span>er'<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+import {userR<span class="cstat-no" title="statement not covered" >educer} from './reducers/us</span>er'
+import {email<span class="cstat-no" title="statement not covered" >Reducer} from './reducers/em</span>ail'
+import {ioR<span class="cstat-no" title="statement not covered" >educer} from './reducers/</span>io'<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
 &nbsp;
 const store = (
 <span class="cstat-no" title="statement not covered" >  createStore(combineReducers({</span>
     mailTrooper: mailTrooperReducer,
     user: userReducer,
-    form: formReducer
+    email: emailReducer,
+    form: formReducer,
+    io: ioReducer
   }),
   applyMiddleware(thunk))
 )
 &nbsp;
-const authToken = <span class="cstat-no" title="statement not covered" >loadAuthToken();</span>
+&nbsp;
+&nbsp;
+const authToken = <span class="cstat-no" title="statement not covered" >loadAuthToken()</span>
 <span class="cstat-no" title="statement not covered" >if (authToken) {</span>
-    const token <span class="cstat-no" title="statement not covered" >= authToke</span>n;
-<span class="cstat-no" title="statement not covered" >    store.dispatch(setAuthToken(token));</span>
+    const token <span class="cstat-no" title="statement not covered" >= authToke</span>n
+<span class="cstat-no" title="statement not covered" >    store.dispatch(setAuthToken(token))</span>
+&nbsp;
+    const socket <span class="cstat-no" title="statement not covered" >= io.connect(SOCKET_URL)</span>
+<span class="cstat-no" title="statement not covered" >    store.dispatch(connectSocket(socket))</span>
 }<span class="cstat-no" title="statement not covered" ></span>
 &nbsp;
 export default store
@@ -127,7 +166,7 @@ export default store
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 30 2017 11:45:40 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 08 2017 15:33:58 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../prettify.js"></script>

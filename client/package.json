@@ -5,7 +5,9 @@
   "dependencies": {
     "axios": "^0.16.2",
     "dotenv": "^4.0.0",
+    "halogen": "^0.2.0",
     "jwt-decode": "^2.2.0",
+    "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

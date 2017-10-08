@@ -3,15 +3,14 @@ import {Field, reduxForm, focus} from 'redux-form'
 
 import Input from '../../input/Input'
 import {required, nonEmpty, isTrimmed} from '../../../validators'
-import {createEmail} from '../../../actions/email'
+import {createNewCampaign} from '../../../actions/email'
 
 import './CreateEmailModal.css'
 
 class CreateEmailForm extends Component {
   onSubmit(values) {
     const {campaign} = values
-    console.log(campaign);
-    return this.props.dispatch(createEmail(campaign, this.props.user))
+    return this.props.dispatch(createNewCampaign(campaign, this.props.user, this.props.socket))
   }
 
   render() {
@@ -21,12 +20,12 @@ class CreateEmailForm extends Component {
           className="create-email-form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
         >
-            <Field
-              component={Input}
-              type="text"
-              name="campaign"
-              validate={[required, nonEmpty, isTrimmed]}
-            />
+          <Field
+            component={Input}
+            type="text"
+            name="campaign"
+            validate={[required, nonEmpty, isTrimmed]}
+          />
           <div className="btn-container">
             <button
               className="btn"

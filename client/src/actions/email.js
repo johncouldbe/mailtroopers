@@ -7,16 +7,39 @@ export const createEmailErr = err => ({
   err
 })
 
-export const createEmail = (email, user) => dispatch => {
-  return axios.post(`${BASE_URL}/campaigns/new`, {
-    campaign: email,
-    user
-  })
-  .then(res => {
-    console.log(res);
+export const createNewCampaign = (campaign, user, socket) => dispatch => {
+  return socket.emit('add campaign', {campaign, user})
+}
+
+export const getCampaigns = id => dispatch => {
+  return axios.get(`${BASE_URL}/campaigns/${id}`)
+  .then(emails => {
+    console.log('EMAILS', emails);
+    dispatch(storeEmails(emails.data))
   })
   .catch(err => {
-    const error = 'Ermm. This is embarrassing but something went wrong...'
-    dispatch(createEmailErr(error))
+    console.log(err);
   })
 }
+
+export const deleteCampaign = (campaign, socket) => dispatch => {
+  return socket.emit('delete campaign', campaign)
+}
+
+export const ADD_NEW_CAMPAIGN = 'ADD_NEW_CAMPAIGN'
+export const addNewCampaign = campaign => ({
+  type: ADD_NEW_CAMPAIGN,
+  campaign
+})
+
+export const STORE_EMAILS = 'STORE_EMAILS'
+export const storeEmails = emails => ({
+  type: STORE_EMAILS,
+  emails
+})
+
+export const REMOVE_CAMPAIGN = 'REMOVE_CAMPAIGN'
+export const removeCampaign = campaign => ({
+  type: REMOVE_CAMPAIGN,
+  campaign
+})

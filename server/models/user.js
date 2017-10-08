@@ -17,15 +17,15 @@ const UserSchema = mongoose.Schema ({
   password: {
     type: String,
     required: true
-  },
-  campaigns: [String]
+  }
 })
 
 UserSchema.methods.apiRepr = function() {
     return {
         email: this.email || '',
         firstName: this.firstName || '',
-        lastName: this.lastName || ''
+        lastName: this.lastName || '',
+        _id: this._id
     };
 };
 

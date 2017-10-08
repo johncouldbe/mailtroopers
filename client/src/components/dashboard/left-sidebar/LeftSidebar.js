@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import moment from 'moment'
 
-import {toggleCreateEmailModal} from '../../../actions'
+import {addNewCampaign, deleteCampaign, removeCampaign} from '../../../actions/email'
+import {toggleCreateEmailModal} from '../../../actions/modal'
 
 import './LeftSidebar.css'
 
@@ -11,11 +13,56 @@ function LeftSidebar (props) {
     props.dispatch(toggleCreateEmailModal)
   }
 
+  const deleteEmail = (campaign, socket) => {
+    props.dispatch(deleteCampaign(campaign, socket))
+  }
+
+  const emails = () => {
+    if(props.emails){
+      return props.emails.map((email, index) => {
+        return (
+        <div
+          className="email-file"
+          key={index}
+          onMouseOver={ e => {
+            e.currentTarget.lastChild.className = "shown-email-options"
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.lastChild.className = "hidden-email-options"
+          }}
+        >
+          <div className="h4 grey-text comment-date">{email.name}</div>
+          <div className="p grey-text comment-comment">
+            {moment(email.date).format('MM/DD/YYYY')}
+          </div>
+          <div className="hidden-email-options">
+            <div className="p grey-text right-text">
+              Get Link |&nbsp;
+              <span className="red-text" onClick={() => deleteEmail(email._id, props.socket)}>Delete</span>
+            </div>
+          </div>
+        </div>
+        )
+      })
+    }
+  }
+
+  props.socket.on('campaign added', campaign => {
+    console.log('HITTTTT', campaign);
+    props.dispatch(addNewCampaign(campaign))
+    props.dispatch(toggleCreateEmailModal)
+  })
+
+  props.socket.on('campaign deleted', campaignId => {
+    props.dispatch(removeCampaign(campaignId))
+  })
+
   return (
       <div className="left-sidebar">
         <div className="review-header">
           <div className="h2 grey-text center-text">Reviews</div>
         </div>
+
         <div className="email-list-container">
           <div className="btn-container">
             <button
@@ -24,19 +71,16 @@ function LeftSidebar (props) {
               New Email  <img src={require("../../images/bomb.svg")} alt="New Email" />
             </button>
           </div>
-          <div className="email-file">
-            <div className="h4 grey-text comment-date">ARA September Education Seminar</div>
-            <div className="p grey-text comment-comment">09/12/17</div>
-          </div>
-          <div className="email-file">
-            <div className="h4 grey-text comment-date">ARA September Education Seminar</div>
-            <div className="p grey-text comment-comment">09/12/17</div>
-          </div>
+
+          {emails()}
         </div>
       </div>
   )
 }
 
+const mapStateToProps = state => ({
+  emails: state.email.emails,
+  socket: state.io.socket
+})
 
-
-export default connect()(LeftSidebar)
+export default connect(mapStateToProps)(LeftSidebar)

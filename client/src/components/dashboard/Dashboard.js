@@ -1,25 +1,34 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
+import PacmanLoader from 'halogen/PacmanLoader'
 
 import RightSidebar from './right-sidebar/RightSidebar'
 import LeftSidebar from './left-sidebar/LeftSidebar'
 import Main from './main/Main'
 import Navbar from '../navbar/Navbar'
 
+
 import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
 
+import './Dashboard.css'
+
 export class Dashboard extends Component {
+
     componentDidMount() {
         if (!this.props.loggedIn) {
-            return;
+            return
         }
-
+        // if(this.props.currentUser){
+        //   console.log('dispatching')
+        //   this.props.dispatch(getCampaigns(this.props.currentUser._id))
+        // }
     }
 
     render() {
+      console.log('RENDER', this.props.emails)
       if (!this.props.loggedIn) {
           return <Redirect to="/" />;
       }
@@ -29,13 +38,19 @@ export class Dashboard extends Component {
       const createEmailModal = this.props.createEmailModal ? <CreateEmailModal /> : ''
 
       return (
-          <div>
+        <div>
+        {
+          this.props.currentUser && this.props.emails ?
           <div className="grid">
             <Navbar />
             <LeftSidebar />
             <RightSidebar />
             <Main />
+          </div> :
+          <div className='loader-container'>
+            <PacmanLoader color="#f54f45" size={25} margin={4} />
           </div>
+        }
 
           {recruitmodal}
           {commentmodal}
@@ -47,10 +62,12 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-    recruitModal: state.mailTrooper.recruitModal,
-    commentModal: state.mailTrooper.commentModal,
-    createEmailModal: state.mailTrooper.createEmailModal,
-    loggedIn: state.user.authToken !== null
+    recruitModal: state.modal.recruitModal,
+    commentModal: state.modal.commentModal,
+    createEmailModal: state.modal.createEmailModal,
+    loggedIn: state.user.authToken !== null,
+    currentUser: state.user.currentUser,
+    emails: state.email.emails
 });
 
 export default connect(mapStateToProps)(Dashboard);

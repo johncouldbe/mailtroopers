@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {toggleRecruitModal} from '../../../actions'
-// import {BrowserRouter as Link} from 'react-router-dom'
+import {toggleRecruitModal} from '../../../actions/modal'
 
 import './RecruitModal.css'
 
