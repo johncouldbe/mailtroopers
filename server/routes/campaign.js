@@ -9,6 +9,7 @@ const sentencer = require('sentencer')
 router.get('/:id', (req, res) => {
   Email
   .find({$or: [{master: req.params.id}, {contributors: req.params.id}]})
+  .populate('contributors', 'firstName lastName _id')
   .then(emails => {
     res.send(emails)
   })

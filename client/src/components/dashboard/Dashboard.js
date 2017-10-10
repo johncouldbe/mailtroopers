@@ -13,7 +13,7 @@ import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
 
-import {addNewCampaign, deleteCampaign, removeCampaign} from '../../actions/email'
+import {addNewCampaign, removeCampaign} from '../../actions/email'
 import {toggleCreateEmailModal} from '../../actions/modal'
 
 import './Dashboard.css'

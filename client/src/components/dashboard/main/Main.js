@@ -28,17 +28,21 @@ export class Main extends Component {
       </div>
     }
     if(this.props.selectedCampaign.versions.length === 0){
-      return <div className="email-container">
-        <span className="h4 grey-text center-text">
+      return <div className="email-container" style={{padding: '10px'}}>
+        <span className="h3 red-text center-text">
           You haven't made a version for this campaign yet! Send the email you'd like to review to:
-          <br />{this.props.selectedCampaign.slug}@mailtroopers.com
+        </span>
+        <br />
+        <span className="h4 grey-text center-text">
+          {this.props.selectedCampaign.slug}@mailtroopers.com
         </span>
       </div>
     }
 
+    const versions = this.props.selectedCampaign.versions
     return <div
           className="email-container"
-          dangerouslySetInnerHTML={{__html: this.props.selectedCampaign.versions[this.props.selectedCampaign.versions.length - 1].html}}
+          dangerouslySetInnerHTML={{__html: versions[versions.length - 1].html}}
         ></div>
   }
 

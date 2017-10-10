@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import moment from 'moment'
 
-import {addNewCampaign, deleteCampaign, removeCampaign, selectCampaign} from '../../../actions/email'
+import {deleteCampaign, selectCampaign} from '../../../actions/email'
 import {toggleCreateEmailModal} from '../../../actions/modal'
 
 import './LeftSidebar.css'
@@ -59,7 +59,7 @@ function LeftSidebar (props) {
             <button
               className="btn"
               onClick={e => showModal(e)}>
-              New Email  <img src={require("../../images/bomb.svg")} alt="New Email" />
+              New Campaign  <img src={require("../../images/bomb.svg")} alt="New Campaign" />
             </button>
           </div>
 

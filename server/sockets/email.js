@@ -12,7 +12,7 @@ exports.emailSockets = (socketIo, mail) => {
         const address = mail.to[0].address
         const newSlug = address.substr(0, address.indexOf('@'))
         console.log('SLUG', mail);
-        
+
         Email
         .update(
           { slug: newSlug },
@@ -61,8 +61,7 @@ exports.emailSockets = (socketIo, mail) => {
         slug
       })
       .then(campaign => {
-        console.log(campaign.apiRepr());
-        client.emit('campaign added', campaign.apiRepr())
+        client.emit('campaign added', campaign)
       })
       .catch(err => console.log(err))
    })

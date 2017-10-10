@@ -147,7 +147,7 @@ nav {
 
 .btn-container {
   display: grid;
-  grid-template-columns: calc(50% - 75px) 150px calc(50% - 75px);
+  grid-template-columns: calc(50% - 87.5px) 175px calc(50% - 87.5px);
   grid-template-rows: 20px 40px 20px;
   grid-template-areas:
   ". . ."
