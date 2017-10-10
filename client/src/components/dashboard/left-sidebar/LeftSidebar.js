@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import moment from 'moment'
 
-import {addNewCampaign, deleteCampaign, removeCampaign} from '../../../actions/email'
+import {addNewCampaign, deleteCampaign, removeCampaign, selectCampaign} from '../../../actions/email'
 import {toggleCreateEmailModal} from '../../../actions/modal'
 
 import './LeftSidebar.css'
@@ -30,6 +30,7 @@ function LeftSidebar (props) {
           onMouseLeave={e => {
             e.currentTarget.lastChild.className = "hidden-email-options"
           }}
+          onClick={() => props.dispatch(selectCampaign(email))}
         >
           <div className="h4 grey-text comment-date">{email.name}</div>
           <div className="p grey-text comment-comment">
@@ -46,16 +47,6 @@ function LeftSidebar (props) {
       })
     }
   }
-
-  props.socket.on('campaign added', campaign => {
-    console.log('HITTTTT', campaign);
-    props.dispatch(addNewCampaign(campaign))
-    props.dispatch(toggleCreateEmailModal)
-  })
-
-  props.socket.on('campaign deleted', campaignId => {
-    props.dispatch(removeCampaign(campaignId))
-  })
 
   return (
       <div className="left-sidebar">
@@ -80,7 +71,8 @@ function LeftSidebar (props) {
 
 const mapStateToProps = state => ({
   emails: state.email.emails,
-  socket: state.io.socket
+  socket: state.io.socket,
+
 })
 
 export default connect(mapStateToProps)(LeftSidebar)

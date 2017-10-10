@@ -1,6 +1,8 @@
 import axios from 'axios'
 import {BASE_URL} from '../config'
 
+import {toggleCreateEmailModal} from './modal'
+
 export const CREATE_EMAIL_ERR = 'CREATE_EMAIL_ERR'
 export const createEmailErr = err => ({
   type: CREATE_EMAIL_ERR,
@@ -43,3 +45,20 @@ export const removeCampaign = campaign => ({
   type: REMOVE_CAMPAIGN,
   campaign
 })
+
+export const SELECT_CAMPAIGN = 'SELECT_CAMPAIGN'
+export const selectCampaign = campaign => ({
+  type: SELECT_CAMPAIGN,
+  campaign
+})
+//
+// export const getSelectedCampaign = id => dispatch => {
+//   return axios.get(`${BASE_URL}/campaigns/selected/${id}`)
+//   .then(email => {
+//     console.log('EMAIL', email)
+//     dispatch(selectCampaign(email.data))
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   })
+// }

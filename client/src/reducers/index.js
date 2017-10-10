@@ -8,7 +8,6 @@ const initialState = {
   recruitModal: false,
   commentModal: false,
   createEmailModal: false,
-  selectedCampaign: null
 }
 
 export const mailTrooperReducer = (state=initialState, action) => {
@@ -23,9 +22,6 @@ export const mailTrooperReducer = (state=initialState, action) => {
   }
   else if(action.type === actions.TOGGLE_COMMENTS) {
     return Object.assign({}, state, {commentsOpen: !state.commentsOpen})
-  }
-  else if(action.type === actions.SELECT_CAMPAIGN) {
-    return Object.assign({}, state, {selectedCampaign: action.campaign})
   }
   return state
 }

@@ -8,9 +8,11 @@ exports.emailSockets = (socketIo, mail) => {
     client.on('subscribeToEmail', () => {
       console.log('--- client connected ---')
 
-      mail.listen.on("mail", (mail, seqno, attributes) => {
+      mail.listen.on("mail", function(mail, seqno, attributes) {
         const address = mail.to[0].address
         const newSlug = address.substr(0, address.indexOf('@'))
+        console.log('SLUG', mail);
+        
         Email
         .update(
           { slug: newSlug },

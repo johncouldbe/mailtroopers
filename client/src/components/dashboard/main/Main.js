@@ -18,6 +18,28 @@ export class Main extends Component {
     this.subscribeToEmail((err, email) => this.setState({
       email
     }));
+
+  }
+
+  displayContainer(){
+    if(!this.props.selectedCampaign){
+      return <div className="email-container">
+        <span className="h2 red-text center-text">You must select a campaign.</span>
+      </div>
+    }
+    if(this.props.selectedCampaign.versions.length === 0){
+      return <div className="email-container">
+        <span className="h4 grey-text center-text">
+          You haven't made a version for this campaign yet! Send the email you'd like to review to:
+          <br />{this.props.selectedCampaign.slug}@mailtroopers.com
+        </span>
+      </div>
+    }
+
+    return <div
+          className="email-container"
+          dangerouslySetInnerHTML={{__html: this.props.selectedCampaign.versions[this.props.selectedCampaign.versions.length - 1].html}}
+        ></div>
   }
 
   subscribeToEmail(cb) {
@@ -58,6 +80,7 @@ export class Main extends Component {
   }
 
   render(){
+
     return (
         <div className={this.pickMainClass()}>
           <Version />
@@ -69,7 +92,7 @@ export class Main extends Component {
             <div className={this.buttonDirection('left')}></div>
           </div>
 
-          <div className="email-container" dangerouslySetInnerHTML={{__html: this.state.email}}></div>
+          {this.displayContainer()}
 
           <div
             className="right-close-button"
@@ -85,7 +108,8 @@ export class Main extends Component {
 
 const mapStateToProps = state => ({
     leftSidebarOpen: state.mailTrooper.leftSidebarOpen,
-    rightSidebarOpen: state.mailTrooper.rightSidebarOpen
+    rightSidebarOpen: state.mailTrooper.rightSidebarOpen,
+    selectedCampaign: state.email.selectedCampaign
 })
 
 export default connect(mapStateToProps)(Main)

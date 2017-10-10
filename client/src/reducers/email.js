@@ -2,7 +2,8 @@ import * as  actions from '../actions/email'
 
 const initialState = {
   createEmailErr: null,
-  emails: null
+  emails: null,
+  selectedCampaign: null
 }
 
 export const emailReducer = (state=initialState, action) => {
@@ -19,6 +20,9 @@ export const emailReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       emails: state.emails.filter(email => email._id !== action.campaign._id)
     })
+  }
+  else if(action.type === actions.SELECT_CAMPAIGN) {
+    return Object.assign({}, state, {selectedCampaign: action.campaign})
   }
 
   return state

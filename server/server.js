@@ -60,9 +60,9 @@ function runServer(port=PORT, databaseUrl=DATABASE_URL){
       server = app.listen(port, () => {
         console.log("You're app is listening on port ", port)
         const socketIo = io(server)
-        console.log('socket listening on port ', port)
         emailSockets(socketIo, mail)
       })
+      
       resolve()
     })
     .on('error', err => {

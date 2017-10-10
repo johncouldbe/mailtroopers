@@ -17,9 +17,3 @@ export const TOGGLE_COMMENTS = 'TOGGLE_COMMENTS'
 export const toggleComments = {
   type: TOGGLE_COMMENTS
 }
-
-export const SELECT_CAMPAIGN = 'SELECT_CAMPAIGN'
-export const selectCampaign = campaign => ({
-  type: SELECT_CAMPAIGN,
-  campaign
-})

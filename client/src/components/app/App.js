@@ -17,6 +17,7 @@ import './App.css'
 export class App extends Component {
 
   componentDidMount() {
+
     if (this.props.hasAuthToken) {
       // Try to get a fresh auth token if we had an existing one in
       // localStorage
@@ -70,7 +71,8 @@ export class App extends Component {
 
 const mapStateToProps = state => ({
     hasAuthToken: state.user.authToken !== null,
-    loggedIn: state.user.currentUser !== null
+    loggedIn: state.user.currentUser !== null,
+    socket: state.io.socket
 })
 
 export default withRouter(connect(mapStateToProps)(App))

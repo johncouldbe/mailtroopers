@@ -13,6 +13,9 @@ import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
 
+import {addNewCampaign, deleteCampaign, removeCampaign} from '../../actions/email'
+import {toggleCreateEmailModal} from '../../actions/modal'
+
 import './Dashboard.css'
 
 export class Dashboard extends Component {
@@ -21,10 +24,27 @@ export class Dashboard extends Component {
         if (!this.props.loggedIn) {
             return
         }
+        this.props.socket.on('campaign added', campaign => {
+          console.log('HITTTTT', campaign);
+          this.props.dispatch(addNewCampaign(campaign))
+          this.props.dispatch(toggleCreateEmailModal)
+        })
+
+        this.props.socket.on('campaign deleted', campaignId => {
+          this.props.dispatch(removeCampaign(campaignId))
+        })
         // if(this.props.currentUser){
         //   console.log('dispatching')
         //   this.props.dispatch(getCampaigns(this.props.currentUser._id))
         // }
+    }
+
+    componentDidUpdate(prevProps) {
+      // console.log('NEXT PROPS', prevProps.selectedCampaign)
+      // console.log('THIS.PROPS', this.props.selectedCampaign)
+      // if(!prevProps.selectedCampaign || this.props.selectedCampaign && prevProps.selectedCampaign._id !== this.props.selectedCampaign._id) {
+      //   this.props.dispatch(getSelectedCampaign(this.props.selectedCampaign._id))
+      // }
     }
 
     render() {
@@ -58,7 +78,6 @@ export class Dashboard extends Component {
           </div>
       );
     }
-
 }
 
 const mapStateToProps = state => ({
@@ -67,7 +86,9 @@ const mapStateToProps = state => ({
     createEmailModal: state.modal.createEmailModal,
     loggedIn: state.user.authToken !== null,
     currentUser: state.user.currentUser,
-    emails: state.email.emails
+    emails: state.email.emails,
+    selectedCampaign: state.email.selectedCampaign,
+    socket: state.io.socket
 });
 
 export default connect(mapStateToProps)(Dashboard);
