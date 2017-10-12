@@ -15,13 +15,4 @@ router.get('/:id', (req, res) => {
   })
 })
 
-router.get('/selected/:id', (req, res) => {
-  console.log('WE MADE IT');
-  Email
-  .findOne({_id: req.params.id})
-  .then(email => {
-    res.send(email)
-  })
-})
-
 module.exports = router

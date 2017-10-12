@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+
 import {toggleCommentModal} from '../../../actions/modal'
-// import {BrowserRouter as Link} from 'react-router-dom'
+import {sendComment} from '../../../actions/email'
 
 import './CommentModal.css'
 import thumbsUp from '../../images/thumbs-up.svg'
@@ -28,8 +29,15 @@ export class CommentModal extends Component {
     this.props.dispatch(toggleCommentModal)
   }
 
-  send = (id) => {
+  send = (comment) => {
     if(this.state.text.trim() !== ''){
+      const version = this.props.currentVersion - 1
+      const campaignId = this.props.selectedCampaign._id
+      const userId = this.props.currentUser._id
+      const socket = this.props.socket
+
+      this.props.dispatch(sendComment(campaignId, version, userId, comment, socket))
+
       this.setState({
         sent: true
       })
@@ -67,7 +75,7 @@ export class CommentModal extends Component {
             />
 
             <div className="btn-container">
-              <button className="btn" onClick={this.send}>Comment <img src={require("../../images/bullhorn.svg")}   alt="Share" /></button>
+              <button className="btn" onClick={() => this.send(this.state.text)}>Comment <img src={require("../../images/bullhorn.svg")}   alt="Share" /></button>
             </div>
             {warning}
           </div>
@@ -86,4 +94,11 @@ export class CommentModal extends Component {
 
 }
 
-export default connect()(CommentModal)
+const mapStateToProps = state => ({
+  selectedCampaign: state.email.selectedCampaign,
+  currentVersion: state.email.currentVersion,
+  currentUser: state.user.currentUser,
+  socket: state.io.socket
+})
+
+export default connect(mapStateToProps)(CommentModal)

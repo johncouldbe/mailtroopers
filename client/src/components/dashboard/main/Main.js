@@ -5,6 +5,7 @@ import {SOCKET_URL} from '../../../config'
 
 import Version from './version/Version'
 import {toggleLeftSidebar, toggleRightSidebar} from '../../../actions'
+import {updateCurrentVersion} from '../../../actions/email'
 import './Main.css'
 
 const socket = openSocket(SOCKET_URL)
@@ -22,7 +23,7 @@ export class Main extends Component {
   }
 
   displayContainer(){
-    if(!this.props.selectedCampaign){
+    if(!this.props.selectedCampaign || !this.props.currentVersion){
       return <div className="email-container">
         <span className="h2 red-text center-text">You must select a campaign.</span>
       </div>
@@ -42,7 +43,7 @@ export class Main extends Component {
     const versions = this.props.selectedCampaign.versions
     return <div
           className="email-container"
-          dangerouslySetInnerHTML={{__html: versions[versions.length - 1].html}}
+          dangerouslySetInnerHTML={{__html: versions[this.props.currentVersion - 1].html}}
         ></div>
   }
 
@@ -84,7 +85,6 @@ export class Main extends Component {
   }
 
   render(){
-
     return (
         <div className={this.pickMainClass()}>
           <Version />
@@ -113,7 +113,8 @@ export class Main extends Component {
 const mapStateToProps = state => ({
     leftSidebarOpen: state.mailTrooper.leftSidebarOpen,
     rightSidebarOpen: state.mailTrooper.rightSidebarOpen,
-    selectedCampaign: state.email.selectedCampaign
+    selectedCampaign: state.email.selectedCampaign,
+    currentVersion: state.email.currentVersion
 })
 
 export default connect(mapStateToProps)(Main)

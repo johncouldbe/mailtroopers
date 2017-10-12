@@ -12,7 +12,7 @@ export class Troop extends Component {
 
   troop = () => {
     if(!this.props.selectedCampaign){
-      return 
+      return
     }
     if(this.props.selectedCampaign.contributors.length === 0){
       return <div>
@@ -22,7 +22,6 @@ export class Troop extends Component {
     }
 
     return this.props.selectedCampaign.contributors.map((trooper, index) => {
-      console.log(trooper);
       return <div className="trooper-container" key={index}>
         <div className="trooper-img">
           <div className="h2 white-text">{this.firstLetter(trooper.firstName)}</div>

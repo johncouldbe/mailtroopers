@@ -59,3 +59,18 @@ export const selectCampaign = campaign => ({
 //     console.log(err);
 //   })
 // }
+
+export const UPDATE_CURRENT_VERSION = 'UPDATE_CURRENT_VERSION'
+export const updateCurrentVersion = version => ({
+  type: UPDATE_CURRENT_VERSION,
+  version
+})
+
+export const sendComment = (campaignId, version, userId, comment, socket) => dispatch => {
+  return socket.emit('add comment', {
+    campaignId,
+    version,
+    userId,
+    comment
+  })
+}

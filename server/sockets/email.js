@@ -64,17 +64,55 @@ exports.emailSockets = (socketIo, mail) => {
         client.emit('campaign added', campaign)
       })
       .catch(err => console.log(err))
-   })
+    })
 
-   client.on('delete campaign', id => {
-     console.log("ID", id);
-     Email
-      .findOneAndRemove({_id: id})
-      .then(campaign => {
-        client.emit('campaign deleted', campaign.apiRepr())
+    client.on('delete campaign', id => {
+      Email
+        .findOneAndRemove({_id: id})
+        .then(campaign => {
+          client.emit('campaign deleted', campaign.apiRepr())
+        })
+        .catch(err => console.log(err))
       })
-      .catch(err => console.log(err))
-   })
- })
 
+    client.on('add comment', data => {
+     //campaignId version# comment, userId
+      console.log("DATA", data);
+      Email
+      .update(
+        { _id: data.campaignId, "version": data.version },
+        {
+          $push: {
+            "versions.$.version.comments" : {
+              "user" : data.userId,
+              "comment" : data.comment
+            }
+          }
+        }
+      )
+      .then(email => {
+        console.log('Success', email);
+      })
+
+      //This pushed the comment to the beginning of versions array.
+            // Email
+            // .update(
+            //   { _id: data.campaignId, "versions.version": data.version },
+            //   {
+            //     $push: {
+            //       "versions.$.version.comments" : {
+            //         "user" : data.userId,
+            //         "comment" : data.comment
+            //       }
+            //     }
+            //   }
+            // )
+
+//This is just to see the comments field afterwords in the first version in the versions array
+      Email.find({ _id: data.campaignId}).then(email => console.log('Success', email[0].versions[0].comments))
+    })
+
+
+    // ======
+  })
 }

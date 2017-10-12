@@ -3,7 +3,8 @@ import * as  actions from '../actions/email'
 const initialState = {
   createEmailErr: null,
   emails: null,
-  selectedCampaign: null
+  selectedCampaign: null,
+  currentVersion: 0
 }
 
 export const emailReducer = (state=initialState, action) => {
@@ -23,6 +24,9 @@ export const emailReducer = (state=initialState, action) => {
   }
   else if(action.type === actions.SELECT_CAMPAIGN) {
     return Object.assign({}, state, {selectedCampaign: action.campaign})
+  }
+  else if(action.type === actions.UPDATE_CURRENT_VERSION) {
+    return Object.assign({}, state, {currentVersion: action.version})
   }
 
   return state
