@@ -1,11 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import moment from 'moment'
+import Clipboard from 'clipboard'
 
 import {deleteCampaign, selectCampaign, updateCurrentVersion} from '../../../actions/email'
 import {toggleCreateEmailModal} from '../../../actions/modal'
 
 import './LeftSidebar.css'
+
+new Clipboard('.clipboard');
 
 function LeftSidebar (props) {
   const showModal = e => {
@@ -39,9 +42,13 @@ function LeftSidebar (props) {
           <div className="p grey-text comment-comment">
             {moment(email.date).format('MM/DD/YYYY')}
           </div>
-          <div className="hidden-email-options">
+          <div className="hidden-email-options" onClick={e => e.stopPropagation()}>
             <div className="p grey-text right-text">
-              Get Link |&nbsp;
+              <span className="clipboard"
+               data-clipboard-text={`${email.slug}@mailtroopers.com`}
+              >
+                Get Link
+              </span> |&nbsp;
               <span className="red-text" onClick={() => deleteEmail(email._id, props.socket)}>Delete</span>
             </div>
           </div>

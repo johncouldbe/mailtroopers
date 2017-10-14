@@ -5,7 +5,6 @@ import {SOCKET_URL} from '../../../config'
 
 import Version from './version/Version'
 import {toggleLeftSidebar, toggleRightSidebar} from '../../../actions'
-import {updateCurrentVersion} from '../../../actions/email'
 import './Main.css'
 
 const socket = openSocket(SOCKET_URL)
@@ -40,11 +39,16 @@ export class Main extends Component {
       </div>
     }
 
-    const versions = this.props.selectedCampaign.versions
-    return <div
-          className="email-container"
-          dangerouslySetInnerHTML={{__html: versions[this.props.currentVersion - 1].html}}
-        ></div>
+    const current = this.props.selectedCampaign.versions[this.props.currentVersion - 1]
+    return <div className="email-container">
+          <div className="p center-text grey-text" style={{padding: '3px'}}>
+            <span className="h4 red-text">Subject:</span>
+            &nbsp;{current.subject || ''}
+          </div>
+          <div
+            dangerouslySetInnerHTML={{__html: current.html}}
+          ></div>
+        </div>
   }
 
   subscribeToEmail(cb) {

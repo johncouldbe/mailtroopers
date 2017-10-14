@@ -1,22 +1,32 @@
-const {Email}   = require('../models/email')
-const shortid   = require('shortid')
-const sentencer = require('sentencer')
+const {Email}     = require('../models/email')
+const shortid     = require('shortid')
+const sentencer   = require('sentencer')
+const socketioJwt = require('socketio-jwt')
+const {JWT_SECRET} = require('../config')
+
 
 exports.emailSockets = (socketIo, mail) => {
 
-  socketIo.on('connection', client => {
+  socketIo.on('connection', socketioJwt.authorize({
+		secret: JWT_SECRET,
+		timeout: 15000 // 15 seconds to send the authentication message
+	}))
+  .on('authenticated', client => {
+    console.log('authenticated');
     client.on('subscribeToEmail', () => {
       console.log('--- client connected ---')
 
       mail.listen.on("mail", function(mail, seqno, attributes) {
         const address = mail.to[0].address
         const newSlug = address.substr(0, address.indexOf('@'))
-        console.log('SLUG', mail);
-
+        console.log('KEYS', Object.keys(mail));
         Email
         .update(
           { slug: newSlug },
-          { $push: { "versions" : {"html": mail.html} }}
+          { $push: { "versions" : {
+            "html": mail.html,
+            "subject": mail.subject
+          }}}
         )
         .then(email => console.log(email))
         .catch(err => console.log(err))
@@ -77,42 +87,38 @@ exports.emailSockets = (socketIo, mail) => {
 
     client.on('add comment', data => {
      //campaignId version# comment, userId
-      console.log("DATA", data);
+      console.log("DATA", data.version);
+
       Email
       .update(
-        { _id: data.campaignId, "version": data.version },
+        { _id: data.campaignId, "versions._id": data.version  },
         {
-          $push: {
-            "versions.$.version.comments" : {
-              "user" : data.userId,
-              "comment" : data.comment
-            }
-          }
-        }
+          "$push": { "versions.$.comments": {
+            comment: data.comment,
+            user: data.userId
+          }}
+        },
+        {new: true}
       )
-      .then(email => {
-        console.log('Success', email);
+      .then(e => {
+        Email.findOne({ _id: data.campaignId})
+          .populate('contributors', 'firstName lastName _id')
+          .populate({ path: 'versions.comments',
+            populate: { path: 'user', model: 'User'}
+            })
+          .then(email => {
+            client.emit('comment added', {
+              email
+            })
+          })
       })
-
-      //This pushed the comment to the beginning of versions array.
-            // Email
-            // .update(
-            //   { _id: data.campaignId, "versions.version": data.version },
-            //   {
-            //     $push: {
-            //       "versions.$.version.comments" : {
-            //         "user" : data.userId,
-            //         "comment" : data.comment
-            //       }
-            //     }
-            //   }
-            // )
-
-//This is just to see the comments field afterwords in the first version in the versions array
-      Email.find({ _id: data.campaignId}).then(email => console.log('Success', email[0].versions[0].comments))
+      .catch(err => console.log(err))
     })
 
 
-    // ======
+// //This is just to see the comments field afterwords in the first version in the versions array
+
+
+
   })
 }

@@ -74,3 +74,9 @@ export const sendComment = (campaignId, version, userId, comment, socket) => dis
     comment
   })
 }
+
+export const ADD_COMMENT = 'ADD_COMMENT'
+export const addComment = email => ({
+  type: ADD_COMMENT,
+  email
+})

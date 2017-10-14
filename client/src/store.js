@@ -35,7 +35,14 @@ if (authToken) {
     store.dispatch(setAuthToken(token))
 
     const socket = io.connect(SOCKET_URL)
+    socket.emit('authenticate', {token})
+
     store.dispatch(connectSocket(socket))
+
+    socket.on('unauthorized', () => {
+      store.dispatch(connectSocket(null))
+    })
+
 }
 
 export default store

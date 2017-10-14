@@ -2,7 +2,7 @@ import * as actions from '../actions'
 
 const initialState = {
   leftSidebarOpen: true,
-  rightSidebarOpen: true,
+  rightSidebarOpen: false,
   teamOpen: true,
   commentsOpen: true,
   recruitModal: false,

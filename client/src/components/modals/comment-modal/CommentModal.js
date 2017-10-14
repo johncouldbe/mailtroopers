@@ -31,7 +31,8 @@ export class CommentModal extends Component {
 
   send = (comment) => {
     if(this.state.text.trim() !== ''){
-      const version = this.props.currentVersion - 1
+      const version = this.props.selectedCampaign.versions[this.props.currentVersion - 1]._id
+      console.log(version);
       const campaignId = this.props.selectedCampaign._id
       const userId = this.props.currentUser._id
       const socket = this.props.socket

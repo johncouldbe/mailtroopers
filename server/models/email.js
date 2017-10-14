@@ -25,6 +25,9 @@ const EmailSchema = mongoose.Schema({
     html: {
       type: String
     },
+    subject: {
+      type: String
+    },
     comments: [{
       user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
       date: {

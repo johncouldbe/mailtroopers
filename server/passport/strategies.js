@@ -49,7 +49,17 @@ const jwtStrategy = new JwtStrategy(
         algorithms: ['HS256']
     },
     (payload, done) => {
-        done(null, payload.user)
+      User.findOne({id: payload._id}, (err, user) => {
+        if (err) {
+            return done(err, false);
+        }
+        if (user) {
+            return done(null, user.apiRepr());
+        } else {
+            return done(null, false);
+            // or you could create a new account
+        }
+      })
     }
 )
 

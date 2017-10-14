@@ -7,6 +7,7 @@ const io          = require('socket.io')
 const mongoose    = require('mongoose')
 const morgan      = require('morgan')
 const passport    = require('passport')
+const socketioJwt = require('socketio-jwt')
 
 const {
   PORT,
@@ -62,7 +63,7 @@ function runServer(port=PORT, databaseUrl=DATABASE_URL){
         const socketIo = io(server)
         emailSockets(socketIo, mail)
       })
-      
+
       resolve()
     })
     .on('error', err => {

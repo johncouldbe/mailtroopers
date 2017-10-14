@@ -10,7 +10,7 @@ export class Troop extends Component {
     this.showRecruitModal = this.showRecruitModal.bind(this)
   }
 
-  troop = () => {
+  troop() {
     if(!this.props.selectedCampaign){
       return
     }
@@ -31,6 +31,17 @@ export class Troop extends Component {
     })
   }
 
+  troopBtn() {
+    if(this.props.selectedCampaign){
+      return <div className="trooper-btn-container">
+        <button className="trooper-btn" onClick={this.showRecruitModal}>
+          Recruit &nbsp;
+          <img src={require("../../../images/share.svg")} alt="Share" />
+        </button>
+      </div>
+    }
+  }
+
   firstLetter = name => {
     const letter = name.split('')
     return letter[0].toUpperCase()
@@ -45,9 +56,7 @@ export class Troop extends Component {
     return(
       <div className="troop">
         {this.troop()}
-        <div className="trooper-btn-container">
-          <button className="trooper-btn" onClick={this.showRecruitModal}>Recruit <img src={require("../../../images/share.svg")} alt="Share" /></button>
-        </div>
+        {this.troopBtn()}
       </div>
     )
   }

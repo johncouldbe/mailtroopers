@@ -13,7 +13,7 @@ import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
 
-import {addNewCampaign, removeCampaign} from '../../actions/email'
+import {addNewCampaign, removeCampaign, addComment} from '../../actions/email'
 import {toggleCreateEmailModal} from '../../actions/modal'
 
 import './Dashboard.css'
@@ -24,6 +24,7 @@ export class Dashboard extends Component {
         if (!this.props.loggedIn) {
             return
         }
+
         this.props.socket.on('campaign added', campaign => {
           console.log('HITTTTT', campaign);
           this.props.dispatch(addNewCampaign(campaign))
@@ -32,6 +33,10 @@ export class Dashboard extends Component {
 
         this.props.socket.on('campaign deleted', campaignId => {
           this.props.dispatch(removeCampaign(campaignId))
+        })
+
+        this.props.socket.on('comment added', email => {
+          this.props.dispatch(addComment(email))
         })
         // if(this.props.currentUser){
         //   console.log('dispatching')
@@ -49,6 +54,7 @@ export class Dashboard extends Component {
 
     render() {
       console.log('RENDER', this.props.emails)
+      console.log('SOCKET', this.props.socket);
       if (!this.props.loggedIn) {
           return <Redirect to="/" />;
       }
@@ -60,7 +66,7 @@ export class Dashboard extends Component {
       return (
         <div>
         {
-          this.props.currentUser && this.props.emails ?
+          this.props.currentUser && this.props.emails && this.props.socket ?
           <div className="grid">
             <Navbar />
             <LeftSidebar />
