@@ -13,8 +13,10 @@ import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
 
-import {addNewCampaign, removeCampaign, addComment} from '../../actions/email'
+import {addNewCampaign, removeCampaign, addComment,
+        addVersion, selectCampaign} from '../../actions/email'
 import {toggleCreateEmailModal} from '../../actions/modal'
+import {toggleLeftSidebar} from '../../actions'
 
 import './Dashboard.css'
 
@@ -25,36 +27,44 @@ export class Dashboard extends Component {
             return
         }
 
+        if(window.innerWidth < 765){
+          this.props.dispatch(toggleLeftSidebar)
+        }
+
         this.props.socket.on('campaign added', campaign => {
-          console.log('HITTTTT', campaign);
           this.props.dispatch(addNewCampaign(campaign))
           this.props.dispatch(toggleCreateEmailModal)
         })
 
-        this.props.socket.on('campaign deleted', campaignId => {
-          this.props.dispatch(removeCampaign(campaignId))
+        this.props.socket.on('campaign deleted', campaign => {
+          this.props.dispatch(removeCampaign(campaign))
+          if(!this.props.selectedCampaign) return
+          if(campaign._id === this.props.selectedCampaign._id){
+            this.props.dispatch(selectCampaign(null))
+          }
         })
 
-        this.props.socket.on('comment added', email => {
-          this.props.dispatch(addComment(email))
+        this.props.socket.on('comment added', campaign => {
+          this.props.dispatch(addComment(campaign))
         })
-        // if(this.props.currentUser){
-        //   console.log('dispatching')
-        //   this.props.dispatch(getCampaigns(this.props.currentUser._id))
-        // }
+
+        this.props.socket.on('campaign received', campaign => {
+          console.log('FIRED')
+          this.props.dispatch(addVersion(campaign))
+        })
     }
 
-    componentDidUpdate(prevProps) {
-      // console.log('NEXT PROPS', prevProps.selectedCampaign)
-      // console.log('THIS.PROPS', this.props.selectedCampaign)
-      // if(!prevProps.selectedCampaign || this.props.selectedCampaign && prevProps.selectedCampaign._id !== this.props.selectedCampaign._id) {
-      //   this.props.dispatch(getSelectedCampaign(this.props.selectedCampaign._id))
-      // }
+    pickMainClass() {
+      if(window.innerWidth < 765){
+        if(!this.props.leftSidebarOpen && !this.props.rightSidebarOpen) {
+          return 'grid-mobile'
+        }
+      }
+      return 'grid'
     }
 
     render() {
       console.log('RENDER', this.props.emails)
-      console.log('SOCKET', this.props.socket);
       if (!this.props.loggedIn) {
           return <Redirect to="/" />;
       }
@@ -67,7 +77,7 @@ export class Dashboard extends Component {
         <div>
         {
           this.props.currentUser && this.props.emails && this.props.socket ?
-          <div className="grid">
+          <div className={this.pickMainClass()}>
             <Navbar />
             <LeftSidebar />
             <RightSidebar />
@@ -97,4 +107,4 @@ const mapStateToProps = state => ({
     socket: state.io.socket
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Dashboard)

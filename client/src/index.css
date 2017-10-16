@@ -90,32 +90,39 @@ button:focus {
   "left-sidebar left-sidebar left-sidebar main main main main main main right-sidebar right-sidebar right-sidebar";
 }
 
+.grid-mobile {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  grid-template-rows: 60px 300 90vh 1fr;
+  grid-template-areas:
+  "nav"
+  "left-sidebar"
+  "main"
+  "right-sidebar";
+}
+
 nav {
   grid-area: nav;
 }
 
 .main {
   grid-area: main;
-  transition: 5s;
   z-index: 1;
 }
 
 .close-left-sidebar {
   grid-column-start: 1;
   grid-column-end: 10;
-  transition: 5s;
 }
 
 .close-right-sidebar {
   grid-column-start: 4;
   grid-column-end: 13;
-  transition: 5s;
 }
 
 .close-both-sidebars {
   grid-column-start: 1;
   grid-column-end: 13;
-  transition: 5s;
 }
 
 .left-sidebar {

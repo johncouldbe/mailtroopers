@@ -1,7 +1,7 @@
 .main {
   background-color: #fff;
   display: grid;
-  grid-template-rows: 40px calc(50% - 40px) 50px calc(50% - 50px);
+  grid-template-rows: 50px calc(50% - 50px) 50px calc(50% - 50px);
   grid-template-columns: 20px 5px calc(100% - 50px) 5px 20px;
   grid-template-areas:
   "version version version version version"
@@ -10,9 +10,20 @@
   ". . email-container . .";
 }
 
+.main-mobile {
+  background-color: #fff;
+  display: grid;
+  grid-template-rows: 50px calc(100% - 50px);
+  grid-template-columns: 20px 5px calc(100% - 50px) 5px 20px;
+  grid-template-areas:
+  "version version version version version"
+  ". email-container email-container email-container ."
+  ;
+}
+
 .email-container {
   grid-area: email-container;
-  background-color: #dcdbdc;
+  background-color: #eeeeef;
   overflow-y: scroll;
   margin: 0 5px;
 }
@@ -55,7 +66,7 @@
 }
 
 .button:hover {
-  background-color: #dcdbdc;
+  background-color: #eeeeef;
 }
 
 /*.invert {

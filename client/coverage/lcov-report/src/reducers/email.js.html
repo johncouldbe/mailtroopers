@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/25</span>
+        <span class='fraction'>0/42</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/17</span>
+        <span class='fraction'>0/29</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/3</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/13</span>
+        <span class='fraction'>0/30</span>
       </div>
     </div>
   </div>
@@ -68,7 +68,76 @@
 23
 24
 25
-26</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -80,14 +149,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -97,7 +165,9 @@
 &nbsp;
 const initialState = <span class="cstat-no" title="statement not covered" >{</span>
   createEmailErr: null,
-  emails: null
+  emails: null,
+  selectedCampaign: null,
+  currentVersion: 0
 }
 &nbsp;
 export const emailRed<span class="cstat-no" title="statement not covered" >ucer = (state=initialSt<span class="fstat-no" title="function not covered" >at</span>e, acti<span class="branch-0 cbranch-no" title="branch not covered" >on) =&gt; {</span></span>
@@ -115,6 +185,38 @@ export const emailRed<span class="cstat-no" title="statement not covered" >ucer 
       emails: state.emails.filter(<span class="fstat-no" title="function not covered" >em</span>ail =&gt; <span class="cstat-no" title="statement not covered" >email._id !== action.campaign._id)</span>
     })
   }
+<span class="cstat-no" title="statement not covered" >  else if(action.type === actions.SELECT_CAMPAIGN) {</span>
+<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {selectedCampaign: action.campaign})</span>
+  }
+<span class="cstat-no" title="statement not covered" >  else if(action.type === actions.UPDATE_CURRENT_VERSION) {</span>
+<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {currentVersion: action.version})</span>
+  }
+<span class="cstat-no" title="statement not covered" >  else if(action.type === actions.ADD_COMMENT) {</span>
+    let returnedMail = <span class="cstat-no" title="statement not covered" >action.email.email</span>
+<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {</span>
+      emails: state.emails.map(<span class="fstat-no" title="function not covered" > e</span>mail =&gt; {
+<span class="cstat-no" title="statement not covered" >        if(email._id === returnedMail._id){</span>
+<span class="cstat-no" title="statement not covered" >          email = returnedMail</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return email</span>
+      }),
+      selectedCampaign: returnedMail
+    })
+  }
+<span class="cstat-no" title="statement not covered" >  else if(action.type === actions.ADD_VERSION) {</span>
+    let returnedMail = <span class="cstat-no" title="statement not covered" >action.campaign.email</span>
+<span class="cstat-no" title="statement not covered" >    console.log(returnedMail)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {</span>
+      emails: state.emails.map(<span class="fstat-no" title="function not covered" > e</span>mail =&gt; {
+<span class="cstat-no" title="statement not covered" >        if(email._id === returnedMail._id){</span>
+<span class="cstat-no" title="statement not covered" >          email = returnedMail</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return email</span>
+      }),
+      selectedCampaign: returnedMail
+    })
+  }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return state</span>
 }
@@ -124,7 +226,7 @@ export const emailRed<span class="cstat-no" title="statement not covered" >ucer 
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 08 2017 15:33:58 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

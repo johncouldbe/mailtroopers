@@ -76,11 +76,11 @@
 .troop {
   grid-area: troop;
   overflow-y: scroll;
-  background-color: #c1c7ce;
+  background-color: #eeeeef;
 }
 
 .comments {
   grid-area: comments;
   overflow-y: scroll;
-  background-color: #c1c7ce;
+  background-color: #eeeeef;
 }

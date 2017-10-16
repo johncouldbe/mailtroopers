@@ -12,14 +12,15 @@ exports.emailSockets = (socketIo, mail) => {
 		timeout: 15000 // 15 seconds to send the authentication message
 	}))
   .on('authenticated', client => {
-    console.log('authenticated');
-    client.on('subscribeToEmail', () => {
-      console.log('--- client connected ---')
+    console.log('authenticated')
+
+    client.on('subscribeToEmail', userId => {
+      console.log('--- client connected ---', userId)
+      const user = userId.userId
 
       mail.listen.on("mail", function(mail, seqno, attributes) {
         const address = mail.to[0].address
         const newSlug = address.substr(0, address.indexOf('@'))
-        console.log('KEYS', Object.keys(mail));
         Email
         .update(
           { slug: newSlug },
@@ -28,11 +29,27 @@ exports.emailSockets = (socketIo, mail) => {
             "subject": mail.subject
           }}}
         )
-        .then(email => console.log(email))
+        .then(e => {
+          Email
+            .findOne({ slug: newSlug })
+            .then(email => {
+              const contributor = email.contributors.includes(user)
+              if(String(email.master) == user || contributor){
+                console.log("EMITTING")
+                client.emit('campaign received', {
+                  email
+                })
+              }
+            })
+        })
         .catch(err => console.log(err))
-
-        client.emit('email', mail.html)
       })
+
+    })
+
+    client.on('disconnect', () => {
+      console.log('DISCONNECTED')
+
     })
 
    client.on('add campaign', data => {
@@ -101,11 +118,9 @@ exports.emailSockets = (socketIo, mail) => {
         {new: true}
       )
       .then(e => {
-        Email.findOne({ _id: data.campaignId})
+        Email.findOne({ _id: data.campaignId, "versions._id": data.version})
           .populate('contributors', 'firstName lastName _id')
-          .populate({ path: 'versions.comments',
-            populate: { path: 'user', model: 'User'}
-            })
+            .populate('versions.comments.user', 'firstName lastName _id')
           .then(email => {
             client.emit('comment added', {
               email

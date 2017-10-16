@@ -17,3 +17,8 @@ export const TOGGLE_COMMENTS = 'TOGGLE_COMMENTS'
 export const toggleComments = {
   type: TOGGLE_COMMENTS
 }
+
+export const TOGGLE_REVIEW = 'TOGGLE_REVIEW'
+export const toggleReview = {
+  type: TOGGLE_REVIEW
+}

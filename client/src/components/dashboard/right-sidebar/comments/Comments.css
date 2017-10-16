@@ -9,7 +9,7 @@
 }
 
 .comment-container {
-  background-color: #eff2f5;
+  background-color: #ffffff;
   grid-area: comment-container;
   display: grid;
   border-radius: 2px;

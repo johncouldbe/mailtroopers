@@ -1,33 +1,24 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import openSocket from 'socket.io-client'
-import {SOCKET_URL} from '../../../config'
 
 import Version from './version/Version'
 import {toggleLeftSidebar, toggleRightSidebar} from '../../../actions'
+
 import './Main.css'
 
-const socket = openSocket(SOCKET_URL)
-
 export class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: ''
-    }
-    this.subscribeToEmail((err, email) => this.setState({
-      email
-    }));
 
+  componentDidMount(){
+    this.props.socket.emit('subscribeToEmail', {userId: this.props.currentUser._id})
   }
 
   displayContainer(){
-    if(!this.props.selectedCampaign || !this.props.currentVersion){
+    if(!this.props.selectedCampaign){
       return <div className="email-container">
         <span className="h2 red-text center-text">You must select a campaign.</span>
       </div>
     }
-    if(this.props.selectedCampaign.versions.length === 0){
+    if(!this.props.selectedCampaign.versions.length){
       return <div className="email-container" style={{padding: '10px'}}>
         <span className="h3 red-text center-text">
           You haven't made a version for this campaign yet! Send the email you'd like to review to:
@@ -40,6 +31,7 @@ export class Main extends Component {
     }
 
     const current = this.props.selectedCampaign.versions[this.props.currentVersion - 1]
+    if(!current) return ''
     return <div className="email-container">
           <div className="p center-text grey-text" style={{padding: '3px'}}>
             <span className="h4 red-text">Subject:</span>
@@ -51,14 +43,10 @@ export class Main extends Component {
         </div>
   }
 
-  subscribeToEmail(cb) {
-    socket.on('email', email => {
-      cb(null, email)
-    });
-    socket.emit('subscribeToEmail');
-  }
-
-  pickMainClass = () => {
+  pickMainClass(){
+    if(window.innerWidth < 765){
+      return 'main-mobile'
+    }
     if(this.props.leftSidebarOpen && !this.props.rightSidebarOpen) {
       return 'main close-right-sidebar'
     }
@@ -88,26 +76,38 @@ export class Main extends Component {
     }
   }
 
+  leftBtn(){
+    if(window.innerWidth < 765){
+      return
+    }
+    return(
+      <div
+        className="left-close-button"
+        onClick={() => {this.props.dispatch(toggleLeftSidebar)}}>
+        <div className={this.buttonDirection('left')}></div>
+      </div>
+    )
+  }
+  rightBtn(){
+    if(window.innerWidth < 765){
+      return
+    }
+    return(
+      <div
+        className="right-close-button"
+        onClick={() => {this.props.dispatch(toggleRightSidebar)}}>
+        <div className={this.buttonDirection('right')}></div>
+      </div>
+    )
+  }
+
   render(){
     return (
         <div className={this.pickMainClass()}>
           <Version />
-
-          <div
-            className="left-close-button"
-            onClick={() => {this.props.dispatch(toggleLeftSidebar)}}>
-
-            <div className={this.buttonDirection('left')}></div>
-          </div>
-
+          {this.leftBtn()}
+          {this.rightBtn()}
           {this.displayContainer()}
-
-          <div
-            className="right-close-button"
-            onClick={() => {this.props.dispatch(toggleRightSidebar)}}>
-
-            <div className={this.buttonDirection('right')}></div>
-          </div>
         </div>
     )
   }
@@ -118,7 +118,9 @@ const mapStateToProps = state => ({
     leftSidebarOpen: state.mailTrooper.leftSidebarOpen,
     rightSidebarOpen: state.mailTrooper.rightSidebarOpen,
     selectedCampaign: state.email.selectedCampaign,
-    currentVersion: state.email.currentVersion
+    currentVersion: state.email.currentVersion,
+    currentUser: state.user.currentUser,
+    socket: state.io.socket
 })
 
 export default connect(mapStateToProps)(Main)

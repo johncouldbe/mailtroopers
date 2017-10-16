@@ -12,6 +12,9 @@ import Dashboard from '../dashboard/Dashboard'
 import SignUpWrapper from '../modals/signup-modal/SignUpWrapper'
 import LogInWrapper from '../modals/login-modal/LogInWrapper'
 
+
+import {disconnectSocket} from '../../actions/io'
+
 import './App.css'
 
 export class App extends Component {
@@ -36,13 +39,15 @@ export class App extends Component {
   }
 
   componentWillUnmount() {
+    this.props.socket.close()
+    this.props.dispatch(disconnectSocket(this.props.socket))
     this.stopPeriodicRefresh()
   }
 
   startPeriodicRefresh() {
     this.refreshInterval = setInterval(
       () => this.props.dispatch(refreshAuthToken()),
-      10000 // One hour
+      60 * 60 * 1000 // One hour
     )
   }
 

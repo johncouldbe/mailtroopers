@@ -21,10 +21,6 @@ export const getCampaigns = id => dispatch => {
   })
 }
 
-export const deleteCampaign = (campaign, socket) => dispatch => {
-  return socket.emit('delete campaign', campaign)
-}
-
 export const ADD_NEW_CAMPAIGN = 'ADD_NEW_CAMPAIGN'
 export const addNewCampaign = campaign => ({
   type: ADD_NEW_CAMPAIGN,
@@ -37,6 +33,10 @@ export const storeEmails = emails => ({
   emails
 })
 
+export const deleteCampaign = (campaign, socket) => dispatch => {
+  return socket.emit('delete campaign', campaign)
+}
+
 export const REMOVE_CAMPAIGN = 'REMOVE_CAMPAIGN'
 export const removeCampaign = campaign => ({
   type: REMOVE_CAMPAIGN,
@@ -48,17 +48,6 @@ export const selectCampaign = campaign => ({
   type: SELECT_CAMPAIGN,
   campaign
 })
-//
-// export const getSelectedCampaign = id => dispatch => {
-//   return axios.get(`${BASE_URL}/campaigns/selected/${id}`)
-//   .then(email => {
-//     console.log('EMAIL', email)
-//     dispatch(selectCampaign(email.data))
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   })
-// }
 
 export const UPDATE_CURRENT_VERSION = 'UPDATE_CURRENT_VERSION'
 export const updateCurrentVersion = version => ({
@@ -79,4 +68,10 @@ export const ADD_COMMENT = 'ADD_COMMENT'
 export const addComment = email => ({
   type: ADD_COMMENT,
   email
+})
+
+export const ADD_VERSION = 'ADD_VERSION'
+export const addVersion = campaign => ({
+  type: ADD_VERSION,
+  campaign
 })

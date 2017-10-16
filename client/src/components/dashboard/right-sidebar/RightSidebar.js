@@ -74,4 +74,4 @@ const mapStateToProps = state => ({
   commentsOpen: state.mailTrooper.commentsOpen
 })
 
-export default connect(mapStateToProps)(RightSidebar);
+export default connect(mapStateToProps)(RightSidebar)

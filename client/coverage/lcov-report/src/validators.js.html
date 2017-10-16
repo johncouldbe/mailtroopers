@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">35.29% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/18</span>
+        <span class='fraction'>6/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">42.86% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/14</span>
+        <span class='fraction'>6/14</span>
       </div>
     </div>
   </div>
@@ -64,33 +64,33 @@
 19
 20
 21
-22</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+22</td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const <span class="cstat-no" title="statement not covered" >required = value =&gt; (value ? undefined : 'Required');<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
-export const nonE<span class="cstat-no" title="statement not covered" >mpty = value =&gt;<span class="fstat-no" title="function not covered" ></span></span>
-<span class="cstat-no" title="statement not covered" >    value.trim() !== '' ? undefined : 'Cannot be emp</span>ty';
-export const isTri<span class="cstat-no" title="statement not covered" >mmed = value =&gt;<span class="fstat-no" title="function not covered" ></span></span>
-<span class="cstat-no" title="statement not covered" >    value.trim() === value ? undefined : 'Cannot start or end with whitespa</span>ce';
-export const le<span class="cstat-no" title="statement not covered" >ngth = length =&gt; <span class="fstat-no" title="function not covered" >va</span>lue =&gt; {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const required = <span class="fstat-no" title="function not covered" >va</span>lue =&gt; (<span class="cstat-no" title="statement not covered" >value ? undefined : 'Required')</span>;
+export const nonEmpty = <span class="fstat-no" title="function not covered" >va</span>lue =&gt;
+<span class="cstat-no" title="statement not covered" >    value.trim() !== '' ? undefined : 'Cannot be empty';</span>
+export const isTrimmed = <span class="fstat-no" title="function not covered" >va</span>lue =&gt;
+<span class="cstat-no" title="statement not covered" >    value.trim() === value ? undefined : 'Cannot start or end with whitespace';</span>
+export const length = <span class="fstat-no" title="function not covered" >le</span>ngth =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >va</span>lue =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (length.min &amp;&amp; value.length &lt; length.min) {</span>
 <span class="cstat-no" title="statement not covered" >        return `Must be at least ${length.min} characters long`;</span>
     }
@@ -98,12 +98,12 @@ export const le<span class="cstat-no" title="statement not covered" >ngth = leng
 <span class="cstat-no" title="statement not covered" >        return `Must be at most ${length.max} characters long`;</span>
     }
 };
-export const mat<span class="cstat-no" title="statement not covered" >ches = field =&gt; (v<span class="fstat-no" title="function not covered" >al</span>ue, all<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >Va</span>lues) =&gt;{</span></span>
+export const matches = <span class="fstat-no" title="function not covered" >fi</span>eld =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(v</span>alue, allValues) =&gt;{</span>
 <span class="cstat-no" title="statement not covered" >    return field in allValues &amp;&amp; value.trim() === allValues[field].trim()</span>
         ? undefined
         : 'Does not match';
   }
-export const e<span class="cstat-no" title="statement not covered" >mail = value =&gt;<span class="fstat-no" title="function not covered" ></span></span>
+export const email = <span class="fstat-no" title="function not covered" >va</span>lue =&gt;
 <span class="cstat-no" title="statement not covered" >    value &amp;&amp; !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?</span>
     'Invalid email address' : undefined
 &nbsp;</pre></td></tr>
@@ -112,7 +112,7 @@ export const e<span class="cstat-no" title="statement not covered" >mail = value
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 08 2017 15:33:58 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../prettify.js"></script>

@@ -38,7 +38,21 @@ export const emailReducer = (state=initialState, action) => {
         return email
       }),
       selectedCampaign: returnedMail
-  })
+    })
+  }
+  else if(action.type === actions.ADD_VERSION) {
+    let returnedMail = action.campaign.email
+    console.log(returnedMail)
+
+    return Object.assign({}, state, {
+      emails: state.emails.map( email => {
+        if(email._id === returnedMail._id){
+          email = returnedMail
+        }
+        return email
+      }),
+      selectedCampaign: returnedMail
+    })
   }
 
   return state

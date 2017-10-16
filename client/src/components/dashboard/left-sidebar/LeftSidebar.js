@@ -5,6 +5,7 @@ import Clipboard from 'clipboard'
 
 import {deleteCampaign, selectCampaign, updateCurrentVersion} from '../../../actions/email'
 import {toggleCreateEmailModal} from '../../../actions/modal'
+import {toggleReview} from '../../../actions'
 
 import './LeftSidebar.css'
 
@@ -58,9 +59,28 @@ function LeftSidebar (props) {
     }
   }
 
+  const buttonDirection = () => {
+    if(props.reviewOpen) {
+        return 'toggle-review-show-btn'
+    } else {
+        return 'toggle-review-show-btn toggle-review-hide-btn'
+      }
+  }
+
+  const hidePanels = () => {
+    if(!props.reviewOpen){
+      return 'left-sidebar close-review'
+    }
+    return 'left-sidebar'
+  }
+
   return (
-      <div className="left-sidebar">
+      <div className={hidePanels()}>
         <div className="review-header">
+          <div
+            className={buttonDirection()}
+            onClick={() => {props.dispatch(toggleReview)}}>
+          </div>
           <div className="h2 grey-text center-text">Reviews</div>
         </div>
 
@@ -82,7 +102,8 @@ function LeftSidebar (props) {
 const mapStateToProps = state => ({
   emails: state.email.emails,
   socket: state.io.socket,
-  currentVersion: state.email.currentVersion
+  currentVersion: state.email.currentVersion,
+  reviewOpen: state.mailTrooper.reviewOpen
 })
 
 export default connect(mapStateToProps)(LeftSidebar)

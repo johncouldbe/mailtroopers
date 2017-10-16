@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/18</span>
+        <span class='fraction'>2/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/13</span>
+        <span class='fraction'>2/8</span>
       </div>
     </div>
   </div>
@@ -78,48 +78,48 @@
 33
 34
 35
-36</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+36</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React <span class="cstat-no" title="statement not covered" >from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
-import CreateEmailForm <span class="cstat-no" title="statement not covered" >from './CreateEmailForm'<span class="cstat-no" title="statement not covered" ></span></span>
-import {connect} f<span class="cstat-no" title="statement not covered" >rom 'react-redux'</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
+import CreateEmailForm from './CreateEmailForm'
+import {connect} from 'react-redux'
 &nbsp;
-import {toggleC<span class="cstat-no" title="statement not covered" >reateEmailModal} from '../../</span>../action<span class="fstat-no" title="function not covered" >s/'<span class="cstat-no" title="statement not covered" ></span></span>
+import {toggleCreateEmailModal} from '../../../actions/modal'
 &nbsp;
-const CreateEmailModal = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {</span>
+const CreateEmailModal = <span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {
   const hideModal = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >e </span>=&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    e.preventDefault()</span>
 <span class="cstat-no" title="statement not covered" >    props.dispatch(toggleCreateEmailModal)</span>
@@ -128,7 +128,7 @@ const CreateEmailModal = <span class="cstat-no" title="statement not covered" ><
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div className="modal-window"&gt;
       &lt;div className="modal center-text"&gt;
-        &lt;div className="modal-close" onClick={e =&gt; hideModal(e)}&gt;&lt;/div&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+        &lt;div className="modal-close" onClick={<span class="fstat-no" title="function not covered" >e </span>=&gt; <span class="cstat-no" title="statement not covered" >hideModal(e)}</span>&gt;&lt;/div&gt;
         &lt;div className="h3 grey-text"&gt;Let make a new campaign!&lt;/div&gt;
         &lt;div className="p red-text"&gt;{props.err}&lt;/div&gt;
 &nbsp;
@@ -139,13 +139,13 @@ const CreateEmailModal = <span class="cstat-no" title="statement not covered" ><
   )
 }
 &nbsp;
-const mapStateToProps = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >st</span>ate =&gt; {</span>
+const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; {
 <span class="cstat-no" title="statement not covered" >   return {</span>
     err: state.email.createEmailErr,
     user: state.user.currentUser,
     socket: state.io.socket
   }
-}<span class="cstat-no" title="statement not covered" ></span>
+}
 &nbsp;
 export default connect(mapStateToProps)(CreateEmailModal)
 &nbsp;</pre></td></tr>
@@ -154,7 +154,7 @@ export default connect(mapStateToProps)(CreateEmailModal)
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 08 2017 15:33:58 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

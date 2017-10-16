@@ -8,13 +8,17 @@
   "email-list-container";
 }
 
+.close-review {
+  grid-template-rows: 50px 0px;
+}
+
 .review-header {
   grid-area: review-header;
   display: grid;
   grid-template-rows: 50px;
-  grid-template-columns: 100%;
+  grid-template-columns: 85% 15%;
   grid-template-areas:
-  "review-header-text";
+  "review-header-text toggle-review-show-btn";
 }
 
 .review-header .h2 {
@@ -25,7 +29,7 @@
 
 .email-list-container {
   grid-area: email-list-container;
-  background-color: #c1c7ce;
+  background-color: #eeeeef;
   padding: 0 5px;
   overflow-y: scroll;
 }
@@ -50,4 +54,28 @@
   overflow-y: hidden;
   height: 20px;
   transition: .3s;
+}
+
+.toggle-review-show-btn {
+  background-image: url('../../images/angle-down-blue.svg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  grid-area: toggle-review-show-btn;
+}
+
+.toggle-review-show-btn {
+  grid-area: toggle-review-show-btn;
+}
+
+.toggle-review-show-btn:hover {
+  background-image: url('../../images/angle-down-red.svg');
+}
+
+.toggle-review-hide-btn {
+  background-image: url('../../images/angle-up-blue.svg');
+}
+
+.toggle-review-hide-btn:hover {
+  background-image: url('../../images/angle-up-red.svg');
 }

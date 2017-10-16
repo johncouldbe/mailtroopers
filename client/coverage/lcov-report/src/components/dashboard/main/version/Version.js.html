@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">7.69% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>1/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">8.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>1/12</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -63,53 +63,125 @@
 18
 19
 20
-21</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
+import {connect} from 'react-redux'
+&nbsp;
+import {updateCurrentVersion} from '../../../../actions/email'
 &nbsp;
 import './Version.css'
 &nbsp;
-function Version (props) {
-  return (
-      &lt;div className="version"&gt;
-        &lt;div className="version-container"&gt;
-          &lt;div className="version-left-btn"&gt;&lt;/div&gt;
-          &lt;div className="version-center-display"&gt;
-            &lt;div className="grey-text p"&gt;1 of 23&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div className="version-right-btn"&gt;&lt;/div&gt;
-        &lt;/div&gt;
+function <span class="fstat-no" title="function not covered" >Version </span>(props) {
 &nbsp;
+  const updateVersion = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >nu</span>m =&gt; {</span>
+    const toCheck = <span class="cstat-no" title="statement not covered" >num  + props.currentVersion</span>
+<span class="cstat-no" title="statement not covered" >    if(toCheck &gt; 0 &amp;&amp; toCheck &lt; props.selectedCampaign.versions.length + 1) {</span>
+<span class="cstat-no" title="statement not covered" >      props.dispatch(updateCurrentVersion(toCheck))</span>
+    }
+  }
+&nbsp;
+  const version = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if(!props.selectedCampaign || props.selectedCampaign.versions.length === 0){</span>
+<span class="cstat-no" title="statement not covered" >      return</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;div className="version-container"&gt;
+        &lt;div className="version-left-btn" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >updateVersion(-1)}</span>&gt;&lt;/div&gt;
+        &lt;div className="version-center-display"&gt;
+          &lt;div className="grey-text p"&gt;{props.currentVersion} of {props.selectedCampaign.versions.length}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className="version-right-btn" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >updateVersion(1)}</span>&gt;&lt;/div&gt;
       &lt;/div&gt;
+    )
+  }
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div className="version"&gt;
+      {version()}
+    &lt;/div&gt;
   )
 }
 &nbsp;
-export default Version;
+const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+  selectedCampaign: state.email.selectedCampaign,
+  currentVersion: state.email.currentVersion
+})
+&nbsp;
+export default connect(mapStateToProps)(Version);
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 08 2017 15:33:58 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../../../../prettify.js"></script>
