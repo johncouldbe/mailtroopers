@@ -6,6 +6,8 @@ const {JWT_SECRET} = require('../config')
 
 
 exports.emailSockets = (socketIo, mail) => {
+  let user
+  let gClient
 
   socketIo.on('connection', socketioJwt.authorize({
 		secret: JWT_SECRET,
@@ -13,43 +15,15 @@ exports.emailSockets = (socketIo, mail) => {
 	}))
   .on('authenticated', client => {
     console.log('authenticated')
+    gClient = client
 
     client.on('subscribeToEmail', userId => {
       console.log('--- client connected ---', userId)
-      const user = userId.userId
-
-      mail.listen.on("mail", function(mail, seqno, attributes) {
-        const address = mail.to[0].address
-        const newSlug = address.substr(0, address.indexOf('@'))
-        Email
-        .update(
-          { slug: newSlug },
-          { $push: { "versions" : {
-            "html": mail.html,
-            "subject": mail.subject
-          }}}
-        )
-        .then(e => {
-          Email
-            .findOne({ slug: newSlug })
-            .then(email => {
-              const contributor = email.contributors.includes(user)
-              if(String(email.master) == user || contributor){
-                console.log("EMITTING")
-                client.emit('campaign received', {
-                  email
-                })
-              }
-            })
-        })
-        .catch(err => console.log(err))
-      })
-
+      user = userId.userId
     })
 
     client.on('disconnect', () => {
       console.log('DISCONNECTED')
-
     })
 
    client.on('add campaign', data => {
@@ -103,9 +77,6 @@ exports.emailSockets = (socketIo, mail) => {
       })
 
     client.on('add comment', data => {
-     //campaignId version# comment, userId
-      console.log("DATA", data.version);
-
       Email
       .update(
         { _id: data.campaignId, "versions._id": data.version  },
@@ -130,10 +101,55 @@ exports.emailSockets = (socketIo, mail) => {
       .catch(err => console.log(err))
     })
 
+    client.on('delete comment', data => {
+      Email
+      .update(
+        { _id: data.campaignId, "versions._id": data.version  },
+        {
+          "$pull": { "versions.$.comments": {
+            _id: data.commentId
+          }}
+        },
+        {new: true}
+      )
+      .then(e => {
+        Email.findOne({ _id: data.campaignId, "versions._id": data.version})
+          .populate('contributors', 'firstName lastName _id')
+            .populate('versions.comments.user', 'firstName lastName _id')
+          .then(email => {
+            client.emit('comment added', {
+              email
+            })
+          })
+      })
+      .catch(err => console.log(err))
+    })
+  })
 
-// //This is just to see the comments field afterwords in the first version in the versions array
-
-
-
+  mail.listen.on("mail", function(mail, seqno, attributes) {
+    const address = mail.to[0].address
+    const newSlug = address.substr(0, address.indexOf('@'))
+    Email
+    .update(
+      { slug: newSlug },
+      { $push: { "versions" : {
+        "html": mail.html,
+        "subject": mail.subject
+      }}}
+    )
+    .then(e => {
+      Email
+        .findOne({ slug: newSlug })
+        .then(email => {
+          const contributor = email.contributors.includes(user)
+          if(String(email.master) == user || contributor){
+            console.log("EMITTING")
+            gClient.emit('campaign received', {
+              email
+            })
+          }
+        })
+    })
+    .catch(err => console.log(err))
   })
 }

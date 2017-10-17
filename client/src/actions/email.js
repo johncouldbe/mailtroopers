@@ -70,6 +70,10 @@ export const addComment = email => ({
   email
 })
 
+export const deleteComment = (commentId, socket) => dispatch => {
+  return socket.emit('delete comment', commentId)
+}
+
 export const ADD_VERSION = 'ADD_VERSION'
 export const addVersion = campaign => ({
   type: ADD_VERSION,
