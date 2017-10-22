@@ -4,7 +4,9 @@ const initialState = {
   createEmailErr: null,
   emails: null,
   selectedCampaign: null,
-  currentVersion: 0
+  currentVersion: 0,
+  recruitFailures: null,
+  recruitSuccesses: null
 }
 
 export const emailReducer = (state=initialState, action) => {
@@ -28,8 +30,9 @@ export const emailReducer = (state=initialState, action) => {
   else if(action.type === actions.UPDATE_CURRENT_VERSION) {
     return Object.assign({}, state, {currentVersion: action.version})
   }
-  else if(action.type === actions.ADD_COMMENT) {
-    let returnedMail = action.email.email
+  else if(action.type === actions.UPDATE_CAMPAIGN) {
+    let returnedMail = action.campaign.email
+    console.log(returnedMail);
     return Object.assign({}, state, {
       emails: state.emails.map( email => {
         if(email._id === returnedMail._id){
@@ -40,18 +43,16 @@ export const emailReducer = (state=initialState, action) => {
       selectedCampaign: returnedMail
     })
   }
-  else if(action.type === actions.ADD_VERSION) {
-    let returnedMail = action.campaign.email
-    console.log(returnedMail)
-
+  else if(action.type === actions.RECRUITED) {
     return Object.assign({}, state, {
-      emails: state.emails.map( email => {
-        if(email._id === returnedMail._id){
-          email = returnedMail
-        }
-        return email
-      }),
-      selectedCampaign: returnedMail
+      recruitFailures: action.recruits.failures,
+      recruitSuccesses: action.recruits.successful
+    })
+  }
+  else if(action.type === actions.CLEAR_RECRUIT_MSGS) {
+    return Object.assign({}, state, {
+      recruitFailures: null,
+      recruitSuccesses: null
     })
   }
 

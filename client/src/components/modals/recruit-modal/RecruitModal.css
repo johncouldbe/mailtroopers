@@ -1,6 +1,11 @@
+.modal-padding {
+  padding: 0 40px;
+}
+
 .link-container {
-  width: calc(90% - 42px);
-  display: inline-block;
+  width: calc(85% - 42px);
+  position: relative;
+  float: left;
   border: 1px solid #dcdbdc;
   border-radius: 4px;
   margin: 0 10px 0 20px;
@@ -19,15 +24,55 @@
   outline: 0;
 }
 
-.copy-container {
-  display: inline-block;
-  margin: 0 20px 0px 0;
-  width: calc(10% - 20px);
+.add-address {
+  position: relative;
+  float: left;
+  margin: 5px 20px 0px 0;
+  width: calc(15% - 20px);
   height: 30px;
-  border-radius: 4px;
-  background-image: url(../../images/clipboard.svg);
+  background-color: #ffffff;
+  border: none;
+  background-image: url(../../images/plus.svg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
+}
+
+.address-container {
+  position: relative;
+  float: left;
+  margin: 5px 5px 0 5px;
+  padding: 0 30px 0 10px;
+  line-height: 40px;
+  border: 1px solid #dcdbdc;
+  border-radius: 4px;
+  background-color: #4a5367;
+}
+
+/*.address {
+  float: left;
+  margin-right: 5px;
+}*/
+
+.delete-address {
+  position: absolute;
+  right: 5px;
+  top: 2.5px;
+  height: 20px;
+  width: 20px;
+  float: right;
+  border-radius: 50%;
+  background-image: url(../../images/delete-white.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.delete-address:hover {
+  background-color: #ccd9f5;
+  background-image: url(../../images/delete.svg);
+  transition: .3s;
 }

@@ -278,7 +278,7 @@ import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
 &nbsp;
-import {addNewCampaign, removeCampaign, addComment,
+import {addNewCampaign, removeCampaign, updateCampaign,
         addVersion, selectCampaign} from '../../actions/email'
 import {toggleCreateEmailModal} from '../../actions/modal'
 import {toggleLeftSidebar} from '../../actions'
@@ -310,7 +310,7 @@ export class Dashboard extends Component {
         })
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        this.props.socket.on('comment added', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          this.props.dispatch(addComment(campaign))</span>
+<span class="cstat-no" title="statement not covered" >          this.props.dispatch(updateCampaign(campaign))</span>
         })
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        this.props.socket.on('campaign received', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>

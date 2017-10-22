@@ -6,6 +6,8 @@ import io from 'socket.io-client'
 import {loadAuthToken} from './local-storage'
 import {setAuthToken} from './actions/user'
 import {connectSocket} from './actions/io'
+import {toggleCreateEmailModal} from './actions/modal'
+import {addNewCampaign,removeCampaign, selectCampaign, updateCampaign, recruited} from './actions/email'
 
 import {SOCKET_URL} from './config'
 
@@ -41,6 +43,27 @@ if (authToken) {
 
     socket.on('unauthorized', () => {
       store.dispatch(connectSocket(null))
+    })
+
+    socket.on('campaign added', campaign => {
+      store.dispatch(addNewCampaign(campaign))
+      store.dispatch(toggleCreateEmailModal)
+    })
+
+    socket.on('campaign deleted', campaign => {
+      store.dispatch(removeCampaign(campaign))
+      if(!store.selectedCampaign) return
+      if(campaign._id === this.props.selectedCampaign._id){
+        store.dispatch(selectCampaign(null))
+      }
+    })
+
+    socket.on('update campaign', campaign => {
+      store.dispatch(updateCampaign(campaign))
+    })
+
+    socket.on('recruited', recruits => {
+      store.dispatch(recruited(recruits))
     })
 
 }

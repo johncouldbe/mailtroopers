@@ -153,6 +153,7 @@ nav {
 }
 
 .btn-container {
+  width: 100%;
   display: grid;
   grid-template-columns: calc(50% - 87.5px) 175px calc(50% - 87.5px);
   grid-template-rows: 20px 40px 20px;

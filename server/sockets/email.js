@@ -1,4 +1,5 @@
 const {Email}     = require('../models/email')
+const {User}     = require('../models/user')
 const shortid     = require('shortid')
 const sentencer   = require('sentencer')
 const socketioJwt = require('socketio-jwt')
@@ -6,7 +7,7 @@ const {JWT_SECRET} = require('../config')
 
 
 exports.emailSockets = (socketIo, mail) => {
-  let user
+  let gUser
   let gClient
 
   socketIo.on('connection', socketioJwt.authorize({
@@ -19,7 +20,7 @@ exports.emailSockets = (socketIo, mail) => {
 
     client.on('subscribeToEmail', userId => {
       console.log('--- client connected ---', userId)
-      user = userId.userId
+      gUser = userId.userId
     })
 
     client.on('disconnect', () => {
@@ -74,31 +75,30 @@ exports.emailSockets = (socketIo, mail) => {
           client.emit('campaign deleted', campaign.apiRepr())
         })
         .catch(err => console.log(err))
-      })
+    })
 
     client.on('add comment', data => {
       Email
-      .update(
-        { _id: data.campaignId, "versions._id": data.version  },
-        {
-          "$push": { "versions.$.comments": {
-            comment: data.comment,
-            user: data.userId
-          }}
-        },
-        {new: true}
-      )
-      .then(e => {
-        Email.findOne({ _id: data.campaignId, "versions._id": data.version})
-          .populate('contributors', 'firstName lastName _id')
-            .populate('versions.comments.user', 'firstName lastName _id')
-          .then(email => {
-            client.emit('comment added', {
-              email
+        .update(
+          { _id: data.campaignId, "versions._id": data.version  },
+          {
+            "$push": { "versions.$.comments": {
+              comment: data.comment,
+              user: data.userId
+            }}
+          }
+        )
+        .then(e => {
+          Email.findOne({ _id: data.campaignId})
+            .populate('contributors', 'firstName lastName _id')
+              .populate('versions.comments.user', 'firstName lastName _id')
+            .then(email => {
+              client.emit('update campaign', {
+                email
+              })
             })
-          })
-      })
-      .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
     })
 
     client.on('delete comment', data => {
@@ -109,21 +109,68 @@ exports.emailSockets = (socketIo, mail) => {
           "$pull": { "versions.$.comments": {
             _id: data.commentId
           }}
-        },
-        {new: true}
+        }
       )
       .then(e => {
-        Email.findOne({ _id: data.campaignId, "versions._id": data.version})
+        Email.findOne({ _id: data.campaignId})
           .populate('contributors', 'firstName lastName _id')
-            .populate('versions.comments.user', 'firstName lastName _id')
+          .populate('versions.comments.user', 'firstName lastName _id')
           .then(email => {
-            client.emit('comment added', {
+            client.emit('update campaign', {
               email
             })
           })
       })
       .catch(err => console.log(err))
     })
+
+    client.on('recruit', data => {
+      const addresses = data.addresses
+      const id = data.id
+
+      User
+      .find({email: {$in: addresses}})
+      .then(users => {
+        const successfulIds = users.map(user => user._id)
+        const successful = users.map(user => user.email)
+        const failures = addresses.filter(address => {
+          return successful.indexOf(address) === -1
+        })
+
+        Email
+        .update(
+          { _id: id },
+          {
+            $push: { "contributors": {$each: successfulIds}}
+          },
+          { upsert: true } //This doesn't work...
+        )
+        .then(e => {
+          if(!successful.length) {
+            return client.emit('recruited', {
+              successful,
+              failures
+            })
+          }
+          
+          Email.findOne({ _id: data.id})
+            .populate('contributors', 'firstName lastName _id')
+            .populate('versions.comments.user', 'firstName lastName _id')
+            .then(email => {
+              client.emit('update campaign', {
+                email
+              })
+              client.emit('recruited', {
+                successful,
+                failures
+              })
+            })
+            .catch(err => console.log(err))
+        })
+      })
+      .catch(err => console.log(err))
+    })
+
   })
 
   mail.listen.on("mail", function(mail, seqno, attributes) {
@@ -141,10 +188,9 @@ exports.emailSockets = (socketIo, mail) => {
       Email
         .findOne({ slug: newSlug })
         .then(email => {
-          const contributor = email.contributors.includes(user)
-          if(String(email.master) == user || contributor){
-            console.log("EMITTING")
-            gClient.emit('campaign received', {
+          const contributor = email.contributors.includes(gUser)
+          if(String(email.master) == gUser || contributor){
+            gClient.emit('update campaign', {
               email
             })
           }

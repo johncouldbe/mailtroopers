@@ -13,9 +13,6 @@ import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
 
-import {addNewCampaign, removeCampaign, addComment,
-        addVersion, selectCampaign} from '../../actions/email'
-import {toggleCreateEmailModal} from '../../actions/modal'
 import {toggleLeftSidebar} from '../../actions'
 
 import './Dashboard.css'
@@ -30,28 +27,6 @@ export class Dashboard extends Component {
         if(window.innerWidth < 765){
           this.props.dispatch(toggleLeftSidebar)
         }
-
-        this.props.socket.on('campaign added', campaign => {
-          this.props.dispatch(addNewCampaign(campaign))
-          this.props.dispatch(toggleCreateEmailModal)
-        })
-
-        this.props.socket.on('campaign deleted', campaign => {
-          this.props.dispatch(removeCampaign(campaign))
-          if(!this.props.selectedCampaign) return
-          if(campaign._id === this.props.selectedCampaign._id){
-            this.props.dispatch(selectCampaign(null))
-          }
-        })
-
-        this.props.socket.on('comment added', campaign => {
-          this.props.dispatch(addComment(campaign))
-        })
-
-        this.props.socket.on('campaign received', campaign => {
-          console.log('FIRED')
-          this.props.dispatch(addVersion(campaign))
-        })
     }
 
     pickMainClass() {

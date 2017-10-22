@@ -15,19 +15,23 @@ export class Comments extends Component {
     this.showCommentModal = this.showCommentModal.bind(this)
   }
 
-  deleteComment(id, socket){
-    this.props.dispatch(deleteComment(id, socket))
+  deleteComment(campaignId, version, commentId, socket){
+    this.props.dispatch(deleteComment(campaignId, version, commentId, socket))
   }
 
   comments() {
     if(this.props.selectedCampaign &&
     this.props.selectedCampaign.versions.length > 0){
       const comments = this.props.selectedCampaign.versions[this.props.currentVersion - 1].comments
+      const version = this.props.selectedCampaign.versions[this.props.currentVersion - 1]._id
+      const campaignId = this.props.selectedCampaign._id
+      const socket = this.props.socket
 
       return comments.map((comment, index) => {
+
         const deleteBtn = comment.user._id === this.props.currentUser._id
           ? <div className="delete-comment"
-            onClick={this.deleteComment(comment._id, this.props.socket)}
+            onClick={() => { this.deleteComment(campaignId, version, comment._id,  socket)}}
           ></div>
           : ''
 

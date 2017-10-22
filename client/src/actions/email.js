@@ -64,18 +64,34 @@ export const sendComment = (campaignId, version, userId, comment, socket) => dis
   })
 }
 
-export const ADD_COMMENT = 'ADD_COMMENT'
-export const addComment = email => ({
-  type: ADD_COMMENT,
-  email
+export const UPDATE_CAMPAIGN = 'UPDATE_CAMPAIGN'
+export const updateCampaign = campaign => ({
+  type: UPDATE_CAMPAIGN,
+  campaign
 })
 
-export const deleteComment = (commentId, socket) => dispatch => {
-  return socket.emit('delete comment', commentId)
+export const deleteComment = (campaignId, version, commentId, socket) => dispatch => {
+  return socket.emit('delete comment', {
+    campaignId,
+    version,
+    commentId
+  })
 }
 
-export const ADD_VERSION = 'ADD_VERSION'
-export const addVersion = campaign => ({
-  type: ADD_VERSION,
-  campaign
+export const recruit = (addresses, id, socket) => dispatch => {
+  return socket.emit('recruit', {
+    addresses,
+    id
+  })
+}
+
+export const RECRUITED = 'RECRUITED'
+export const recruited = (recruits) => ({
+  type: RECRUITED,
+  recruits
+})
+
+export const CLEAR_RECRUIT_MSGS = 'CLEAR_RECRUIT_MSGS'
+export const clearRecruitMsgs = ({
+  type: CLEAR_RECRUIT_MSGS,
 })

@@ -10,6 +10,7 @@ const {JWT_SECRET} = require('../config')
 
 const basicStrategy = new BasicStrategy((email, password, callback) => {
     let user
+
     User.findOne({email: email})
         .then(_user => {
             user = _user
@@ -49,17 +50,7 @@ const jwtStrategy = new JwtStrategy(
         algorithms: ['HS256']
     },
     (payload, done) => {
-      User.findOne({id: payload._id}, (err, user) => {
-        if (err) {
-            return done(err, false);
-        }
-        if (user) {
-            return done(null, user.apiRepr());
-        } else {
-            return done(null, false);
-            // or you could create a new account
-        }
-      })
+      done(null, payload.user)
     }
 )
 

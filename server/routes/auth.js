@@ -20,6 +20,7 @@ router.post(
     passport.authenticate('basic', {session: false}),
     (req, res) => {
         const authToken = createAuthToken(req.user.apiRepr())
+        console.log('AUTHTOKEN', authToken);
         res.json({authToken})
     }
 )

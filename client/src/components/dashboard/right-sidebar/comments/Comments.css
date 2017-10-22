@@ -40,6 +40,12 @@
   background-image: url('../../../images/delete.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: #fff;
   cursor: pointer;
+  transition: .5s;
+}
+
+.delete-comment:hover {
+  height: 20px;
+  width: 20px;
+  transition: .5s;
 }
