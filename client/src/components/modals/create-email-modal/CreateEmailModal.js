@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 import {toggleCreateEmailModal} from '../../../actions/modal'
 
-const CreateEmailModal = props => {
+export const CreateEmailModal = props => {
   const hideModal = e => {
     e.preventDefault()
     props.dispatch(toggleCreateEmailModal)

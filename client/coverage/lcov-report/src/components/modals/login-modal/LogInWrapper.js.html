@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/16</span>
+        <span class='fraction'>2/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/3</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/11</span>
+        <span class='fraction'>2/6</span>
       </div>
     </div>
   </div>
@@ -69,38 +69,38 @@
 24
 25
 26
-27</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+27</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React <span class="cstat-no" title="statement not covered" >from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
-import LogIn <span class="cstat-no" title="statement not covered" >from './LogIn'<span class="cstat-no" title="statement not covered" ></span></span>
-import {connect} f<span class="cstat-no" title="statement not covered" >rom 'react-redux'</span>
-import {Redirect} from<span class="cstat-no" title="statement not covered" > 'react-router-dom'<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
+import LogIn from './LogIn'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 &nbsp;
-const LogInWrapper = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {</span>
+const LogInWrapper = <span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  if(props.loggedIn) {</span>
 <span class="cstat-no" title="statement not covered" >    return &lt;Redirect to='/dashboard' /&gt;</span>
@@ -113,12 +113,12 @@ const LogInWrapper = <span class="cstat-no" title="statement not covered" ><span
   )
 }
 &nbsp;
-const mapStateToProps = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >st</span>ate =&gt; {</span>
+const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; {
 <span class="cstat-no" title="statement not covered" >   return {</span>
     logErr: state.user.logErr,
     loggedIn: state.user.currentUser
   }
-}<span class="cstat-no" title="statement not covered" ></span>
+}
 &nbsp;
 export default connect(mapStateToProps)(LogInWrapper)
 &nbsp;</pre></td></tr>
@@ -127,7 +127,7 @@ export default connect(mapStateToProps)(LogInWrapper)
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 23 2017 13:57:31 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

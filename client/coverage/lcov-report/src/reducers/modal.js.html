@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/22</span>
+        <span class='fraction'>6/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">57.14% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/15</span>
+        <span class='fraction'>4/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/10</span>
+        <span class='fraction'>6/9</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -63,45 +63,45 @@
 18
 19
 20
-21</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+21</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as a<span class="cstat-no" title="statement not covered" >ctions from '../actions/modal'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as actions from '../actions/modal'
 &nbsp;
-const initialState = <span class="cstat-no" title="statement not covered" >{</span>
+const initialState = {
   recruitModal: false,
   commentModal: false,
   createEmailModal: false
 }
 &nbsp;
-export const modalRed<span class="cstat-no" title="statement not covered" >ucer = (state=initialSt<span class="fstat-no" title="function not covered" >at</span>e, acti<span class="branch-0 cbranch-no" title="branch not covered" >on) =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >  if(action.type === actions.TOGGLE_RECRUIT_MODAL) {</span>
+export const modalReducer = (state=initialState, action) =&gt; {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(action.type === actions.TOGGLE_RECRUIT_MODAL) {
 <span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {recruitModal: !state.recruitModal})</span>
   }
-<span class="cstat-no" title="statement not covered" >  else if(action.type === actions.TOGGLE_COMMENT_MODAL) {</span>
+  else <span class="missing-if-branch" title="if path not taken" >I</span>if(action.type === actions.TOGGLE_COMMENT_MODAL) {
 <span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {commentModal: !state.commentModal})</span>
   }
-<span class="cstat-no" title="statement not covered" >  else if(action.type === actions.TOGGLE_CREATE_EMAIL_MODAL) {</span>
+  else <span class="missing-if-branch" title="if path not taken" >I</span>if(action.type === actions.TOGGLE_CREATE_EMAIL_MODAL) {
 <span class="cstat-no" title="statement not covered" >    return Object.assign({}, state, {createEmailModal: !state.createEmailModal})</span>
   }
-<span class="cstat-no" title="statement not covered" >  return state</span>
+  return state
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -109,7 +109,7 @@ export const modalRed<span class="cstat-no" title="statement not covered" >ucer 
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 23 2017 13:57:31 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

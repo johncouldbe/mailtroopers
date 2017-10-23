@@ -21,12 +21,19 @@ function LeftSidebar (props) {
     props.dispatch(deleteCampaign(campaign, socket))
   }
 
+  const emailFile = (email) => {
+    if(email.master === props.currentUser._id) {
+      return 'email-file red-left'
+    }
+    return 'email-file yellow-left'
+  }
+
   const emails = () => {
     if(props.emails){
       return props.emails.map((email, index) => {
         return (
         <div
-          className="email-file"
+          className={emailFile(email)}
           key={index}
           onMouseOver={ e => {
             e.currentTarget.lastChild.className = "shown-email-options"
@@ -103,7 +110,8 @@ const mapStateToProps = state => ({
   emails: state.email.emails,
   socket: state.io.socket,
   currentVersion: state.email.currentVersion,
-  reviewOpen: state.mailTrooper.reviewOpen
+  reviewOpen: state.mailTrooper.reviewOpen,
+  currentUser: state.user.currentUser
 })
 
 export default connect(mapStateToProps)(LeftSidebar)

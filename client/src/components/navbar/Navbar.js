@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 
 import './Navbar.css'
 import {setCurrentUser, setAuthToken} from '../../actions/user';
+import {unauthorizedSocket} from '../../actions/io';
 import {clearAuthToken} from '../../local-storage';
 
 export function Navbar(props) {
@@ -12,6 +13,7 @@ export function Navbar(props) {
       props.dispatch(setCurrentUser(null))
       props.dispatch(setAuthToken(null))
       clearAuthToken()
+      props.dispatch(unauthorizedSocket())
     }
   }
   const renderLog = () => {

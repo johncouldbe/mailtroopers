@@ -38,10 +38,17 @@
   grid-area: email-file;
   border-radius: 2px;
   background-color: #fff;
-  border-left: 7px solid #f54f45;
   margin: 10px 0;
   padding: 5px;
   cursor: pointer;
+}
+
+.red-left {
+  border-left: 7px solid #f54f45;
+}
+
+.yellow-left {
+  border-left: 7px solid #f5af45;
 }
 
 .hidden-email-options {

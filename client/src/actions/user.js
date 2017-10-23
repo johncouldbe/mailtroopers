@@ -1,9 +1,10 @@
-import axios from 'axios'
 import jwtDecode from 'jwt-decode'
+import axios from 'axios'
 import {BASE_URL} from '../config'
 import {saveAuthToken, clearAuthToken} from '../local-storage'
 
 import {getCampaigns} from './email'
+import {hookInSocket, unauthorizedSocket} from './io'
 
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
@@ -13,6 +14,7 @@ const storeAuthInfo = (authToken, dispatch) => {
   dispatch(setAuthToken(authToken))
   dispatch(setCurrentUser(decodedToken.user))
   dispatch(getCampaigns(decodedToken.user._id))
+  .then(() => dispatch(hookInSocket(authToken)))
 }
 
 export const registerUser = user => dispatch => {
@@ -33,16 +35,19 @@ export const registerErr = err => ({
 })
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN'
-export const setAuthToken = authToken => ({
+export const setAuthToken = authToken => {
+  console.log('authToken', authToken)
+  return {
     type: SET_AUTH_TOKEN,
     authToken
-})
+  }
+}
 
 export const SET_CURRENT_USER = 'SET_CURRENT_USER'
-export const setCurrentUser = currentUser => ({
+export const setCurrentUser = currentUser => {
     type: SET_CURRENT_USER,
     currentUser
-})
+}
 
 export const logInUser = (email, password) => dispatch => {
   const token = btoa(`${email}:${password}`)
@@ -87,5 +92,6 @@ export const refreshAuthToken = () => (dispatch, getState) => {
         dispatch(setCurrentUser(null));
         dispatch(setAuthToken(null));
         clearAuthToken(authToken);
+        dispatch(unauthorizedSocket());
     });
 };

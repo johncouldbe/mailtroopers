@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Route, withRouter} from 'react-router-dom'
+import {Route, BrowserRouter as Router} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import {refreshAuthToken} from '../../actions/user'
@@ -61,15 +61,17 @@ export class App extends Component {
   render() {
 
     return (
-      <div>
-        <Route path="/home" component={Navbar} />
-        {["/", "/login", "/signup"].map((path, index) =>
-          <Route exact path={path} component={LandingPage} key={index}/>
-        )}
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/register" component={SignUpWrapper} />
-        <Route exact path="/login" component={LogInWrapper} />
-      </div>
+      <Router>
+        <div>
+          <Route path="/home" component={Navbar} />
+          {["/", "/login", "/signup"].map((path, index) =>
+            <Route exact path={path} component={LandingPage} key={index}/>
+          )}
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/register" component={SignUpWrapper} />
+          <Route exact path="/login" component={LogInWrapper} />
+        </div>
+      </Router>
     )
   }
 }
@@ -80,4 +82,4 @@ const mapStateToProps = state => ({
     socket: state.io.socket
 })
 
-export default withRouter(connect(mapStateToProps)(App))
+export default connect(mapStateToProps)(App)

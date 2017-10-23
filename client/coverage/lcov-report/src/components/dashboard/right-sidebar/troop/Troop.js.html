@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">5.88% </span>
+        <span class="strong">47.06% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/17</span>
+        <span class='fraction'>8/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>2/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">62.5% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>5/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.25% </span>
+        <span class="strong">43.75% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/16</span>
+        <span class='fraction'>7/16</span>
       </div>
     </div>
   </div>
@@ -109,26 +109,24 @@
 64
 65
 66
-67
-68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+67</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,7 +142,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,7 +163,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,7 +171,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,15 +181,15 @@ import {toggleRecruitModal} from '../../../../actions/modal'
 import './Troop.css'
 &nbsp;
 export class Troop extends Component {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(props){
-<span class="cstat-no" title="statement not covered" >    super(props)</span>
+  constructor(props){
+    super(props)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    this.showRecruitModal = this.showRecruitModal.bind(this)</span>
+    this.showRecruitModal = this.showRecruitModal.bind(this)
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  tr</span>oop() {
-<span class="cstat-no" title="statement not covered" >    if(!this.props.selectedCampaign){</span>
-<span class="cstat-no" title="statement not covered" >      return</span>
+  troop() {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(!this.props.selectedCampaign){
+      return
     }
 <span class="cstat-no" title="statement not covered" >    if(this.props.selectedCampaign.contributors.length === 0){</span>
 <span class="cstat-no" title="statement not covered" >      return &lt;div&gt;</span>
@@ -199,7 +197,6 @@ export class Troop extends Component {
         &lt;div className="h4 grey-text center-text"&gt;{`Build your team`}&lt;/div&gt;
       &lt;/div&gt;
     }
-&nbsp;
 <span class="cstat-no" title="statement not covered" >    return this.props.selectedCampaign.contributors.map(<span class="fstat-no" title="function not covered" >(t</span>rooper, index) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      return &lt;div className="trooper-container" key={index}&gt;</span>
         &lt;div className="trooper-img"&gt;
@@ -210,8 +207,8 @@ export class Troop extends Component {
     })
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  tr</span>oopBtn() {
-<span class="cstat-no" title="statement not covered" >    if(this.props.selectedCampaign){</span>
+  troopBtn() {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if(this.props.selectedCampaign){
 <span class="cstat-no" title="statement not covered" >      return &lt;div className="trooper-btn-container"&gt;</span>
         &lt;button className="trooper-btn" onClick={this.showRecruitModal}&gt;
           Recruit &amp;nbsp;
@@ -231,8 +228,8 @@ export class Troop extends Component {
 <span class="cstat-no" title="statement not covered" >    this.props.dispatch(toggleRecruitModal)</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder(){
-<span class="cstat-no" title="statement not covered" >    return(</span>
+  render(){
+    return(
       &lt;div className="troop"&gt;
         {this.troop()}
         {this.troopBtn()}
@@ -240,7 +237,7 @@ export class Troop extends Component {
     )
   }
 }
-const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+const mapStateToProps = state =&gt; ({
   selectedCampaign: state.email.selectedCampaign
 })
 export default connect(mapStateToProps)(Troop)
@@ -250,7 +247,7 @@ export default connect(mapStateToProps)(Troop)
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 23 2017 13:57:31 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../../../../prettify.js"></script>

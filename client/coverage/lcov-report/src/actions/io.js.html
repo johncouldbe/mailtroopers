@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>7/28</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">30.43% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>7/23</span>
       </div>
     </div>
   </div>
@@ -53,33 +53,162 @@
 8
 9
 10
-11</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const <span class="cstat-no" title="statement not covered" >CONNECT_SOCKET = 'CONNECT_SOCKET'<span class="cstat-no" title="statement not covered" ></span></span>
-export const connectSo<span class="cstat-no" title="statement not covered" >cket = socket =&gt; ({<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import io from 'socket.io-client'
+import store from '../store';
+&nbsp;
+import {toggleCreateEmailModal} from './modal'
+import {addNewCampaign,removeCampaign, selectCampaign, updateCampaign, recruited} from './email'
+&nbsp;
+import {SOCKET_URL} from '../config'
+&nbsp;
+export const CONNECT_SOCKET = 'CONNECT_SOCKET'
+export const connectSocket = <span class="fstat-no" title="function not covered" >so</span>cket =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
   type: CONNECT_SOCKET,
   socket
 })
 &nbsp;
-export const DISCONNECT_SO<span class="cstat-no" title="statement not covered" >CKET = 'DISCONNECT_SOCKET'</span>
-export const disconnectSo<span class="cstat-no" title="statement not covered" >cket = () =&gt; ({<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+export const DISCONNECT_SOCKET = 'DISCONNECT_SOCKET'
+export const disconnectSocket = <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
   type: DISCONNECT_SOCKET
 })
+&nbsp;
+const socket = io.connect(SOCKET_URL)
+&nbsp;
+export const hookInSocket = <span class="fstat-no" title="function not covered" >au</span>thToken =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  socket.emit('authenticate', {authToken})</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  dispatch(connectSocket(socket))</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  socket.on('campaign added', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(addNewCampaign(campaign))</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(toggleCreateEmailModal)</span>
+  })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  socket.on('campaign deleted', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(removeCampaign(campaign))</span>
+<span class="cstat-no" title="statement not covered" >    if(!store.email.selectedCampaign) <span class="cstat-no" title="statement not covered" >return</span></span>
+<span class="cstat-no" title="statement not covered" >    if(campaign._id === this.props.selectedCampaign._id){</span>
+<span class="cstat-no" title="statement not covered" >      dispatch(selectCampaign(null))</span>
+    }
+  })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  socket.on('update campaign', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(updateCampaign(campaign))</span>
+  })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  socket.on('recruited', <span class="fstat-no" title="function not covered" >re</span>cruits =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(recruited(recruits))</span>
+  })
+}
+&nbsp;
+export const unauthorizedSocket = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  socket.on('unauthorized', <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(connectSocket(null))</span>
+  })
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 23 2017 13:57:31 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

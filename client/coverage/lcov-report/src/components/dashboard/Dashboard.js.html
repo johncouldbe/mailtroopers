@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">3.23% </span>
+        <span class="strong">5.88% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/31</span>
+        <span class='fraction'>1/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/27</span>
+        <span class='fraction'>0/23</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">3.45% </span>
+        <span class="strong">6.25% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/29</span>
+        <span class='fraction'>1/16</span>
       </div>
     </div>
   </div>
@@ -128,35 +128,7 @@
 83
 84
 85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+86</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,28 +154,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -251,7 +201,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -278,9 +228,6 @@ import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
 &nbsp;
-import {addNewCampaign, removeCampaign, updateCampaign,
-        addVersion, selectCampaign} from '../../actions/email'
-import {toggleCreateEmailModal} from '../../actions/modal'
 import {toggleLeftSidebar} from '../../actions'
 &nbsp;
 import './Dashboard.css'
@@ -295,28 +242,6 @@ export class Dashboard extends Component {
 <span class="cstat-no" title="statement not covered" >        if(window.innerWidth &lt; 765){</span>
 <span class="cstat-no" title="statement not covered" >          this.props.dispatch(toggleLeftSidebar)</span>
         }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >        this.props.socket.on('campaign added', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          this.props.dispatch(addNewCampaign(campaign))</span>
-<span class="cstat-no" title="statement not covered" >          this.props.dispatch(toggleCreateEmailModal)</span>
-        })
-&nbsp;
-<span class="cstat-no" title="statement not covered" >        this.props.socket.on('campaign deleted', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          this.props.dispatch(removeCampaign(campaign))</span>
-<span class="cstat-no" title="statement not covered" >          if(!this.props.selectedCampaign) <span class="cstat-no" title="statement not covered" >return</span></span>
-<span class="cstat-no" title="statement not covered" >          if(campaign._id === this.props.selectedCampaign._id){</span>
-<span class="cstat-no" title="statement not covered" >            this.props.dispatch(selectCampaign(null))</span>
-          }
-        })
-&nbsp;
-<span class="cstat-no" title="statement not covered" >        this.props.socket.on('comment added', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          this.props.dispatch(updateCampaign(campaign))</span>
-        })
-&nbsp;
-<span class="cstat-no" title="statement not covered" >        this.props.socket.on('campaign received', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          console.log('FIRED')</span>
-<span class="cstat-no" title="statement not covered" >          this.props.dispatch(addVersion(campaign))</span>
-        })
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    pi</span>ckMainClass() {
@@ -329,7 +254,7 @@ export class Dashboard extends Component {
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    re</span>nder() {
-<span class="cstat-no" title="statement not covered" >      console.log('RENDER', this.props.emails)</span>
+<span class="cstat-no" title="statement not covered" >      console.log('RENDER2', this.props.socket)</span>
 <span class="cstat-no" title="statement not covered" >      if (!this.props.loggedIn) {</span>
 <span class="cstat-no" title="statement not covered" >          return &lt;Redirect to="/" /&gt;;</span>
       }
@@ -379,7 +304,7 @@ export default connect(mapStateToProps)(Dashboard)
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 16 2017 13:36:56 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 23 2017 13:57:31 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

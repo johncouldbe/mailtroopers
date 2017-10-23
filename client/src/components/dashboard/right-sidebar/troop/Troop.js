@@ -20,7 +20,6 @@ export class Troop extends Component {
         <div className="h4 grey-text center-text">{`Build your team`}</div>
       </div>
     }
-
     return this.props.selectedCampaign.contributors.map((trooper, index) => {
       return <div className="trooper-container" key={index}>
         <div className="trooper-img">
