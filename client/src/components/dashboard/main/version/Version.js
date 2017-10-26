@@ -5,7 +5,7 @@ import {updateCurrentVersion} from '../../../../actions/email'
 
 import './Version.css'
 
-function Version (props) {
+export function Version (props) {
 
   const updateVersion = num => {
     const toCheck = num  + props.currentVersion

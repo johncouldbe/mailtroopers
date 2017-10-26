@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">7.69% </span>
+        <span class="strong">46.15% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/13</span>
+        <span class='fraction'>6/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>2/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>2/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">8.33% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/12</span>
+        <span class='fraction'>6/12</span>
       </div>
     </div>
   </div>
@@ -96,23 +96,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -122,10 +118,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,18 +138,18 @@ import {updateCurrentVersion} from '../../../../actions/email'
 &nbsp;
 import './Version.css'
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Version </span>(props) {
+export function Version (props) {
 &nbsp;
-  const updateVersion = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >nu</span>m =&gt; {</span>
+  const updateVersion = <span class="fstat-no" title="function not covered" >nu</span>m =&gt; {
     const toCheck = <span class="cstat-no" title="statement not covered" >num  + props.currentVersion</span>
 <span class="cstat-no" title="statement not covered" >    if(toCheck &gt; 0 &amp;&amp; toCheck &lt; props.selectedCampaign.versions.length + 1) {</span>
 <span class="cstat-no" title="statement not covered" >      props.dispatch(updateCurrentVersion(toCheck))</span>
     }
   }
 &nbsp;
-  const version = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if(!props.selectedCampaign || props.selectedCampaign.versions.length === 0){</span>
-<span class="cstat-no" title="statement not covered" >      return</span>
+  const version = () =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(!props.selectedCampaign || <span class="branch-1 cbranch-no" title="branch not covered" >props.selectedCampaign.versions.length === 0)</span>{
+      return
     }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
@@ -162,7 +162,7 @@ function <span class="fstat-no" title="function not covered" >Version </span>(pr
       &lt;/div&gt;
     )
   }
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div className="version"&gt;
       {version()}
     &lt;/div&gt;
@@ -181,7 +181,7 @@ export default connect(mapStateToProps)(Version);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 23 2017 13:57:31 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Oct 26 2017 12:10:47 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../../../../prettify.js"></script>

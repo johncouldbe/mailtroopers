@@ -3,7 +3,7 @@ import SignUp from './SignUp'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 
-const SignUpWrapper = props => {
+export const SignUpWrapper = props => {
 
   if(props.loggedIn) {
     return <Redirect to='/dashboard' />

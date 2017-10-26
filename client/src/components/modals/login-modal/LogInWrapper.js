@@ -3,7 +3,7 @@ import LogIn from './LogIn'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 
-const LogInWrapper = props => {
+export const LogInWrapper = props => {
 
   if(props.loggedIn) {
     return <Redirect to='/dashboard' />

@@ -11,7 +11,7 @@ import './LeftSidebar.css'
 
 new Clipboard('.clipboard');
 
-function LeftSidebar (props) {
+export function LeftSidebar (props) {
   const showModal = e => {
     e.preventDefault()
     props.dispatch(toggleCreateEmailModal)
@@ -22,10 +22,18 @@ function LeftSidebar (props) {
   }
 
   const emailFile = (email) => {
-    if(email.master === props.currentUser._id) {
-      return 'email-file red-left'
+    const selectedCampaign = props.selectedCampaign
+    let classes = 'email-file'
+    const leftBorder = email.master === props.currentUser._id
+    ? ' red-left' : ' yellow-left'
+
+    classes += leftBorder
+
+    if(!selectedCampaign || email._id !== selectedCampaign._id) return classes
+    // console.log(props.selectCampaign);
+    if(email._id === selectedCampaign._id) {
+      return classes += ' selected-shadow'
     }
-    return 'email-file yellow-left'
   }
 
   const emails = () => {
@@ -111,7 +119,8 @@ const mapStateToProps = state => ({
   socket: state.io.socket,
   currentVersion: state.email.currentVersion,
   reviewOpen: state.mailTrooper.reviewOpen,
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser,
+  selectedCampaign: state.email.selectedCampaign
 })
 
 export default connect(mapStateToProps)(LeftSidebar)
