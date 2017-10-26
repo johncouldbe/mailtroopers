@@ -19,15 +19,14 @@ const store = (
     email: emailReducer,
     form: formReducer,
     io: ioReducer
-  }), applyMiddleware(thunk))
+  }),
+  applyMiddleware(thunk))
 )
 
-
-
 const authToken = loadAuthToken()
-
 if (authToken) {
-  store.dispatch(setAuthToken(authToken))
+    const token = authToken
+    store.dispatch(setAuthToken(token))
 }
 
 export default store

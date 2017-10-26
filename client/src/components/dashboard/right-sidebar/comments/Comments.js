@@ -21,7 +21,7 @@ export class Comments extends Component {
 
   comments() {
     if(this.props.selectedCampaign &&
-    this.props.selectedCampaign.versions.length > 0){
+    this.props.selectedCampaign.versions.length){
       const comments = this.props.selectedCampaign.versions[this.props.currentVersion - 1].comments
       const version = this.props.selectedCampaign.versions[this.props.currentVersion - 1]._id
       const campaignId = this.props.selectedCampaign._id

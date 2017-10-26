@@ -40,7 +40,8 @@ export const emailReducer = (state=initialState, action) => {
         }
         return email
       }),
-      selectedCampaign: returnedMail
+      selectedCampaign: returnedMail,
+      currentVersion: returnedMail.versions.length
     })
   }
   else if(action.type === actions.RECRUITED) {
