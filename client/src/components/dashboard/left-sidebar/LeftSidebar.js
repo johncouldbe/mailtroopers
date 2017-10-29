@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import moment from 'moment'
 import Clipboard from 'clipboard'
 
-import {deleteCampaign, selectCampaign, updateCurrentVersion} from '../../../actions/email'
+import {deleteCampaign, removeRecruit, selectCampaign, updateCurrentVersion} from '../../../actions/email'
 import {toggleCreateEmailModal} from '../../../actions/modal'
 import {toggleReview} from '../../../actions'
 
@@ -19,6 +19,11 @@ export function LeftSidebar (props) {
 
   const deleteEmail = (campaign, socket) => {
     props.dispatch(deleteCampaign(campaign, socket))
+  }
+
+  const removeEmail = (recruit, campaignId, master, socket) => {
+    const isMaster = master === props.currentUser._id
+    props.dispatch(removeRecruit(recruit, campaignId, isMaster, socket))
   }
 
   const emailFile = (email) => {
@@ -39,6 +44,26 @@ export function LeftSidebar (props) {
   const emails = () => {
     if(props.emails){
       return props.emails.map((email, index) => {
+        const master = email.master === props.currentUser._id
+        ? <span>
+          <span className="clipboard"
+         data-clipboard-text={`${email.slug}@mailtroopers.com`}
+        >
+          Get Link
+        </span> |
+        <span className="red-text" onClick={() => deleteEmail(email._id, props.socket)}>
+          &nbsp;Delete
+        </span>
+        </span>
+        : <span
+          className="red-text"
+          onClick={() => {
+            removeEmail(props.currentUser._id, email._id, email.master, props.socket)}}
+          >
+           Remove
+          </span>
+
+
         return (
         <div
           className={emailFile(email)}
@@ -60,12 +85,7 @@ export function LeftSidebar (props) {
           </div>
           <div className="hidden-email-options" onClick={e => e.stopPropagation()}>
             <div className="p grey-text right-text">
-              <span className="clipboard"
-               data-clipboard-text={`${email.slug}@mailtroopers.com`}
-              >
-                Get Link
-              </span> |&nbsp;
-              <span className="red-text" onClick={() => deleteEmail(email._id, props.socket)}>Delete</span>
+              {master}
             </div>
           </div>
         </div>
@@ -107,7 +127,12 @@ export function LeftSidebar (props) {
               New Campaign  <img src={require("../../images/bomb.svg")} alt="New Campaign" />
             </button>
           </div>
-
+          <div style={{marginLeft: 'calc(50% - 87.5px)'}}>
+            <div className="circle-red"></div>
+            <span className="p grey-text" style={{float: 'left', marginTop: '5px'}}>Yours</span>
+            <div className="circle-yellow"></div>
+            <span className="p grey-text" style={{lineHeight: '25px'}}>Theirs</span>
+          </div>
           {emails()}
         </div>
       </div>

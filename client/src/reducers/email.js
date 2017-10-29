@@ -20,6 +20,7 @@ export const emailReducer = (state=initialState, action) => {
     return Object.assign({}, state, {emails: [action.campaign, ...state.emails]})
   }
   else if (action.type === actions.REMOVE_CAMPAIGN) {
+    console.log(action.campaign);
     return Object.assign({}, state, {
       emails: state.emails.filter(email => email._id !== action.campaign._id)
     })
@@ -32,7 +33,6 @@ export const emailReducer = (state=initialState, action) => {
   }
   else if(action.type === actions.UPDATE_CAMPAIGN) {
     let returnedMail = action.campaign.email
-    console.log(returnedMail);
     return Object.assign({}, state, {
       emails: state.emails.map( email => {
         if(email._id === returnedMail._id){

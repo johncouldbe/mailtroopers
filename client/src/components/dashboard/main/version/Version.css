@@ -1,10 +1,10 @@
 .version {
-  grid-template-columns: calc(50% - 100) 200px calc(50% - 100);
-  grid-template-rows: 10px calc(100% - 20px) 10px;
+  grid-template-columns: calc(50% - 100px) 200px calc(50% - 100px);
+  grid-template-rows: 5px calc(100% - 20px) 15px;
   grid-template-areas:
-  ". . ."
+  ". . . "
   ". version-container ."
-  ". . .";
+  ". delete-version .";
 }
 
 .version-container {
@@ -44,4 +44,11 @@
 
 .version-right-btn:hover, .version-left-btn:hover {
   background-color: #dcdbdc;
+}
+
+.delete-version {
+  grid-area: delete-version;
+  font-size: .7em;
+  cursor: pointer;
+  line-height: 7.5px;
 }

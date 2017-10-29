@@ -1,9 +1,9 @@
   .trooper-container {
   display: grid;
-  grid-template-columns: 15px 40px 15px calc(50% - 80px) calc(25% - 5px) 5px;
+  grid-template-columns: 15px 40px 15px calc(100% - 105px) 20px 15px;
   grid-template-rows: 10px 40px;
   grid-template-areas: ". . . . . ."
-  ". trooper-img . trooper-name trooper-name .";
+  ". trooper-img . trooper-name trooper-delete .";
 }
 
 .trooper-img {
@@ -64,4 +64,20 @@
 .trooper-btn:hover {
   background-color: #ea2b1f;
   transition: .5s;
+}
+
+.delete-recruit {
+  grid-area: trooper-delete;
+  border-radius: 50%;
+  background-image: url(../../../images/delete.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.delete-recruit:hover {
+  background-image: url(../../../images/delete-white.svg);
+  transition: .3s;
 }

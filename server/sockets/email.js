@@ -152,7 +152,7 @@ exports.emailSockets = (socketIo, mail) => {
               failures
             })
           }
-          
+
           Email.findOne({ _id: data.id})
             .populate('contributors', 'firstName lastName _id')
             .populate('versions.comments.user', 'firstName lastName _id')
@@ -169,6 +169,69 @@ exports.emailSockets = (socketIo, mail) => {
         })
       })
       .catch(err => console.log(err))
+    })
+
+    client.on('remove recruit', data => {
+      const recruit = data.recruit
+      const id = data.campaignId
+      const isMaster = data.isMaster
+
+      console.log(data);
+
+      Email.update(
+        { _id: id },
+        {
+          $pull: { "contributors": recruit}
+        }
+      )
+      .then(() => {
+        if(isMaster){
+          Email.findOne({ _id: id})
+            .populate('contributors', 'firstName lastName _id')
+            .populate('versions.comments.user', 'firstName lastName _id')
+            .then(email => {
+              client.emit('update campaign', {
+                email
+              })
+            })
+            .catch(err => console.log(err))
+        } else {
+          client.emit('campaign deleted', {
+            _id: id
+          })
+        }
+
+      })
+      .catch(err => console.log(err))
+    })
+
+
+    client.on('delete version', data => {
+      const id = data.campaignId
+      const version = data.version
+
+      Email.update(
+        { _id: id },
+        {
+          $pull: { "versions": {_id: version} }
+        }
+      )
+      .then(() => {
+        Email.findOne({ _id: id})
+          .populate('contributors', 'firstName lastName _id')
+          .populate('versions.comments.user', 'firstName lastName _id')
+          .then(email => {
+            client.emit('update campaign', {
+              email
+            })
+          })
+          .catch(err => console.log(err))
+      })
+      .catch(err => console.log(err))
+    })
+
+    client.on('stop contributing', data => {
+      console.log(data)
     })
 
   })

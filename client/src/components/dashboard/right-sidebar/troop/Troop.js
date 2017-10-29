@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+
 import {toggleRecruitModal} from '../../../../actions/modal'
+import {removeRecruit} from '../../../../actions/email'
+
 import './Troop.css'
 
 export class Troop extends Component {
@@ -14,24 +17,49 @@ export class Troop extends Component {
     if(!this.props.selectedCampaign){
       return
     }
-    if(this.props.selectedCampaign.contributors.length === 0){
+
+    const master = this.props.selectedCampaign.master === this.props.currentUser._id
+    const socket = this.props.socket
+    const campaignId = this.props.selectedCampaign._id
+
+    if(this.props.selectedCampaign.contributors.length === 0
+      && master){
       return <div>
-        <div className="h3 red-text center-text">{`Those emails won't review themselves!`}</div>
-        <div className="h4 grey-text center-text">{`Build your team`}</div>
+        <div className="h3 red-text center-text">
+          {`Those emails won't review themselves!`}
+        </div>
+        <div className="h4 grey-text center-text">
+          {`Build your team`}
+        </div>
       </div>
     }
     return this.props.selectedCampaign.contributors.map((trooper, index) => {
+      const deleteRecruit = master
+      ? <div
+        className="delete-recruit"
+        onClick={() => {
+          this.props.dispatch(removeRecruit(trooper._id, campaignId, master, socket))
+        }}
+      ></div>
+      : ''
+
       return <div className="trooper-container" key={index}>
         <div className="trooper-img">
-          <div className="h2 white-text">{this.firstLetter(trooper.firstName)}</div>
+          <div className="h2 white-text">
+            {this.firstLetter(trooper.firstName)}
+          </div>
         </div>
-        <div className="h4 trooper-name grey-text">{`${trooper.firstName} ${trooper.lastName}`}</div>
+        <div className="h4 trooper-name grey-text">
+          {`${trooper.firstName} ${trooper.lastName}`}
+        </div>
+        {deleteRecruit}
       </div>
     })
   }
 
   troopBtn() {
-    if(this.props.selectedCampaign){
+    if(this.props.selectedCampaign
+      && this.props.selectedCampaign.master === this.props.currentUser._id){
       return <div className="trooper-btn-container">
         <button className="trooper-btn" onClick={this.showRecruitModal}>
           Recruit &nbsp;
@@ -61,6 +89,8 @@ export class Troop extends Component {
   }
 }
 const mapStateToProps = state => ({
-  selectedCampaign: state.email.selectedCampaign
+  currentUser: state.user.currentUser,
+  selectedCampaign: state.email.selectedCampaign,
+  socket: state.io.socket
 })
 export default connect(mapStateToProps)(Troop)

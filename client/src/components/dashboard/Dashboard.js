@@ -39,7 +39,6 @@ export class Dashboard extends Component {
     }
 
     render() {
-      console.log('RENDER2', this.props.socket)
       if (!this.props.loggedIn) {
           return <Redirect to="/" />;
       }

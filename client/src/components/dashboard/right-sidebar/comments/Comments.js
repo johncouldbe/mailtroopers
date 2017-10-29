@@ -29,6 +29,15 @@ export class Comments extends Component {
 
       return comments.map((comment, index) => {
 
+        const formattedComment = comment.comment.split('\n').map(function(item, key) {
+          return (
+            <span key={key}>
+            {item}
+            <br/>
+            </span>
+          )
+        })
+
         const deleteBtn = comment.user._id === this.props.currentUser._id
           ? <div className="delete-comment"
             onClick={() => { this.deleteComment(campaignId, version, comment._id,  socket)}}
@@ -40,7 +49,7 @@ export class Comments extends Component {
             {deleteBtn}
             <div className="h3 red-text comment-name">{comment.user.firstName} {comment.user.lastName}</div>
             <div className="h4 grey-text comment-date">{moment(comment.date).fromNow()}</div>
-            <div className="p grey-text comment-comment">{comment.comment}</div>
+            <div className="p grey-text comment-comment">{formattedComment}</div>
           </div>
         </div>
       })

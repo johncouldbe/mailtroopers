@@ -89,6 +89,28 @@
 
 .selected-shadow {
   -webkit-box-shadow: -5px 11px 41px -9px rgba(0,0,0,0.75);
--moz-box-shadow: -5px 11px 41px -9px rgba(0,0,0,0.75);
-box-shadow: -5px 11px 41px -9px rgba(0,0,0,0.75);
+  -moz-box-shadow: -5px 11px 41px -9px rgba(0,0,0,0.75);
+  box-shadow: -5px 11px 41px -9px rgba(0,0,0,0.75);
+}
+
+.padding-left {
+  margin-left: 10px;
+}
+
+.circle-yellow {
+  width: 20px;
+  height: 20px;
+  background-color: #f5af45;
+  border-radius: 50%;
+  float:left;
+  margin: 0 10px;
+}
+
+.circle-red {
+  width: 20px;
+  height: 20px;
+  background-color: #f54f45;
+  border-radius: 50%;
+  float:left;
+  margin: 0 10px;
 }

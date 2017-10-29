@@ -95,3 +95,12 @@ export const CLEAR_RECRUIT_MSGS = 'CLEAR_RECRUIT_MSGS'
 export const clearRecruitMsgs = ({
   type: CLEAR_RECRUIT_MSGS,
 })
+
+
+export const removeRecruit = (recruit, campaignId, isMaster, socket) => dispatch => {
+  return socket.emit('remove recruit', {recruit, campaignId, isMaster})
+}
+
+export const deleteVersion = (version, campaignId, socket) => dispatch => {
+  return socket.emit('delete version', {version, campaignId})
+}

@@ -26,7 +26,7 @@ export class RecruitModal extends Component {
       return true
     }
     return false
-}
+  }
 
   emailError() {
     if(!this.state.notEmail) return ''
