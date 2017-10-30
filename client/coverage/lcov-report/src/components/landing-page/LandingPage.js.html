@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">20% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>1/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>1/4</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -65,41 +65,122 @@
 20
 21
 22
-23</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 &nbsp;
-export function LandingPage(props) {
+import './LandingPage.css'
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >LandingPage(</span>props) {
     // If we are logged in redirect straight to the user's dashboard
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (props.loggedIn) {
+<span class="cstat-no" title="statement not covered" >    if (props.loggedIn) {</span>
 <span class="cstat-no" title="statement not covered" >        return &lt;Redirect to="/dashboard" /&gt;;</span>
     }
 &nbsp;
-    return (
+<span class="cstat-no" title="statement not covered" >    return (</span>
         &lt;div className="home"&gt;
-            &lt;h2&gt;Welcome to Foo App&lt;/h2&gt;
+          &lt;header&gt;
+            &lt;div className="header-letter-left"&gt;&lt;/div&gt;
+            &lt;div className="header-letter-right"&gt;&lt;/div&gt;
+            &lt;div className="h1 white-text header-text"&gt;STOP SENDING MISTAKES&lt;/div&gt;
+          &lt;/header&gt;
+          &lt;main&gt;
+            &lt;section&gt;
+              &lt;div className="first-ribbon-start"&gt;&lt;/div&gt;
+              &lt;div className="left-content"&gt;
+                &lt;div className="h1 white-text left-content-header"&gt;Send Emails to the App to Review&lt;/div&gt;
+                &lt;div className="p white-text"&gt;Lets face it... We've been doing it wrong. But no longer.&lt;/div&gt;
+                &lt;div className="p white-text"&gt;Now, when we're reviewing our email marketing campaigns we can finally stop forwarding our emails to review and stop trying to follow those confusing comment trains that build up in our inbox!&lt;/div&gt;
+                &lt;button className="home-screen-btn"&gt;
+                  &lt;Link to="/register"&gt;
+                    &lt;span className="p white-text"&gt;Try It Out!&lt;/span&gt;
+                    &lt;/Link&gt;
+                &lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;section&gt;
+              &lt;div className="first-ribbon-side"&gt;&lt;/div&gt;
+              &lt;div className="first-ribbon-end"&gt;&lt;/div&gt;
+              &lt;div className="second-ribbon-start"&gt;&lt;/div&gt;
+            &lt;/section&gt;
+&nbsp;
+          &lt;/main&gt;
         &lt;/div&gt;
     );
 }
@@ -115,7 +196,7 @@ export default connect(mapStateToProps)(LandingPage);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Oct 26 2017 12:10:47 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 30 2017 13:39:53 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
