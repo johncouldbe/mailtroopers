@@ -84,18 +84,16 @@ button:focus {
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 60px calc(100vh - 60px);
+  grid-template-rows:calc(100vh - 60px);
   grid-template-areas:
-  "nav nav nav nav nav nav nav nav nav nav nav nav"
   "left-sidebar left-sidebar left-sidebar main main main main main main right-sidebar right-sidebar right-sidebar";
 }
 
 .grid-mobile {
   display: grid;
   grid-template-columns: repeat(1fr);
-  grid-template-rows: 60px 300 90vh 1fr;
+  grid-template-rows: 300px 90vh 1fr;
   grid-template-areas:
-  "nav"
   "left-sidebar"
   "main"
   "right-sidebar";

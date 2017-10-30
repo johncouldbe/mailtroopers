@@ -6,7 +6,6 @@ import PacmanLoader from 'halogen/PacmanLoader'
 import RightSidebar from './right-sidebar/RightSidebar'
 import LeftSidebar from './left-sidebar/LeftSidebar'
 import Main from './main/Main'
-import Navbar from '../navbar/Navbar'
 
 
 import RecruitModal from '../modals/recruit-modal/RecruitModal'
@@ -52,7 +51,6 @@ export class Dashboard extends Component {
         {
           this.props.currentUser && this.props.emails && this.props.socket ?
           <div className={this.pickMainClass()}>
-            <Navbar />
             <LeftSidebar />
             <RightSidebar />
             <Main />

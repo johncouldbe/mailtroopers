@@ -1,0 +1,150 @@
+header {
+  background-color: #4a5367;
+  margin: 0;
+  padding: 0;
+  height: 75vh;
+  position: relative;
+}
+
+.header-text {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 37.5%;
+  font-size: 2.5em;
+}
+
+.header-letter-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 75vh 0 0 100vw;
+  border-color: transparent transparent transparent #f5928c;
+}
+
+.header-letter-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 75vh 100vw;
+  border-color: transparent transparent #f7be68 transparent;
+}
+
+main {
+  background-color: #4a5367;
+  position: relative;
+}
+
+section {
+  height: 50vh;
+  position: relative;
+}
+
+.left-content {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  width: 50vw;
+  height: 80%;
+  padding: 0 15px;
+}
+
+.left-content-header {
+  margin-bottom: 30px;
+}
+
+.first-ribbon-start {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 17vh 0 0 25vw;
+  border-color: transparent transparent transparent #f7be68;
+}
+
+.first-ribbon-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 50vh;
+  background-color: #f7be68;
+}
+
+.first-ribbon-end {
+  position: absolute;
+  top: 0;
+  left: 25vw;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50vh 0 0 75vw;
+  border-color: transparent transparent transparent #f7be68;
+}
+
+.second-ribbon-start {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 17vh 25vw;
+  border-color: transparent transparent #f5928c transparent;
+}
+
+.home-screen-btn {
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #f5928c;
+  margin: 30px 0;
+  font-size: 1em;
+}
+
+.home-screen-btn a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 765px){
+  header {
+    height: 45vh;
+  }
+
+  section {
+    height: 45vh;
+  }
+
+  .header-letter-right {
+    border-width: 0 0 45vh 100vw;
+  }
+
+  .header-letter-left {
+    border-width: 45vh 0 0 100vw;
+  }
+
+  .first-ribbon-end {
+    border-width: 45vh 0 0 75vw;
+  }
+
+  .first-ribbon-side {
+    height: 45vh;
+  }
+
+  .first-ribbon-start {
+    border-width: 15vh 0 0 25vw;
+  }
+
+  .left-content {
+    width: 100%;
+    text-align: center;
+  }
+}

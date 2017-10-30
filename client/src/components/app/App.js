@@ -63,7 +63,7 @@ export class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/home" component={Navbar} />
+          <Route path="/" component={Navbar} />
           {["/", "/login", "/signup"].map((path, index) =>
             <Route exact path={path} component={LandingPage} key={index}/>
           )}

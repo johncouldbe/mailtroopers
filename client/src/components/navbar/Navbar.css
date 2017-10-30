@@ -1,5 +1,4 @@
 nav {
-  border-bottom: 1px solid #dcdbdc;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
@@ -20,4 +19,8 @@ nav {
   line-height: 50px;
   cursor: pointer;
   text-align: right;
+}
+
+.log a {
+  text-decoration: none;
 }

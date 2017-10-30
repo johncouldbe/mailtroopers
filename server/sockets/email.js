@@ -5,7 +5,6 @@ const sentencer   = require('sentencer')
 const socketioJwt = require('socketio-jwt')
 const {JWT_SECRET} = require('../config')
 
-
 exports.emailSockets = (socketIo, mail) => {
   let gUser
   let gClient
