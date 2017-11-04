@@ -14,7 +14,7 @@ const storeAuthInfo = (authToken, dispatch) => {
   dispatch(setAuthToken(authToken))
   dispatch(setCurrentUser(decodedToken.user))
   dispatch(getCampaigns(decodedToken.user._id))
-  dispatch(hookInSocket(authToken))
+  .then(() => dispatch(hookInSocket(authToken)))
 }
 
 export const registerUser = user => dispatch => {

@@ -6,9 +6,6 @@ const initialState = {
   teamOpen: true,
   commentsOpen: true,
   reviewOpen: true,
-  recruitModal: false,
-  commentModal: false,
-  createEmailModal: false,
 }
 
 export const mailTrooperReducer = (state=initialState, action) => {

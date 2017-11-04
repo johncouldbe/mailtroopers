@@ -21,9 +21,9 @@ export class Troop extends Component {
     const master = this.props.selectedCampaign.master === this.props.currentUser._id
     const socket = this.props.socket
     const campaignId = this.props.selectedCampaign._id
+    const hasContributors = this.props.selectedCampaign.contributors.length
 
-    if(this.props.selectedCampaign.contributors.length === 0
-      && master){
+    if(!hasContributors && master){
       return <div>
         <div className="h3 red-text center-text">
           {`Those emails won't review themselves!`}
@@ -33,12 +33,13 @@ export class Troop extends Component {
         </div>
       </div>
     }
+
     return this.props.selectedCampaign.contributors.map((trooper, index) => {
       const deleteRecruit = master
       ? <div
         className="delete-recruit"
         onClick={() => {
-          this.props.dispatch(removeRecruit(trooper._id, campaignId, master, socket))
+          this.props.dispatch(removeRecruit(trooper._id, campaignId, socket))
         }}
       ></div>
       : ''

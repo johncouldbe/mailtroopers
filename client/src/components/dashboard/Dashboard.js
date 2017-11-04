@@ -45,7 +45,6 @@ export class Dashboard extends Component {
       const recruitmodal = this.props.recruitModal ? <RecruitModal /> : ''
       const commentmodal = this.props.commentModal ? <CommentModal /> : ''
       const createEmailModal = this.props.createEmailModal ? <CreateEmailModal /> : ''
-
       return (
         <div>
         {

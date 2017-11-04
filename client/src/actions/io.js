@@ -5,6 +5,8 @@ import {SOCKET_URL} from '../config'
 import {toggleCreateEmailModal} from './modal'
 
 
+const socket = io.connect(SOCKET_URL)
+
 export const CONNECT_SOCKET = 'CONNECT_SOCKET'
 export const connectSocket = socket => ({
   type: CONNECT_SOCKET,
@@ -22,11 +24,20 @@ export const hookInSocket = authToken => (dispatch, getState) => {
     socket
     .emit('authenticate', {token: authToken})
     .on('authenticated', () => {
+      const campaigns = getState().email.emails
+      const userId = getState().user.currentUser._id
       dispatch(connectSocket(socket))
+
+      campaigns.map(room => {
+        return socket.emit('room', room._id)
+      })
+      socket.emit('room', userId)
     })
     .on('campaign added', campaign => {
+      const emailModal = getState().modal.createEmailModal
+      console.log('campaign added', campaign);
       dispatch(addNewCampaign(campaign))
-      dispatch(toggleCreateEmailModal)
+      if(emailModal) dispatch(toggleCreateEmailModal)
     })
     .on('campaign deleted', campaign => {
       dispatch(removeCampaign(campaign))
@@ -42,6 +53,10 @@ export const hookInSocket = authToken => (dispatch, getState) => {
     })
     .on('recruited', recruits => {
       dispatch(recruited(recruits))
+    })
+    .on('join room', room => {
+      console.log('joined room', room);
+      socket.emit('room', room)
     })
     .on('unauthorized', () => {
       dispatch(connectSocket(null))
