@@ -219,4 +219,8 @@ nav {
     "main"
     "right-sidebar";
   }
+
+  .modal {
+    width: 90%;
+  }
 }
