@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {BASE_URL} from '../config'
-import {joinRooms} from './io'
 
 export const CREATE_EMAIL_ERR = 'CREATE_EMAIL_ERR'
 export const createEmailErr = err => ({
@@ -15,8 +14,6 @@ export const createNewCampaign = (campaign, user, socket) => dispatch => {
 export const getCampaigns = id => dispatch => {
   return axios.get(`${BASE_URL}/campaigns/${id}`)
   .then(emails => {
-    console.log(emails);
-    // dispatch(joinRooms(emails.data))
     dispatch(storeEmails(emails.data))
   })
   .catch(err => {

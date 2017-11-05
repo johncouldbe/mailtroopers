@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import moment from 'moment'
 import Clipboard from 'clipboard'
+import ReactTooltip from 'react-tooltip'
 
 import {deleteCampaign, removeRecruit, selectCampaign, updateCurrentVersion} from '../../../actions/email'
 import {toggleCreateEmailModal} from '../../../actions/modal'
@@ -21,9 +22,8 @@ export function LeftSidebar (props) {
     props.dispatch(deleteCampaign(campaign, socket))
   }
 
-  const removeEmail = (recruit, campaignId, master, socket) => {
-    const isMaster = master === props.currentUser._id
-    props.dispatch(removeRecruit(recruit, campaignId, isMaster, socket))
+  const removeEmail = (recruit, campaignId, socket) => {
+    props.dispatch(removeRecruit(recruit, campaignId, socket))
   }
 
   const emailFile = (email) => {
@@ -35,7 +35,6 @@ export function LeftSidebar (props) {
     classes += leftBorder
 
     if(!selectedCampaign || email._id !== selectedCampaign._id) return classes
-    // console.log(props.selectCampaign);
     if(email._id === selectedCampaign._id) {
       return classes += ' selected-shadow'
     }
@@ -47,7 +46,10 @@ export function LeftSidebar (props) {
         const master = email.master === props.currentUser._id
         ? <span>
           <span className="clipboard"
-         data-clipboard-text={`${email.slug}@mailtroopers.com`}
+            data-clipboard-text={`${email.slug}@mailtroopers.com`}
+            data-event='click focus'
+            data-tip="Copied to your clipboard!"
+            data-place="bottom"
         >
           Get Link
         </span> |
@@ -58,7 +60,7 @@ export function LeftSidebar (props) {
         : <span
           className="red-text"
           onClick={() => {
-            removeEmail(props.currentUser._id, email._id, email.master, props.socket)}}
+            removeEmail(props.currentUser._id, email._id, props.socket)}}
           >
            Remove
           </span>
@@ -135,6 +137,10 @@ export function LeftSidebar (props) {
           </div>
           {emails()}
         </div>
+
+        <ReactTooltip globalEventOff='click' afterShow={() => {
+          setTimeout(() => {ReactTooltip.hide()}, 1500)
+        }}/>
       </div>
   )
 }

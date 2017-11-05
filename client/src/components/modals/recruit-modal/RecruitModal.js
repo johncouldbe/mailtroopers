@@ -11,7 +11,8 @@ export class RecruitModal extends Component {
     super(props)
     this.state = {
       copied: false,
-      addressList: []
+      addressList: [],
+      notEmail: ''
     }
   }
 
@@ -22,7 +23,7 @@ export class RecruitModal extends Component {
   }
 
   validateEmail(address)  {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(address)) {
+    if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(address)) {
       return true
     }
     return false
@@ -53,6 +54,28 @@ export class RecruitModal extends Component {
     if(this.state.addressList.find(findEmail)) {
       return this.setState({
         notEmail: 'You\'ve already entered that email address.'
+      })
+    }
+
+    if(address === this.props.userEmail) {
+      return this.setState({
+        notEmail: "You can't recruit yourself silly."
+      })
+    }
+
+    if(address === this.props.userEmail) {
+      return this.setState({
+        notEmail: "You can't recruit yourself silly."
+      })
+    }
+
+    const isRecruit = this.props.selectedCampaign.contributors.map(contributor => {
+      if(address === contributor.email) return true
+      return false
+    })
+    if(isRecruit.includes(true)){
+      return this.setState({
+        notEmail: "You've already recruited that person."
       })
     }
 
@@ -180,7 +203,8 @@ const mapstateToProps = state => ({
   selectedCampaign: state.email.selectedCampaign,
   socket: state.io.socket,
   failures: state.email.recruitFailures,
-  successes: state.email.recruitSuccesses
+  successes: state.email.recruitSuccesses,
+  userEmail: state.user.currentUser.email
 })
 
 export default connect(mapstateToProps)(RecruitModal)

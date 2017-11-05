@@ -1,10 +1,10 @@
-const {Email}     = require('../models/email')
-const {User}     = require('../models/user')
-const shortid     = require('shortid')
-const sentencer   = require('sentencer')
-const socketioJwt = require('socketio-jwt')
+const {Email}      = require('../models/email')
+const {User}       = require('../models/user')
+const shortid      = require('shortid')
+const sentencer    = require('sentencer')
+const socketioJwt  = require('socketio-jwt')
 const {JWT_SECRET} = require('../config')
-const io          = require('socket.io')
+const io           = require('socket.io')
 
 exports.emailSockets = (socketIo, mail) => {
   let gUser
@@ -19,7 +19,6 @@ exports.emailSockets = (socketIo, mail) => {
     gClient = client
 
     client.on('subscribeToEmail', userId => {
-      console.log('--- client connected ---', userId)
       gUser = userId.userId
     })
 
@@ -92,13 +91,14 @@ exports.emailSockets = (socketIo, mail) => {
           {
             "$push": { "versions.$.comments": {
               comment: data.comment,
-              user: data.userId
+              user: data.userId,
+              date: Date.now()
             }}
           }
         )
         .then(e => {
           Email.findOne({ _id: id})
-            .populate('contributors', 'firstName lastName _id')
+            .populate('contributors', 'email firstName lastName _id')
               .populate('versions.comments.user', 'firstName lastName _id')
             .then(email => {
               // use moment on date
@@ -124,7 +124,7 @@ exports.emailSockets = (socketIo, mail) => {
       )
       .then(e => {
         Email.findOne({ _id: id})
-          .populate('contributors', 'firstName lastName _id')
+          .populate('contributors', 'email firstName lastName _id')
           .populate('versions.comments.user', 'firstName lastName _id')
           .then(email => {
             socketIo.in(id).emit('update campaign', {
@@ -165,7 +165,7 @@ exports.emailSockets = (socketIo, mail) => {
           }
 
           Email.findOne({ _id: id})
-            .populate('contributors', 'firstName lastName _id')
+            .populate('contributors', 'email firstName lastName _id')
             .populate('versions.comments.user', 'firstName lastName _id')
             .then(campaign => {
               const campaignId = campaign._id
@@ -202,16 +202,11 @@ exports.emailSockets = (socketIo, mail) => {
       )
       .then(() => {
           Email.findOne({ _id: id})
-            .populate('contributors', 'firstName lastName _id')
+            .populate('contributors', 'email firstName lastName _id')
             .populate('versions.comments.user', 'firstName lastName _id')
             .then(email => {
-              client.emit('update campaign', {
-                email
-              })
-
-              socketIo.in(recruit).emit('campaign deleted', {
-                _id: id
-              })
+              socketIo.in(id).emit('update campaign', {email})
+              socketIo.in(recruit).emit('campaign deleted', email.apiRepr())
             })
             .catch(err => console.log(err))
       })
@@ -231,7 +226,7 @@ exports.emailSockets = (socketIo, mail) => {
       )
       .then(() => {
         Email.findOne({ _id: id})
-          .populate('contributors', 'firstName lastName _id')
+          .populate('contributors', 'email firstName lastName _id')
           .populate('versions.comments.user', 'firstName lastName _id')
           .then(email => {
             socketIo.in(id).emit('update campaign', {
@@ -263,7 +258,7 @@ exports.emailSockets = (socketIo, mail) => {
     .then(e => {
       Email
         .findOne({ slug: newSlug })
-        .populate('contributors', 'firstName lastName _id')
+        .populate('contributors', 'email firstName lastName _id')
         .populate('versions.comments.user', 'firstName lastName _id')
         .then(email => {
           socketIo.in(email._id).emit('update campaign', {email})

@@ -8,7 +8,7 @@ router.get('/:id', (req, res) => {
   Email
   .find({$or: [{master: req.params.id}, {contributors: req.params.id}]})
   .sort('-date')
-  .populate('contributors', 'firstName lastName _id')
+  .populate('contributors', 'email firstName lastName _id')
   .populate('versions.comments.user', 'firstName lastName _id')
   .then(emails => {
     res.send(emails)

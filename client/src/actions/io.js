@@ -4,9 +4,6 @@ import {addNewCampaign,removeCampaign, selectCampaign, updateCampaign, recruited
 import {SOCKET_URL} from '../config'
 import {toggleCreateEmailModal} from './modal'
 
-
-const socket = io.connect(SOCKET_URL)
-
 export const CONNECT_SOCKET = 'CONNECT_SOCKET'
 export const connectSocket = socket => ({
   type: CONNECT_SOCKET,
