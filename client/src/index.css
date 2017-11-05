@@ -209,3 +209,14 @@ nav {
   background-size: cover;
   cursor: pointer;
 }
+
+@media screen and (max-width: 765px) {
+  .grid {
+    grid-template-columns: 100%;
+    grid-template-rows: 300px 90vh 1fr;
+    grid-template-areas:
+    "left-sidebar"
+    "main"
+    "right-sidebar";
+  }
+}

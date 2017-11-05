@@ -49,7 +49,7 @@ export class Dashboard extends Component {
         <div>
         {
           this.props.currentUser && this.props.emails && this.props.socket ?
-          <div className={this.pickMainClass()}>
+          <div className="grid">
             <LeftSidebar />
             <RightSidebar />
             <Main />
