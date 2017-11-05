@@ -46,9 +46,32 @@ section {
   position: relative;
 }
 
+.taller-section {
+  height: 65vh;
+  background-color: #f7be68;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+
+.LP-H1 {
+  padding-top: 60px;
+  margin: 0;
+}
+
+.LP-List {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  height: 57vh;
+  padding-right: 10px;
+  background-color: #4a5367;
+}
+
 .left-content {
   position: absolute;
-  top: 20%;
   right: 0;
   width: 50vw;
   height: 80%;
@@ -75,7 +98,7 @@ section {
   top: 0;
   left: 0;
   width: 25vw;
-  height: 50vh;
+  height: 100%;
   background-color: #f7be68;
 }
 
@@ -99,6 +122,35 @@ section {
   border-style: solid;
   border-width: 0 0 17vh 25vw;
   border-color: transparent transparent #f5928c transparent;
+}
+
+.second-ribbon-end {
+  position: absolute;
+  bottom: 10vh;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 55vh 75vw;
+  border-color: transparent transparent #f5928c transparent;
+}
+
+.second-ribbon-end-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 75vw;
+  height: 10vh;
+  background-color: #f5928c;
+}
+
+.second-ribbon-side {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25vw;
+  height: 100%;
+  background-color: #f5928c;
 }
 
 .home-screen-btn {
@@ -135,7 +187,7 @@ section {
     border-width: 45vh 0 0 75vw;
   }
 
-  .first-ribbon-side {
+  .first-ribbon-side,  {
     height: 45vh;
   }
 

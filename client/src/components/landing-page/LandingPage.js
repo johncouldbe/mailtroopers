@@ -21,9 +21,9 @@ export function LandingPage(props) {
             <section>
               <div className="first-ribbon-start"></div>
               <div className="left-content">
-                <div className="h1 white-text left-content-header">Send Emails to the App to Review</div>
+                <div className="h1 white-text left-content-header LP-H1">Send Emails through the App to Review</div>
                 <div className="p white-text">Lets face it... We've been doing it wrong. But no longer.</div>
-                <div className="p white-text">Now, when we're reviewing our email marketing campaigns we can finally stop forwarding our emails to review and stop trying to follow those confusing comment trains that build up in our inbox!</div>
+                <div className="p white-text">Now, when you're reviewing an email marketing campaign, you no longer have to forward an email to get reviews. No more confusing comment trains that build up in your inbox!</div>
                 <button className="home-screen-btn">
                   <Link to="/register">
                     <span className="p white-text">Try It Out!</span>
@@ -35,6 +35,26 @@ export function LandingPage(props) {
               <div className="first-ribbon-side"></div>
               <div className="first-ribbon-end"></div>
               <div className="second-ribbon-start"></div>
+            </section>
+            <section className="taller-section">
+              <div className="second-ribbon-side"></div>
+              <div className="second-ribbon-end"></div>
+              <div className="second-ribbon-end-bottom"></div>
+              <div className="LP-List">
+                <div className="h1 white-text center-text LP-H1">How it Works...</div>
+                <div className="p white-text">
+                  <ol>
+                    <li>Create that awesome email on whatever email marketing
+                    tool you're using. i.e. Mailchimp, Constant Contact, etc.</li>
+                    <li>Create a new campaign in the app.</li>
+                    <li>Send your email to the unique email address created for
+                    you. Each time you send an email to that address a new version
+                    will be created.</li>
+                    <li>Add recruits to review your new campaign campaign.</li>
+                    <li>Rinse and repeat.</li>
+                  </ol>
+                </div>
+              </div>
             </section>
 
           </main>

@@ -19,13 +19,20 @@ export class Main extends Component {
       </div>
     }
     if(!this.props.selectedCampaign.versions.length){
-      return <div className="email-container" style={{padding: '10px'}}>
-        <span className="h3 red-text center-text">
-          You haven't made a version for this campaign yet! Send the email you'd like to review to:
+      return <div className="email-container center-text" style={{padding: '10px'}}>
+        <span className="h3 red-text">
+          You haven't made a version for this campaign yet! Send the email you'd
+          like to review to the email address below:
         </span>
         <br />
-        <span className="h4 grey-text center-text">
+        <span className="h4 grey-text">
           {this.props.selectedCampaign.slug}@mailtroopers.com
+        </span>
+        <br />
+        <br />
+        <span className="h4 red-text">
+          Hint: You can quickly copy the email address by clicking "Get Link" on
+          the campaign under the review panel.
         </span>
       </div>
     }

@@ -16,7 +16,9 @@ export class Comments extends Component {
   }
 
   deleteComment(campaignId, version, commentId, socket){
-    this.props.dispatch(deleteComment(campaignId, version, commentId, socket))
+    if(window.confirm('Are you sure you want to delete this comment?')){
+      this.props.dispatch(deleteComment(campaignId, version, commentId, socket))
+    }
   }
 
   comments() {

@@ -17,7 +17,7 @@ export const disconnectSocket = () => ({
 
 export const hookInSocket = authToken => (dispatch, getState) => {
   const socket = io.connect(SOCKET_URL)
-  socket.on('connect', () => {
+  socket.once('connect', () => {
     socket
     .emit('authenticate', {token: authToken})
     .on('authenticated', () => {

@@ -17,7 +17,11 @@ export const emailReducer = (state=initialState, action) => {
     return Object.assign({}, state, {emails: action.emails})
   }
   else if (action.type === actions.ADD_NEW_CAMPAIGN) {
-    return Object.assign({}, state, {emails: [action.campaign, ...state.emails]})
+    return Object.assign({}, state, {
+      emails: [action.campaign, ...state.emails],
+      selectedCampaign: action.campaign,
+      currentVersion: 0
+    })
   }
   else if (action.type === actions.REMOVE_CAMPAIGN) {
     return Object.assign({}, state, {

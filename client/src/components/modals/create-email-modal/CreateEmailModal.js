@@ -14,7 +14,10 @@ export const CreateEmailModal = props => {
     <div className="modal-window">
       <div className="modal center-text">
         <div className="modal-close" onClick={e => hideModal(e)}></div>
-        <div className="h3 grey-text">Let make a new campaign!</div>
+        <div className="h3 grey-text">
+          Make a new campaign!<br />
+          <span style={{fontSize: ".8em"}}>Lets start with a name...</span>
+        </div>
         <div className="p red-text">{props.err}</div>
 
         <CreateEmailForm user={props.user} socket={props.socket} />

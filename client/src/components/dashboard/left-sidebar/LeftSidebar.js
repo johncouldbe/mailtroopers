@@ -19,7 +19,9 @@ export function LeftSidebar (props) {
   }
 
   const deleteEmail = (campaign, socket) => {
-    props.dispatch(deleteCampaign(campaign, socket))
+    if(window.confirm('Are you sure you want to delete this campaign?')){
+      props.dispatch(deleteCampaign(campaign, socket))
+    }
   }
 
   const removeEmail = (recruit, campaignId, socket) => {
@@ -138,9 +140,13 @@ export function LeftSidebar (props) {
           {emails()}
         </div>
 
-        <ReactTooltip globalEventOff='click' afterShow={() => {
-          setTimeout(() => {ReactTooltip.hide()}, 1500)
-        }}/>
+        <ReactTooltip
+          globalEventOff='click'
+          afterShow={() => {
+            setTimeout(() => {ReactTooltip.hide()}, 1500)
+          }}
+          className="p"
+        />
       </div>
   )
 }
