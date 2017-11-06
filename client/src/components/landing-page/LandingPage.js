@@ -50,7 +50,7 @@ export function LandingPage(props) {
                     <li>Send your email to the unique email address created for
                     you. Each time you send an email to that address a new version
                     will be created.</li>
-                    <li>Add recruits to review your new campaign campaign.</li>
+                    <li>Add recruits to review your new campaign.</li>
                     <li>Rinse and repeat.</li>
                   </ol>
                 </div>
