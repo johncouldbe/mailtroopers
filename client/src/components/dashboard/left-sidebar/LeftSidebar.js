@@ -1,8 +1,7 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import moment from 'moment'
 import Clipboard from 'clipboard'
-import ReactTooltip from 'react-tooltip'
 
 import {deleteCampaign, removeRecruit, selectCampaign, updateCurrentVersion} from '../../../actions/email'
 import {toggleCreateEmailModal} from '../../../actions/modal'
@@ -12,26 +11,26 @@ import './LeftSidebar.css'
 
 new Clipboard('.clipboard');
 
-export function LeftSidebar (props) {
-  const showModal = e => {
+export class LeftSidebar extends Component {
+  showModal = e => {
     e.preventDefault()
-    props.dispatch(toggleCreateEmailModal)
+    this.props.dispatch(toggleCreateEmailModal)
   }
 
-  const deleteEmail = (campaign, socket) => {
+  deleteEmail = (campaign, socket) => {
     if(window.confirm('Are you sure you want to delete this campaign?')){
-      props.dispatch(deleteCampaign(campaign, socket))
+      this.props.dispatch(deleteCampaign(campaign, socket))
     }
   }
 
-  const removeEmail = (recruit, campaignId, socket) => {
-    props.dispatch(removeRecruit(recruit, campaignId, socket))
+  removeEmail = (recruit, campaignId, socket) => {
+    this.props.dispatch(removeRecruit(recruit, campaignId, socket))
   }
 
-  const emailFile = (email) => {
-    const selectedCampaign = props.selectedCampaign
+  emailFile = (email) => {
+    const selectedCampaign = this.props.selectedCampaign
     let classes = 'email-file'
-    const leftBorder = email.master === props.currentUser._id
+    const leftBorder = email.master === this.props.currentUser._id
     ? ' red-left' : ' yellow-left'
 
     classes += leftBorder
@@ -42,27 +41,24 @@ export function LeftSidebar (props) {
     }
   }
 
-  const emails = () => {
-    if(props.emails){
-      return props.emails.map((email, index) => {
-        const master = email.master === props.currentUser._id
+  emails = () => {
+    if(this.props.emails){
+      return this.props.emails.map((email, index) => {
+        const master = email.master === this.props.currentUser._id
         ? <span>
           <span className="clipboard"
             data-clipboard-text={`${email.slug}@mailtroopers.com`}
-            data-event='click focus'
-            data-tip="Copied to your clipboard!"
-            data-place="bottom"
         >
           Get Link
         </span> |
-        <span className="red-text" onClick={() => deleteEmail(email._id, props.socket)}>
+        <span className="red-text" onClick={() => this.deleteEmail(email._id, this.props.socket)}>
           &nbsp;Delete
         </span>
         </span>
         : <span
           className="red-text"
           onClick={() => {
-            removeEmail(props.currentUser._id, email._id, props.socket)}}
+            this.removeEmail(this.props.currentUser._id, email._id, this.props.socket)}}
           >
            Remove
           </span>
@@ -70,7 +66,7 @@ export function LeftSidebar (props) {
 
         return (
         <div
-          className={emailFile(email)}
+          className={this.emailFile(email)}
           key={index}
           onMouseOver={ e => {
             e.currentTarget.lastChild.className = "shown-email-options"
@@ -79,8 +75,8 @@ export function LeftSidebar (props) {
             e.currentTarget.lastChild.className = "hidden-email-options"
           }}
           onClick={() => {
-            props.dispatch(selectCampaign(email))
-            props.dispatch(updateCurrentVersion(email.versions.length))
+            this.props.dispatch(selectCampaign(email))
+            this.props.dispatch(updateCurrentVersion(email.versions.length))
           }}
         >
           <div className="h4 grey-text comment-date">{email.name}</div>
@@ -98,57 +94,52 @@ export function LeftSidebar (props) {
     }
   }
 
-  const buttonDirection = () => {
-    if(props.reviewOpen) {
+  buttonDirection = () => {
+    if(this.props.reviewOpen) {
         return 'toggle-review-show-btn'
     } else {
         return 'toggle-review-show-btn toggle-review-hide-btn'
       }
   }
 
-  const hidePanels = () => {
-    if(!props.reviewOpen){
+  hidePanels = () => {
+    if(!this.props.reviewOpen){
       return 'left-sidebar close-review'
     }
     return 'left-sidebar'
   }
 
-  return (
-      <div className={hidePanels()}>
-        <div className="review-header">
-          <div
-            className={buttonDirection()}
-            onClick={() => {props.dispatch(toggleReview)}}>
+  render() {
+    return (
+        <div className={this.hidePanels()}>
+          <div className="review-header">
+            <div
+              className={this.buttonDirection()}
+              onClick={() => {this.props.dispatch(toggleReview)}}>
+            </div>
+            <div className="h2 grey-text center-text">Reviews</div>
           </div>
-          <div className="h2 grey-text center-text">Reviews</div>
-        </div>
 
-        <div className="email-list-container">
-          <div className="btn-container">
-            <button
-              className="btn"
-              onClick={e => showModal(e)}>
-              New Campaign  <img src={require("../../images/bomb.svg")} alt="New Campaign" />
-            </button>
+          <div className="email-list-container">
+            <div className="btn-container">
+              <button
+                className="btn"
+                onClick={e => this.showModal(e)}>
+                New Campaign  <img src={require("../../images/bomb.svg")} alt="New Campaign" />
+              </button>
+            </div>
+            <div style={{marginLeft: 'calc(50% - 87.5px)'}}>
+              <div className="circle-red"></div>
+              <span className="p grey-text" style={{float: 'left', marginTop: '5px'}}>Yours</span>
+              <div className="circle-yellow"></div>
+              <span className="p grey-text" style={{lineHeight: '25px'}}>Theirs</span>
+            </div>
+            {this.emails()}
           </div>
-          <div style={{marginLeft: 'calc(50% - 87.5px)'}}>
-            <div className="circle-red"></div>
-            <span className="p grey-text" style={{float: 'left', marginTop: '5px'}}>Yours</span>
-            <div className="circle-yellow"></div>
-            <span className="p grey-text" style={{lineHeight: '25px'}}>Theirs</span>
-          </div>
-          {emails()}
         </div>
+    )
+  }
 
-        <ReactTooltip
-          globalEventOff='click'
-          afterShow={() => {
-            setTimeout(() => {ReactTooltip.hide()}, 1500)
-          }}
-          className="p"
-        />
-      </div>
-  )
 }
 
 const mapStateToProps = state => ({
