@@ -22,9 +22,19 @@ export function Navbar(props) {
     }
 
     return (
-      <Link to="/login">
-        <div className="off-white-text h4">Log In</div>
-      </Link>
+      <div>
+        <Link to="/login">
+          <span className="off-white-text h4">
+            Log In
+          </span>
+        </Link>
+        <span className="off-white-text h4"> | </span>
+        <Link to="/register">
+          <span className="off-white-text h4">
+            Register
+          </span>
+        </Link>
+      </div>
     )
   }
 
