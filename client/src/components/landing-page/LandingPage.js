@@ -21,14 +21,14 @@ export function LandingPage(props) {
             <section>
               <div className="first-ribbon-start"></div>
               <div className="left-content">
-                <div className="h1 white-text left-content-header LP-H1">Send Emails through the App to Review</div>
+                <div className="h1 white-text left-content-header LP-H1">Collaborate as a Team</div>
                 <div className="p white-text">Lets face it... We've been doing it wrong. But no longer.</div>
-                <div className="p white-text">Now, when you're reviewing an email marketing campaign, you no longer have to forward an email to get reviews. No more confusing comment trains that build up in your inbox!</div>
-                <button className="home-screen-btn">
-                  <Link to="/register">
+                <div className="p white-text">Now, your team has a place for reviewing your email marketing campaigns. You no longer have to forward an email to get others to review. No more confusing comment trains that build up in your inbox!</div>
+                <Link to="/register">
+                  <button className="home-screen-btn">
                     <span className="p white-text">Try It Out!</span>
-                    </Link>
-                </button>
+                    </button>
+                  </Link>
               </div>
             </section>
             <section>

@@ -46,6 +46,10 @@ section {
   position: relative;
 }
 
+section .p {
+  line-height: 20px;
+}
+
 .taller-section {
   height: 65vh;
   background-color: #f7be68;
@@ -160,6 +164,7 @@ li {
   background-color: #f5928c;
   margin: 30px 0;
   font-size: 1em;
+  cursor: pointer;
 }
 
 .home-screen-btn a {
