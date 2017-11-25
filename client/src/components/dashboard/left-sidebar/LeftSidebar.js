@@ -48,6 +48,7 @@ export class LeftSidebar extends Component {
         ? <span>
           <span className="clipboard"
             data-clipboard-text={`${email.slug}@mailtroopers.com`}
+            onClick={alert('Hey!')}
         >
           Get Link
         </span> |
