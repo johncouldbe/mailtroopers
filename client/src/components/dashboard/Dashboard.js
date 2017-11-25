@@ -11,6 +11,7 @@ import Main from './main/Main'
 import RecruitModal from '../modals/recruit-modal/RecruitModal'
 import CommentModal from '../modals/comment-modal/CommentModal'
 import CreateEmailModal from '../modals/create-email-modal/CreateEmailModal'
+import CopiedModal from '../modals/copied-modal/CopiedModal'
 
 import {toggleLeftSidebar} from '../../actions'
 
@@ -45,6 +46,7 @@ export class Dashboard extends Component {
       const recruitmodal = this.props.recruitModal ? <RecruitModal /> : ''
       const commentmodal = this.props.commentModal ? <CommentModal /> : ''
       const createEmailModal = this.props.createEmailModal ? <CreateEmailModal /> : ''
+      const copiedModal = this.props.copiedModal ? <CopiedModal /> : ''
       return (
         <div>
         {
@@ -62,6 +64,7 @@ export class Dashboard extends Component {
           {recruitmodal}
           {commentmodal}
           {createEmailModal}
+          {copiedModal}
           </div>
       );
     }
@@ -71,6 +74,7 @@ const mapStateToProps = state => ({
     recruitModal: state.modal.recruitModal,
     commentModal: state.modal.commentModal,
     createEmailModal: state.modal.createEmailModal,
+    copiedModal: state.modal.copiedModal,
     loggedIn: state.user.authToken !== null,
     currentUser: state.user.currentUser,
     emails: state.email.emails,

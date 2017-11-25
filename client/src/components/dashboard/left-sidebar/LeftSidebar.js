@@ -4,7 +4,7 @@ import moment from 'moment'
 import Clipboard from 'clipboard'
 
 import {deleteCampaign, removeRecruit, selectCampaign, updateCurrentVersion} from '../../../actions/email'
-import {toggleCreateEmailModal} from '../../../actions/modal'
+import {toggleCreateEmailModal, toggleCopiedModal} from '../../../actions/modal'
 import {toggleReview} from '../../../actions'
 
 import './LeftSidebar.css'
@@ -48,7 +48,9 @@ export class LeftSidebar extends Component {
         ? <span>
           <span className="clipboard"
             data-clipboard-text={`${email.slug}@mailtroopers.com`}
-            onClick={alert('Hey!')}
+            onClick={() => {
+              this.props.dispatch(toggleCopiedModal)
+            }}
         >
           Get Link
         </span> |

@@ -12,3 +12,8 @@ export const TOGGLE_CREATE_EMAIL_MODAL = 'TOGGLE_CREATE_EMAIL_MODAL'
 export const toggleCreateEmailModal = {
   type: TOGGLE_CREATE_EMAIL_MODAL
 }
+
+export const TOGGLE_COPIED_MODAL = 'TOGGLE_COPIED_MODAL'
+export const toggleCopiedModal = {
+  type: TOGGLE_COPIED_MODAL
+}
