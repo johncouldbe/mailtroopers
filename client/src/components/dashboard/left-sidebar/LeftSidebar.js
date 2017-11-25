@@ -123,7 +123,7 @@ export class LeftSidebar extends Component {
           <div className="email-list-container">
             <div className="btn-container">
               <button
-                className="btn"
+                className="btn campaign-btn"
                 onClick={e => this.showModal(e)}>
                 New Campaign  <img src={require("../../images/bomb.svg")} alt="New Campaign" />
               </button>

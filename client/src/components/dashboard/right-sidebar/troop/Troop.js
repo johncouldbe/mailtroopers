@@ -61,8 +61,8 @@ export class Troop extends Component {
   troopBtn() {
     if(this.props.selectedCampaign
       && this.props.selectedCampaign.master === this.props.currentUser._id){
-      return <div className="trooper-btn-container">
-        <button className="trooper-btn" onClick={this.showRecruitModal}>
+      return <div className="btn-container">
+        <button className="btn" onClick={this.showRecruitModal}>
           Recruit &nbsp;
           <img src={require("../../../images/share.svg")} alt="Share" />
         </button>

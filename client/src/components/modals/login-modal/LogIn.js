@@ -58,6 +58,17 @@ class LogIn extends Component {
               <Link to="/register">
                 <div className="grey-text p">Need an account? Sign Up</div>
               </Link>
+
+              <div className="grey-bg">
+                <div className="light-grey-text p">
+                  Or use a the demo account!
+                </div>
+                <div className="light-grey-text p">
+                  Email: demo@test.com <br />
+                  Password: 123
+                </div>
+              </div>
+
             </ form>
           </div>
         </div>

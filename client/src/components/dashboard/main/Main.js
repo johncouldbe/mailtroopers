@@ -15,7 +15,17 @@ export class Main extends Component {
   displayContainer(){
     if(!this.props.selectedCampaign){
       return <div className="email-container">
-        <span className="h2 red-text center-text">You must select a campaign.</span>
+        <span className="h2 red-text center-text">You must select a campaign or create a new one.<br /><br /></span>
+        <span className="h3 red-text center-text">Here's how to make a new campaign:</span>
+        <span className="p grey-text">
+          <ol>
+            <li>Click the button "New Campaign" and then name it.</li>
+            <li>Email the campaign you'd like to review to the email address we will provide you.</li>
+            <li>Click the "Recruit" button on the right side to add new people to review your campaign.</li>
+            <li>Notify them and let them comment on the version you just sent.</li>
+            <li>Send the revised email to the same provided address and repeat!</li>
+          </ol>
+        </span>
       </div>
     }
     if(!this.props.selectedCampaign.versions.length){

@@ -44,8 +44,10 @@ export function Version (props) {
     return(
       <div
         className="delete-version red-text p center-text"
-        onClick={(prop => {
-          props.dispatch(deleteVersion(currentVersion, campaignId, socket))
+        onClick={(() => {
+          if(window.confirm('Are you sure you want to delete this version?')){
+            props.dispatch(deleteVersion(currentVersion, campaignId, socket))
+          }
         })}>
         Delete Version
       </div>

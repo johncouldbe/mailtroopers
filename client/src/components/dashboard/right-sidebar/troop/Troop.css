@@ -35,37 +35,6 @@
   text-align: left;
 }
 
-.trooper-btn-container {
-  display: grid;
-  grid-template-columns: calc(50% - 60px) 120px calc(50% - 60px);
-  grid-template-rows: 20px 40px 20px;
-  grid-template-areas:
-  ". . ."
-  ". trooper-btn ."
-  ". . .";
-}
-
-.trooper-btn {
-  grid-area: trooper-btn;
-  border-radius: 4px;
-  background-color: #f54f45;
-  font-size: 125%;
-  border-width: 0px;
-  color: #fff;
-  cursor: pointer;
-  transition: .5s;
-}
-
-.trooper-btn img {
-  height: 20px;
-  width: auto;
-}
-
-.trooper-btn:hover {
-  background-color: #ea2b1f;
-  transition: .5s;
-}
-
 .delete-recruit {
   grid-area: trooper-delete;
   border-radius: 50%;

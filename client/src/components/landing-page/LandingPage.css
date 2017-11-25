@@ -61,7 +61,7 @@ li {
 }
 
 .LP-H1 {
-  padding-top: 60px;
+  padding-top: 50px;
   margin: 0;
 }
 
@@ -165,6 +165,8 @@ li {
   margin: 30px 0;
   font-size: 1em;
   cursor: pointer;
+  z-index: 1;
+  position: relative;
 }
 
 .home-screen-btn a {
@@ -203,5 +205,9 @@ li {
   .left-content {
     width: 100%;
     text-align: center;
+  }
+
+  .LP-List {
+    width: 375px;
   }
 }

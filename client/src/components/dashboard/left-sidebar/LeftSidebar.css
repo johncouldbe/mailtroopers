@@ -8,6 +8,10 @@
   "email-list-container";
 }
 
+.campaign-btn {
+  font-size: .9em;
+}
+
 .close-review {
   grid-template-rows: 50px 0px;
 }
@@ -59,7 +63,7 @@
 
 .shown-email-options {
   overflow-y: hidden;
-  height: 20px;
+  height: 25px;
   transition: .3s;
 }
 
