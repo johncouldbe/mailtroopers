@@ -29,13 +29,5 @@
   "engines": {
     "node": "8.1.2",
     "npm": "5.0.3"
-  },
-  "devDependencies": {
-    "encodeurl": "^1.0.1",
-    "escape-html": "^1.0.3",
-    "merge-descriptors": "^1.0.1",
-    "ms": "^2.0.0",
-    "on-finished": "^2.3.0",
-    "unpipe": "^1.0.0"
   }
 }
