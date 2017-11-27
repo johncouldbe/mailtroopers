@@ -12,18 +12,3 @@
 .comment-input-container:focus {
   outline: 0;
 }
-
-.comment-posted {
-  height: 100px;
-  width: 100px;
-  margin: 20px auto;
-  border-radius: 50%;
-  border: 5px solid #f54f45;
-  text-align: center;
-}
-
-.comment-posted img {
-  height: 65px;
-  margin-top: 10px;
-
-}

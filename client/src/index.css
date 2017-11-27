@@ -214,6 +214,20 @@ nav {
   cursor: pointer;
 }
 
+.thumbs-up-container {
+  height: 100px;
+  width: 100px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 5px solid #f54f45;
+  text-align: center;
+}
+
+.thumbs-up-container img {
+  height: 65px;
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 765px) {
   .grid {
     grid-template-columns: 100%;

@@ -20,7 +20,8 @@ export function LandingPage(props) {
           <main>
             <section>
               <div className="first-ribbon-start"></div>
-              <div className="left-content">
+              <div className="left-content"></div>
+              <div className="right-content">
                 <div className="h1 white-text left-content-header LP-H1">Collaborate as a Team</div>
                 <div className="p white-text">Lets face it... We've been doing it wrong. But no longer.</div>
                 <div className="p white-text">Now, your team has a place for reviewing your email marketing campaigns. You no longer have to forward an email to get others to review. No more confusing comment trains that build up in your inbox!</div>

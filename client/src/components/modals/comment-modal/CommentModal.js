@@ -82,7 +82,7 @@ export class CommentModal extends Component {
           :
           <div>
             <div className="h3 grey-text center-text">Your comment has been posted!</div>
-            <div className="comment-posted">
+            <div className="thumbs-up-container">
               <img src={thumbsUp} alt="Comment Posted!" />
             </div>
           </div>
