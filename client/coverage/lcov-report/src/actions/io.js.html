@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.74% </span>
+        <span class="strong">15.15% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/23</span>
+        <span class='fraction'>5/33</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/11</span>
+        <span class='fraction'>0/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">26.32% </span>
+        <span class="strong">17.86% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/19</span>
+        <span class='fraction'>5/28</span>
       </div>
     </div>
   </div>
@@ -93,8 +93,19 @@
 48
 49
 50
-51</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -118,8 +129,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,6 +156,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,7 +172,6 @@
 import {addNewCampaign,removeCampaign, selectCampaign, updateCampaign, recruited} from './email'
 import {SOCKET_URL} from '../config'
 import {toggleCreateEmailModal} from './modal'
-&nbsp;
 &nbsp;
 export const CONNECT_SOCKET = 'CONNECT_SOCKET'
 export const connectSocket = <span class="fstat-no" title="function not covered" >so</span>cket =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
@@ -163,15 +186,24 @@ export const disconnectSocket = <span class="fstat-no" title="function not cover
 &nbsp;
 export const hookInSocket = <span class="fstat-no" title="function not covered" >au</span>thToken =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(d</span>ispatch, getState) =&gt; {</span>
   const socket = <span class="cstat-no" title="statement not covered" >io.connect(SOCKET_URL)</span>
-<span class="cstat-no" title="statement not covered" >  socket.on('connect', <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  socket.once('connect', <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    socket</span>
     .emit('authenticate', {token: authToken})
     .on('authenticated', <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+      const campaigns = <span class="cstat-no" title="statement not covered" >getState().email.emails</span>
+      const userId = <span class="cstat-no" title="statement not covered" >getState().user.currentUser._id</span>
 <span class="cstat-no" title="statement not covered" >      dispatch(connectSocket(socket))</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      campaigns.map(<span class="fstat-no" title="function not covered" >ro</span>om =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return socket.emit('room', room._id)</span>
+      })
+<span class="cstat-no" title="statement not covered" >      socket.emit('room', userId)</span>
     })
     .on('campaign added', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {
+      const emailModal = <span class="cstat-no" title="statement not covered" >getState().modal.createEmailModal</span>
+<span class="cstat-no" title="statement not covered" >      console.log('campaign added', campaign);</span>
 <span class="cstat-no" title="statement not covered" >      dispatch(addNewCampaign(campaign))</span>
-<span class="cstat-no" title="statement not covered" >      dispatch(toggleCreateEmailModal)</span>
+<span class="cstat-no" title="statement not covered" >      if(emailModal) <span class="cstat-no" title="statement not covered" >dispatch(toggleCreateEmailModal)</span></span>
     })
     .on('campaign deleted', <span class="fstat-no" title="function not covered" >ca</span>mpaign =&gt; {
 <span class="cstat-no" title="statement not covered" >      dispatch(removeCampaign(campaign))</span>
@@ -188,6 +220,10 @@ export const hookInSocket = <span class="fstat-no" title="function not covered" 
     .on('recruited', <span class="fstat-no" title="function not covered" >re</span>cruits =&gt; {
 <span class="cstat-no" title="statement not covered" >      dispatch(recruited(recruits))</span>
     })
+    .on('join room', <span class="fstat-no" title="function not covered" >ro</span>om =&gt; {
+<span class="cstat-no" title="statement not covered" >      console.log('joined room', room);</span>
+<span class="cstat-no" title="statement not covered" >      socket.emit('room', room)</span>
+    })
     .on('unauthorized', <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >      dispatch(connectSocket(null))</span>
     })
@@ -199,7 +235,7 @@ export const hookInSocket = <span class="fstat-no" title="function not covered" 
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 30 2017 13:39:53 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Nov 26 2017 20:13:52 GMT-0500 (EST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

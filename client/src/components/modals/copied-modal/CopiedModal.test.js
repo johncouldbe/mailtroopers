@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {CopiedModal} from './CopiedModal'
+import CopiedModal from './CopiedModal'
 
 it('Renders without crashing', () => {
   const div = document.createElement('div')

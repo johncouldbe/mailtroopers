@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/modals/create-email-modal/CreateEmailModal.js</title>
+    <title>Code coverage report for src/components/modals/copied-modal/CopiedModal.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/modals/create-email-modal</a> CreateEmailModal.js
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/modals/copied-modal</a> CopiedModal.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/8</span>
+        <span class='fraction'>1/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>1/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/8</span>
+        <span class='fraction'>1/3</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -71,31 +71,21 @@
 26
 27
 28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+29</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,54 +99,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
-import CreateEmailForm from './CreateEmailForm'
-import {connect} from 'react-redux'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {Component} from 'react'
 &nbsp;
-import {toggleCreateEmailModal} from '../../../actions/modal'
+import {toggleCopiedModal} from '../../../actions/modal'
 &nbsp;
-export const CreateEmailModal = props =&gt; {
-  const hideModal = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
-<span class="cstat-no" title="statement not covered" >    e.preventDefault()</span>
-<span class="cstat-no" title="statement not covered" >    props.dispatch(toggleCreateEmailModal)</span>
+import './CopiedModal.css'
+import thumbsUp from '../../images/thumbs-up.svg'
+&nbsp;
+export default class CopiedModal extends Component {
+  hideCopiedModal = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    this.props.dispatch(toggleCopiedModal)</span>
   }
 &nbsp;
-  return (
-    &lt;div className="modal-window"&gt;
-      &lt;div className="modal center-text"&gt;
-        &lt;div className="modal-close" onClick={<span class="fstat-no" title="function not covered" >e </span>=&gt; <span class="cstat-no" title="statement not covered" >hideModal(e)}</span>&gt;&lt;/div&gt;
-        &lt;div className="h3 grey-text"&gt;
-          Make a new campaign!&lt;br /&gt;
-          &lt;span style={{fontSize: ".8em"}}&gt;Lets start with a name...&lt;/span&gt;
+  render(){
+    return(
+      &lt;div className="modal-window" onClick={this.hideCopiedModal}&gt;
+        &lt;div onClick={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >e.stopPropagation()}</span> className="modal"&gt;
+          &lt;div className="modal-close" onClick={this.hideCopiedModal}&gt;&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div className="h3 grey-text center-text"&gt;Copied to Clipboard!&lt;/div&gt;
+            &lt;div className="thumbs-up-container"&gt;
+              &lt;img src={thumbsUp} alt="Copied to Clipboard!" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div className="p red-text"&gt;{props.err}&lt;/div&gt;
-&nbsp;
-        &lt;CreateEmailForm user={props.user} socket={props.socket} /&gt;
-&nbsp;
       &lt;/div&gt;
-    &lt;/div&gt;
-  )
-}
-&nbsp;
-const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; {
-<span class="cstat-no" title="statement not covered" >   return {</span>
-    err: state.email.createEmailErr,
-    user: state.user.currentUser,
-    socket: state.io.socket
+    )
   }
 }
-&nbsp;
-export default connect(mapStateToProps)(CreateEmailModal)
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
