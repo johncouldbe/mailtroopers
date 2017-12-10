@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
 import {toggleCopiedModal} from '../../../actions/modal'
 
 import './CopiedModal.css'
 import thumbsUp from '../../images/thumbs-up.svg'
 
-export default class CopiedModal extends Component {
+export class CopiedModal extends Component {
   hideCopiedModal = () => {
     this.props.dispatch(toggleCopiedModal)
   }
@@ -26,3 +27,5 @@ export default class CopiedModal extends Component {
     )
   }
 }
+
+export default connect()(CopiedModal)

@@ -44,11 +44,11 @@ export class RightSidebar extends Component {
     return (
       <div className={this.hidePanels()}>
         <div className="team-header">
+          <div className="grey-text h2 center-text">Troop</div>
           <div
             className={this.buttonDirection('team')}
             onClick={() => {this.props.dispatch(toggleTeam)}}>
           </div>
-          <div className="grey-text h2 center-text">Troop</div>
           <div className="faded-border"></div>
         </div>
 

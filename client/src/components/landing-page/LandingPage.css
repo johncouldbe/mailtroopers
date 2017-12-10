@@ -42,7 +42,7 @@ main {
 }
 
 section {
-  height: 50vh;
+  height: 30vh;
   position: relative;
 }
 
@@ -66,8 +66,8 @@ li {
 }
 
 .LP-List {
-  position: relative;
-  margin: 0 auto;
+  position: absolute;
+  left: calc(50% - 200px);
   width: 400px;
   height: 57vh;
   padding-right: 10px;
@@ -108,7 +108,7 @@ li {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 17vh 0 0 25vw;
+  border-width: 12vh 0 0 25vw;
   border-color: transparent transparent transparent #f7be68;
 }
 
@@ -128,7 +128,7 @@ li {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 50vh 0 0 75vw;
+  border-width: 30vh 0 0 75vw;
   border-color: transparent transparent transparent #f7be68;
 }
 
@@ -195,13 +195,47 @@ li {
 }
 
 @media screen and (max-width: 865px){
+  .right-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .LP-List {
+    width: 375px;
+    left: calc(50% - 187px);
+  }
+
   .left-content {
     left: calc(50vw - 200px);
     top: 112.5%;
   }
-}
 
-@media screen and (max-width: 765px){
+  .first-ribbon-start {
+    border-width: 17vh 0 0 25vw;
+  }
+
+  .first-ribbon-side {
+    width: 25vw;
+  }
+
+  .first-ribbon-end {
+    border-width: 50vh 0 0 75vw;
+  }
+
+  .second-ribbon-start {
+    border-width: 0 0 17vh 25vw;
+  }
+
+  .second-ribbon-end {
+    bottom: 10vh;
+    border-width: 0 0 55vh 75vw;
+  }
+
+  .second-ribbon-end-bottom {
+    width: 75vw;
+    height: 10vh;
+  }
+
   header {
     height: 45vh;
   }
@@ -228,15 +262,6 @@ li {
 
   .first-ribbon-start {
     border-width: 15vh 0 0 25vw;
-  }
-
-  .right-content {
-    width: 100%;
-    text-align: center;
-  }
-
-  .LP-List {
-    width: 375px;
   }
 }
 

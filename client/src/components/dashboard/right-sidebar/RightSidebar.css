@@ -41,8 +41,9 @@
   "header toggle-comments-show-btn";
 }
 
-.header .h2 {
+.team-header .h2,  .comments-header .h2{
   grid-area: header;
+  line-height: 40px;
 }
 
 .toggle-team-show-btn, .toggle-comments-show-btn {
