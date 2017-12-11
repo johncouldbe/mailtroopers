@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CopiedModal from './CopiedModal'
+import {CopiedModal} from './CopiedModal'
+import {shallow} from 'enzyme'
 
-it('Renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<CopiedModal />, div)
+it('renders without crashing', () => {
+  shallow(<CopiedModal />)
 })

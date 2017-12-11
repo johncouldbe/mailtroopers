@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1511745233134" clover="3.2.0">
-  <project timestamp="1511745233135" name="All files">
+<coverage generated="1513012751139" clover="3.2.0">
+  <project timestamp="1513012751140" name="All files">
     <metrics statements="570" coveredstatements="150" conditionals="352" coveredconditionals="38" methods="231" coveredmethods="33" elements="1153" coveredelements="221" complexity="0" loc="570" ncloc="570" packages="20" files="37" classes="37">
       <package name="src">
         <metrics statements="62" coveredstatements="12" conditionals="57" coveredconditionals="2" methods="27" coveredmethods="0"/>
@@ -395,7 +395,7 @@
           <line num="36" count="0" type="stmt"/>
           <line num="38" count="1" type="stmt"/>
           <line num="44" count="1" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
           <line num="60" count="0" type="stmt"/>
           <line num="72" count="3" type="stmt"/>
         </file>
@@ -508,9 +508,9 @@
         <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <file name="CopiedModal.js" path="/Users/johnbrown/Desktop/projects/mailtroopers/client/src/components/modals/copied-modal/CopiedModal.js">
           <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-          <line num="10" count="0" type="stmt"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="16" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
         </file>
       </package>
       <package name="src.components.modals.create-email-modal">
