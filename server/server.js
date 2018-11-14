@@ -1,24 +1,24 @@
 require('dotenv').config()
-const express     = require('express')
-const app         = express()
+const express = require('express')
+const app = express()
 const bodyParser  = require('body-parser')
-const cors        = require('cors')
-const io          = require('socket.io')
-const mongoose    = require('mongoose')
-const morgan      = require('morgan')
-const passport    = require('passport')
+const cors = require('cors')
+const io = require('socket.io')
+const mongoose = require('mongoose')
+const morgan = require('morgan')
+const passport = require('passport')
 const socketioJwt = require('socketio-jwt')
 
 const {
   PORT,
   DATABASE_URL,
   CLIENT_ORIGIN
-}                 = require('./config')
+} = require('./config')
 const {
   basicStrategy,
    jwtStrategy
- }                = require('./passport/strategies')
-const mail        = require('./mailListener')
+ } = require('./passport/strategies')
+const mail = require('./mailListener')
 
 //Routes
 const authRouter = require('./routes/auth')
@@ -26,7 +26,7 @@ const userRouter = require('./routes/user')
 const campaignRouter = require('./routes/campaign')
 
 //Sockets
-const {emailSockets} = require('./sockets/email')
+const { emailSockets } = require('./sockets/email')
 
 mongoose.Promise = global.Promise;
 

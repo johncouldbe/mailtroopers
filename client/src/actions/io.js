@@ -52,7 +52,6 @@ export const hookInSocket = authToken => (dispatch, getState) => {
       dispatch(recruited(recruits))
     })
     .on('join room', room => {
-      console.log('joined room', room);
       socket.emit('room', room)
     })
     .on('unauthorized', () => {

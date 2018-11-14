@@ -8,17 +8,17 @@
     "dotenv": "^4.0.0",
     "halogen": "^0.2.0",
     "jwt-decode": "^2.2.0",
-    "moment": "^2.18.1",
+    "moment": "^2.22.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.12",
+    "react-scripts": "^2.1.1",
     "react-tooltip": "^3.4.0",
     "redux": "^3.7.2",
     "redux-form": "^6.6.3",
     "redux-thunk": "^2.2.0",
-    "socket.io-client": "^2.0.3"
+    "socket.io-client": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,8 +27,14 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme": "^3.1.1",
-    "enzyme-adapter-react-15": "^1.0.2",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-15": "^1.1.1",
     "react-test-renderer": "^15.6.1"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
