@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6.11.3"
+- ">=10.0.0"
 services:
 - mongodb
 cache:
@@ -12,21 +12,13 @@ script:
 - npm i && npm test
 env:
 - CI=true
-before_deploy:
-- npm install netlify-cli -g
-- npm run build
+before_deploy: cd ../server
 deploy:
-  - provider: script
-    script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
-    skip_cleanup: true
-    on:
-      branch: master
-before_deploy:  cd ../server
-deploy:
+  matrix:
   - provider: heroku
     skip_cleanup: true
     api_key:
-      secure: hloD55GnragbZltC/qJmO5u5Xw1xm8psALEhpwWHPVTzHp2AG/r8Spevsl9Gd2QsCeH9NC3VyZLeTH/IbpDqfFHX4JgBr5FksTEAVzZkEEy4o2myuoLKdKevsrZEHBJL7KudJVDMn5zwB4d4ykD2jUsJ47favE5pxSXX4fR8enszpRe9p+mO1NMyrMh+WkROHuYtUCMHtXd0Chplrrto0h1fMUfO6Rg4tYnKgZK0SkJ/zgWsI0ASWvA2W00t8aFDVBROm7M7ZYTClUt1toL3/ixpVRKqlT8pDJB/EVyroKLLYHkIz3NuPkTGoDFbIHk9ehqi0IVOlfdCsxLySL14SruqPKxp60bS7vMQzXV93sSBCsRB4ZjNr/9HQkRu92l/2tOOPiw1iU0A7my8EAcCrNZMHtoZbDQJdvImCMkFOCJ/yoPV5OdYB+FlnYn68DHC96XpCIq5qpzOVWIfuahgLDTbPLn/gNDNP8EHYLn0jn3dNaZ1XWIK0YEAFc9jYvWNHv4nDmNRNhyB2yphD04BlvVGEkrgoWFmtZr3JoiFWHK4JcJns1K+4JuTcYyw6WRD0I+o417w4Pgk4qls5jFDWoT5OPC6KrnG34fM/OM6YnMB5YVjsWuP7anlOPhBxzeiA2ZySHPOwd/po9w3D+TGUm1nE/adyMHGZQSzFUsjI8Y=
+      secure: keowKzYjoK4KIilpAWP5lLOqAlnDyB9t0jKahqi3k6WYXj1Nx72IynQ4DguAQe924M9Ge9mZDS8+MpIMYHGkNWpI6tssVq8EvEgZPHwkwD2HiA61NIigSWDllew5dTrfnvIARtITUM7TUwckp2tP78N7ZBLu2wtmgtS4cXCjfCtmTu/vj3nL0rAvtZ++KjhqagwM74QrXQuHEnLmxU0ej3eIm2mnZ+0a0dpvWHsGLQAAWuUhk22BYAXrJcIYN9OlzXQ6asLpbtUkrgDgeAO9jmGmfVRqlO4clmDXQSl6mtWA49d74/6ANrLO0/wZkmv+PfTFZmLzL7OukDLfIhR9hrJXYfHOUWOkVQxcDszqfdbp4sjJYQ/jROuK0M//vYg56MFOK09mU8BGoznC4eL+BE3t4p+JEWMF52pegsbCbGj4+QpNhskfBZBnNyMxYLh6JRXJ15QOOfyFIxnkDU4r1whrZV6QNEXAXtD+H2BF28OoAApoiOEDzORqIV8DDvQ7Bl9QjHETrPQ/j17q5KkpQpiYo0/X/G44LqxynRQUbRT8oI3u1K8acA2/Iu/ldzhif0AXpREnHx3mJRwr37r8PSqzUqkEUIuS+VAyCTMOa/oqGguycCmX1xhjX8tSvK+w6GWfgQZUEShwcO834WepxVUZ4aU7P33RHoZxoQfV1bE=
     app: mailtroopers
     on:
       repo: johncouldbe/mailtroopers
