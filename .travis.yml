@@ -14,11 +14,10 @@ env:
 - CI=true
 before_deploy: cd ../server
 deploy:
-  matrix:
-  - provider: heroku
-    skip_cleanup: true
-    api_key:
-      secure: keowKzYjoK4KIilpAWP5lLOqAlnDyB9t0jKahqi3k6WYXj1Nx72IynQ4DguAQe924M9Ge9mZDS8+MpIMYHGkNWpI6tssVq8EvEgZPHwkwD2HiA61NIigSWDllew5dTrfnvIARtITUM7TUwckp2tP78N7ZBLu2wtmgtS4cXCjfCtmTu/vj3nL0rAvtZ++KjhqagwM74QrXQuHEnLmxU0ej3eIm2mnZ+0a0dpvWHsGLQAAWuUhk22BYAXrJcIYN9OlzXQ6asLpbtUkrgDgeAO9jmGmfVRqlO4clmDXQSl6mtWA49d74/6ANrLO0/wZkmv+PfTFZmLzL7OukDLfIhR9hrJXYfHOUWOkVQxcDszqfdbp4sjJYQ/jROuK0M//vYg56MFOK09mU8BGoznC4eL+BE3t4p+JEWMF52pegsbCbGj4+QpNhskfBZBnNyMxYLh6JRXJ15QOOfyFIxnkDU4r1whrZV6QNEXAXtD+H2BF28OoAApoiOEDzORqIV8DDvQ7Bl9QjHETrPQ/j17q5KkpQpiYo0/X/G44LqxynRQUbRT8oI3u1K8acA2/Iu/ldzhif0AXpREnHx3mJRwr37r8PSqzUqkEUIuS+VAyCTMOa/oqGguycCmX1xhjX8tSvK+w6GWfgQZUEShwcO834WepxVUZ4aU7P33RHoZxoQfV1bE=
-    app: mailtroopers
-    on:
-      repo: johncouldbe/mailtroopers
+  provider: heroku
+  skip_cleanup: true
+  api_key:
+    secure: keowKzYjoK4KIilpAWP5lLOqAlnDyB9t0jKahqi3k6WYXj1Nx72IynQ4DguAQe924M9Ge9mZDS8+MpIMYHGkNWpI6tssVq8EvEgZPHwkwD2HiA61NIigSWDllew5dTrfnvIARtITUM7TUwckp2tP78N7ZBLu2wtmgtS4cXCjfCtmTu/vj3nL0rAvtZ++KjhqagwM74QrXQuHEnLmxU0ej3eIm2mnZ+0a0dpvWHsGLQAAWuUhk22BYAXrJcIYN9OlzXQ6asLpbtUkrgDgeAO9jmGmfVRqlO4clmDXQSl6mtWA49d74/6ANrLO0/wZkmv+PfTFZmLzL7OukDLfIhR9hrJXYfHOUWOkVQxcDszqfdbp4sjJYQ/jROuK0M//vYg56MFOK09mU8BGoznC4eL+BE3t4p+JEWMF52pegsbCbGj4+QpNhskfBZBnNyMxYLh6JRXJ15QOOfyFIxnkDU4r1whrZV6QNEXAXtD+H2BF28OoAApoiOEDzORqIV8DDvQ7Bl9QjHETrPQ/j17q5KkpQpiYo0/X/G44LqxynRQUbRT8oI3u1K8acA2/Iu/ldzhif0AXpREnHx3mJRwr37r8PSqzUqkEUIuS+VAyCTMOa/oqGguycCmX1xhjX8tSvK+w6GWfgQZUEShwcO834WepxVUZ4aU7P33RHoZxoQfV1bE=
+  app: mailtroopers
+  on:
+    repo: johncouldbe/mailtroopers
