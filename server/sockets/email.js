@@ -1,9 +1,9 @@
-const {Email}      = require('../models/email')
-const {User}       = require('../models/user')
+const { Email }      = require('../models/email')
+const { User }       = require('../models/user')
 const shortid      = require('shortid')
 const sentencer    = require('sentencer')
 const socketioJwt  = require('socketio-jwt')
-const {JWT_SECRET} = require('../config')
+const { JWT_SECRET } = require('../config')
 const io           = require('socket.io')
 
 exports.emailSockets = (socketIo, mail) => {
@@ -244,20 +244,23 @@ exports.emailSockets = (socketIo, mail) => {
 
   })
 
-  mail.listen.on("mail", function(mail, seqno, attributes) {
-    const address = mail.to[0].address
-    const newSlug = address.substr(0, address.indexOf('@'))
+  mail.arrived((mail) => {
+    const address = mail.to.text
+    const slug = address.substr(0, address.indexOf('@'))
     Email
     .update(
-      { slug: newSlug },
-      { $push: { "versions" : {
-        "html": mail.html,
-        "subject": mail.subject
-      }}}
+      { slug },
+      { $push: {
+          "versions" : {
+            "html": mail.html,
+            "subject": mail.subject
+          }
+        }
+      }
     )
     .then(e => {
       Email
-        .findOne({ slug: newSlug })
+        .findOne({ slug })
         .populate('contributors', 'email firstName lastName _id')
         .populate('versions.comments.user', 'firstName lastName _id')
         .then(email => {

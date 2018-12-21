@@ -21,6 +21,7 @@ const {
 const mail = require('./mailListener')
 
 //Routes
+const emailWebHook = require('./routes/emailWebHook')
 const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
 const campaignRouter = require('./routes/campaign')
@@ -30,21 +31,26 @@ const { emailSockets } = require('./sockets/email')
 
 mongoose.Promise = global.Promise;
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: false,
+  parameterLimit: 100000,
+  limit: '50mb'
+}))
+app.use(bodyParser.json({
+  limit: '50mb',
+  parameterLimit: 100000,
+}));
 
 app.use(morgan('dev'))
 
-app.use(cors({
-  origin: CLIENT_ORIGIN,
-  allowedHeaders: 'Content-Type, Authorization'
-}))
+app.use(cors())
 
 app.use(passport.initialize());
 passport.use(basicStrategy);
 passport.use(jwtStrategy);
 
 //Route initializers
+app.use('/', emailWebHook)
 app.use('/auth', authRouter)
 app.use('/user', userRouter)
 app.use('/campaigns', campaignRouter)
@@ -89,7 +95,7 @@ function closeServer() {
   })
 }
 
-mail.listen.start();
+// mail.listen.start();
 
 
 if(require.main === module){

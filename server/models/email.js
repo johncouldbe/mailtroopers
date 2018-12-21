@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const EmailSchema = mongoose.Schema({
   name: {
@@ -29,12 +29,12 @@ const EmailSchema = mongoose.Schema({
       type: String
     },
     comments: [{
-      user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+      user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
       date: {
         type: Date,
         default: Date.now()
       },
-      comment: {type: String}
+      comment: { type: String }
     }]
   }]
 })
@@ -46,8 +46,8 @@ EmailSchema.methods.apiRepr = function() {
         date: this.date,
         _id: this._id
     };
-};
+}
 
 const Email = mongoose.model('Email', EmailSchema)
 
-module.exports = {Email}
+module.exports = { Email }

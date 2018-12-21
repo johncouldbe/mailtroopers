@@ -1,7 +1,8 @@
 const express   = require('express')
 const router    = express.Router()
-const {Email}   = require('../models/email')
-
+const querystring = require('querystring');
+const MailParser = require("mailparser").MailParser;
+const { Email }   = require('../models/email')
 
 router.get('/:id', (req, res) => {
   console.log('ID', req.params.id);
