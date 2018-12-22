@@ -6,7 +6,7 @@ const socketioJwt  = require('socketio-jwt')
 const { JWT_SECRET } = require('../config')
 const io           = require('socket.io')
 
-exports.emailSockets = (socketIo, mail) => {
+exports.emailSockets = (socketIo, mailListener) => {
   let gUser
   let gClient
 
@@ -243,9 +243,8 @@ exports.emailSockets = (socketIo, mail) => {
     })
 
   })
-
-  mail.arrived((mail) => {
-    const address = mail.to.text
+  mailListener.arrived((mail) => {
+    const address = mail.to
     const slug = address.substr(0, address.indexOf('@'))
     Email
     .update(
@@ -264,7 +263,7 @@ exports.emailSockets = (socketIo, mail) => {
         .populate('contributors', 'email firstName lastName _id')
         .populate('versions.comments.user', 'firstName lastName _id')
         .then(email => {
-          socketIo.in(email._id).emit('update campaign', {email})
+          socketIo.in(email._id).emit('update campaign', { email })
         })
     })
     .catch(err => console.log(err))

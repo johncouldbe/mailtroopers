@@ -1,10 +1,19 @@
-// const MailListener = require("mail-listener2")
+class Mail {
+  constructor(){
+    this.callback = null;
+  }
 
-class MailListener {
+  processMail(mail) {
+    if(this.callback) {
+      this.callback(mail);
+    }
+    else console.log("Callback method has not been set.");
+  }
 
-  static arrived(mail) {
+  arrived(callback) {
+    this.callback = callback;
   }
 
 }
 
-exports = new MailListener();
+exports.listen = new Mail();

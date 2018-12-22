@@ -20,7 +20,6 @@ router.post(
     passport.authenticate('basic', {session: false}),
     (req, res) => {
         const authToken = createAuthToken(req.user.apiRepr())
-        console.log('AUTHTOKEN', authToken);
         res.json({authToken})
     }
 )
@@ -35,18 +34,5 @@ router.post(
         res.json({authToken});
     }
 );
-
-
-// router.get('/users', ensureToken, (req, res) => {
-//   jwt.verify(req.token, JWT_SECRET, (err, data) => {
-//     if(err) {
-//       res.sendStatus(403)
-//     } else {
-//       User.find({}, function(err, users) {
-//         res.json(users)
-//       })
-//     }
-//   })
-// })
 
 module.exports = router

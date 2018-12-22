@@ -18,8 +18,7 @@ const {
   basicStrategy,
    jwtStrategy
  } = require('./passport/strategies')
-const mail = require('./mailListener')
-
+const mailListener = require('./mailListener').listen
 //Routes
 const emailWebHook = require('./routes/emailWebHook')
 const authRouter = require('./routes/auth')
@@ -49,8 +48,9 @@ app.use(passport.initialize());
 passport.use(basicStrategy);
 passport.use(jwtStrategy);
 
+emailWebHook.initialize(mailListener);
 //Route initializers
-app.use('/', emailWebHook)
+app.use('/', emailWebHook.router)
 app.use('/auth', authRouter)
 app.use('/user', userRouter)
 app.use('/campaigns', campaignRouter)
@@ -67,7 +67,7 @@ function runServer(port=PORT, databaseUrl=DATABASE_URL){
       server = app.listen(port, () => {
         console.log("You're app is listening on port ", port)
         const socketIo = io(server)
-        emailSockets(socketIo, mail)
+        emailSockets(socketIo, mailListener)
       })
 
       resolve()
@@ -88,15 +88,11 @@ function closeServer() {
         if(err){
           return reject(err)
         }
-
         resolve()
       })
     })
   })
 }
-
-// mail.listen.start();
-
 
 if(require.main === module){
   runServer().catch(err => console.log(err))
