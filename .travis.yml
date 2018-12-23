@@ -18,5 +18,8 @@ deploy:
   skip_cleanup: true
   api_key:
     secure: gTftK6MnhoqMOFamF5N9ZmIm/5hOfqBEdsCEXs7N4yGDdlfWotLfs+4zlBAsXv04kVA0IB0RX547K1p2eMzricMHL64XtOD153zBrA0TjIXe0Utxb+yuMSSUeO7c61+7RwyALwMI4ZXYKBTvR62HivxARZTtk+sFg4UPb2oCz/43wmmp0EVcR+XikxzfuX+chHsFnNmzPJHTwS4R28MaJRSac7f1Aq9D7elY+Kw2cfXA2JTGxLW2gF7kSNZ7v4Y53Fb4dKoach+IsADAmCwuTMr55BLk2dglmg55F1FnZ8JyBoISoQU6xW1Znonypx3DGPpQQvd1xZVDYIjP8HQYXJK2A+a7WIEutv4c85gsAskt1w/M6fqkTXGL5Vp3aSTij2eaWkaYMbgviRwrkhE58XN1rcjDjXAH9Th1kOrthffse0v/a7ZQyCL+3SE74RM1mMWdA5P5g248/CjvtClPVCd3SLD7ZBOEolYmlFr8OJBhUQiIYJQOCVIdH/np1V2pzsLB0kOCwlS7GqjEI4jEWfDB0jSz1gPxKoqdTO4nR7/83zq6eivI7Vz5bYrCDBiYNTeTpCAMpAhMH/vU9j6FV9WptGxTwsIlMFUTE2f7l6v20ifgzH/RU6gYRsYCLjPK+Jm2oImD03PI0k4AD+MjGAn8Hr+Od9qSCWPdpZXg+N4=
+    app: mailtroopers
+    edge:
+    branch: master
   on:
     repo: johncouldbe/mailtroopers
